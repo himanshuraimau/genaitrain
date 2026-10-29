@@ -515,3 +515,34 @@ Rewrite the text I give you. Keep my meaning and facts. Change only the wording.
 
 ### Not yet tested
 I have not installed these two skills in a live Claude/ChatGPT/Gemini account from here. The format follows the documented rules (name, description, steps), but run both once yourself before class.
+
+---
+
+## Chapter 11: Using AI wisely (the 4 Ds)
+
+Source: Anthropic's free course [AI Fluency: Framework & Foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations), based on the framework by Rick Dakan and Joseph Feller with Anthropic. The framework PDF is **CC BY-NC-SA 4.0** (non-commercial, share-alike): I paraphrased, and if the course is paid, check the license before reusing their exact wording or diagrams.
+
+- **Delegation:** choosing goals and deciding whether, when and how AI is involved. Three interaction modes: automation, augmentation, agency.
+- **Description:** stating aims clearly enough to get useful output (links to Chapter 1).
+- **Discernment:** judging how good the output and behavior really are. The course has a "Description-Discernment loop" lesson.
+- **Diligence:** owning what you do with AI and how you do it.
+- Course outline (page): intro and 4D framework, what is generative AI (capabilities and limitations), Delegation, Description, effective prompting techniques, Discernment, the Description-Discernment loop, Diligence, certificate.
+- The 60-second checklist, delegation sort and diligence list on the slides are **my own teaching material** in the spirit of the framework, not quotes from the course. The "check findings against the originals" idea also appears in Google's Prompting Essentials page.
+- Fact used from Anthropic's docs: Agent Skills are not covered by zero-data-retention arrangements; skill definitions and execution data follow standard retention policy.
+
+## Chapter 12: Courses to keep learning
+
+Read 29 Oct 2026. Titles and summaries only; no course content copied.
+
+| Course | Provider | Length / cost | What it covers | Notes |
+|---|---|---|---|---|
+| [AI Fluency: Framework & Foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations) | Anthropic | Free; length not listed; certificate after final assessment | 4D framework, gen AI basics, prompting, loops | For everyone |
+| [Introduction to Agent Skills](https://anthropic.skilljar.com/introduction-to-agent-skills) | Anthropic | Free | What are skills; first skill; multi-file; skills vs other features; sharing; troubleshooting | Claude Code-focused |
+| [Agent Skills with Anthropic](https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/) | DeepLearning.AI; instructor Elie Schoppik (Anthropic) | Beginner, 2h19m, 10 video lessons; graded quiz/certificate via DeepLearning.AI PRO | Why skills; skills vs tools/MCP/subagents; pre-built and custom skills; API, Claude Code, Agent SDK | Builder-oriented |
+| [Google AI Essentials](https://grow.google/ai-essentials/) | Google via Coursera | Under 5 hours; $49/month US/Canada after 7-day trial | 5 modules incl. prompting and responsible use | Beginner |
+| [Google Prompting Essentials](https://grow.google/prompting-essentials/) | Google | Page lists 8 courses of about 1 hour each; $49/month US/Canada | Fundamentals; brainstorming; research; writing; content; data; app building/deployment | Older articles say 4 modules, so verify; the "5-step framework" is mentioned in third-party sources but the page does not name the steps |
+| OpenAI Academy: AI Foundations, Applied AI Foundations | OpenAI | Free with a ChatGPT account; about 60 to 75 min (AI Foundations) | Prompting, context, checking output, responsible use; Applied: repeatable workflows | **Read via search summary only**; OpenAI's help page returned 403 |
+
+**Not verified / skipped:** DeepLearning.AI "AI for Everyone", DataCamp, Vanderbilt and Learn Prompting appear only in vendor-ranked listings in my searches, so I did not include them.
+
+**Gaps in our notebook the courses revealed:** verifying output and privacy (now Chapter 11); sharing skills across a team and troubleshooting (troubleshooting is in Chapter 10; team sharing is not yet covered); skills vs MCP/connectors in depth (touched in Chapter 3).
