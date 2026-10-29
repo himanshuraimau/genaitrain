@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 7: Where to Find Skills | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="06-real-world.html" data-next="08-across-tools.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 7 &middot; Where to find skills</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 7 &middot; Explore</span>
+  <h1>Where to find <span class="hl">good skills</span></h1>
+  <p class="lead">Official libraries, GitHub collections, and how to tell a good one from a risky one.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Start here (safest)</p>
+  <h2>Official sources</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Source</th><th>What you get</th></tr>
+    <tr><td><a href="https://github.com/anthropics/skills">anthropics/skills</a></td><td>Anthropic's example library: document skills, brand-guidelines, doc-coauthoring, internal-comms, theme-factory, skill-creator and more. Roughly 185k GitHub stars. For learning: test before relying on them.</td></tr>
+    <tr><td><a href="https://agentskills.io">agentskills.io</a></td><td>The open standard, specification, quickstart and a list of tools that support it.</td></tr>
+    <tr><td>ChatGPT Plugin Directory</td><td>Skills tab, with skills bundled into plugins. Plan availability varies.</td></tr>
+    <tr><td>Partner skills</td><td>Notion, Figma and Atlassian ship skills for their own apps.</td></tr>
+  </table></div>
+  <p class="small soft">OpenAI's older <a href="https://github.com/openai/skills">openai/skills</a> repo is marked deprecated and points to a newer plugins repo.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Community collections</p>
+  <h2>GitHub "awesome lists"</h2>
+  <div class="grid two">
+    <div class="card"><h3><a href="https://github.com/ComposioHQ/awesome-claude-skills">awesome-claude-skills</a></h3><p class="small">Curated list: documents, marketing, writing, productivity, plus automation for ~78 apps. About 78k stars.</p></div>
+    <div class="card"><h3><a href="https://github.com/github/awesome-copilot">awesome-copilot</a></h3><p class="small">GitHub's community collection of skills, agents and plugins. Browsable website. About 40k stars.</p></div>
+    <div class="card"><h3><a href="https://github.com/skillcreatorai/Awesome-Agent-Skills">Awesome-Agent-Skills</a></h3><p class="small">Categorized, with an installer for several tools. Small but tidy.</p></div>
+    <div class="card"><h3>skills.sh</h3><p class="small">A directory and leaderboard of skills (launched by Vercel, Jan 2026) with a one-line installer.</p></div>
+  </div>
+  <div class="callout"><p><strong>For non-technical learners:</strong> look in the sections called <em>Document Processing, Business &amp; Marketing, Communication &amp; Writing, Productivity.</em> Most of GitHub is built for developers, and that's fine to skip.</p></div>
+  <p class="src">Star counts are snapshots and change daily.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Before you install anything</p>
+  <h2>The 5-point safety check</h2>
+  <ol class="steps">
+    <li><strong>Who made it?</strong> Official or well-known beats anonymous.</li>
+    <li><strong>Open the folder.</strong> Is SKILL.md readable? Are there scripts?</li>
+    <li><strong>Look for red flags:</strong> links to unknown sites, requests for passwords or keys, behavior that doesn't match the description.</li>
+    <li><strong>Check the license.</strong> Some document skills are source-available, not open source.</li>
+    <li><strong>Test on dummy data first.</strong> Never first-run on confidential files.</li>
+  </ol>
+  <div class="quote">Treat skills like installing software.<cite>Paraphrasing Anthropic's security guidance. ChatGPT also scans uploaded skills and marks them Ready, Needs Review or Blocked.</cite></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Easiest path</p>
+  <h2>No GitHub needed</h2>
+  <div class="grid two">
+    <div class="sticky tape">Just ask your AI: <br>"I do a weekly status report. Help me turn it into a skill."</div>
+    <div class="sticky green tape">Start with the built-in document skills, then <b>make your own</b> (Chapter 5). A skill you wrote yourself is the one you trust most.</div>
+  </div>
+  <p class="src">Sources: <a href="https://github.com/anthropics/skills">anthropics/skills</a> &middot; <a href="https://agentskills.io">agentskills.io</a> &middot; <a href="https://vercel.com/blog/introducing-skills">Vercel: Introducing skills</a> &middot; <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Anthropic security notes</a></p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

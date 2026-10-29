@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 4: Try a Built-in Skill | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="03-prompts-skills-projects.html" data-next="05-build-your-own.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 4 &middot; Try a built-in skill</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 4 &middot; Activity</span>
+  <h1>Make something with a <span class="hl">built-in skill</span></h1>
+  <p class="lead">No setup. Ask for a deck, a sheet, or a document and see a skill at work.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">What's already there</p>
+  <h2>Skills you get for free</h2>
+  <div class="grid four">
+    <div class="card"><h3>Slides</h3><p>PowerPoint decks</p></div>
+    <div class="card"><h3>Sheets</h3><p>Excel files with formulas and charts</p></div>
+    <div class="card"><h3>Docs</h3><p>Word documents</p></div>
+    <div class="card"><h3>PDFs</h3><p>Formatted reports</p></div>
+  </div>
+  <ul>
+    <li><strong>Claude:</strong> these four document skills switch on by themselves when you ask for those files. File creation / code execution must be on in Settings.</li>
+    <li><strong>ChatGPT:</strong> eligible accounts include a built-in <em>skill-creator</em> skill (used to make new skills).</li>
+    <li><strong>Gemini:</strong> run a skill with <code>/</code> then its name, or let Gemini pick one.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Pick one (15 minutes)</p>
+  <h2>Activity menu</h2>
+  <div class="grid three">
+    <div class="sticky tape"><b>A. Deck in 5 min</b><br>"Create a 6-slide PowerPoint explaining my job to a new joiner. One idea per slide, with speaker notes."</div>
+    <div class="sticky pink tape"><b>B. Messy to clean</b><br>Paste a messy list (expenses, attendance). "Create an Excel sheet with totals and a chart."</div>
+    <div class="sticky green tape"><b>C. One-page brief</b><br>Paste rough notes. "Turn these into a one-page PDF summary with headings."</div>
+  </div>
+  <div class="callout"><p>Use the five-part recipe from Chapter 1: context, task, examples, constraints, output format.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Steps</p>
+  <h2>Run it</h2>
+  <ol class="steps">
+    <li>Open your AI assistant and start a new chat.</li>
+    <li>Write your request with context, task, constraints and format.</li>
+    <li>Wait for the file. Download it and open it.</li>
+    <li>Reply with <strong>one</strong> change ("make slide 3 less wordy", "add a total row").</li>
+    <li>Note what the skill got right without being told.</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <p class="kicker">Debrief</p>
+  <h2>Talk about it</h2>
+  <ul class="checks">
+    <li>What did you ask for, and what came back?</li>
+    <li>What did the AI do <em>without</em> being told (layout, fonts, structure)?</li>
+    <li>What would you want it to do your way every time? <span class="red">That's a skill idea.</span></li>
+  </ul>
+  <div class="sticky blue tape" style="max-width:460px">Hold on to that last answer. It becomes your own skill in the next chapter.</div>
+  <p class="src">Sources: <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Anthropic: Agent Skills</a> &middot; <a href="https://help.openai.com/en/articles/20001066-skills-in-chatgpt">OpenAI: Skills in ChatGPT</a> &middot; <a href="https://blog.google/products-and-platforms/products/gemini/automate-tasks-with-skills/">Google: skills in Gemini</a></p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

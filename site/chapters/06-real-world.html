@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 6: How People Use Skills | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="05-build-your-own.html" data-next="07-find-skills.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 6 &middot; How people use skills</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 6</span>
+  <h1>How real people <span class="hl">use skills</span></h1>
+  <p class="lead">Practitioners and companies, in their own words. Every example links to its source.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Read this first</p>
+  <h2>A note on sources</h2>
+  <ul>
+    <li>Examples come from <strong>blogs, official case studies and company posts</strong> that can be opened and read. Quotes are exact.</li>
+    <li>Company numbers are <strong>as reported by the company</strong>, not independently checked.</li>
+    <li>Several people below use <em>Claude Code</em>, a coding tool, for non-coding work like product and writing. The lesson is the <strong>workflow shape</strong>, not the tool.</li>
+    <li>Social media posts weren't used because they couldn't be reliably verified.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Practitioner 1</p>
+  <h2>Simon Willison</h2>
+  <p class="soft">Independent developer and writer. Blog post, 16 Oct 2025.</p>
+  <div class="quote">Skills are conceptually extremely simple.<cite>Simon Willison</cite></div>
+  <div class="grid two">
+    <div class="card"><h3>What he likes</h3><ul><li>Light: only a short description is read up front</li><li>No new protocol to learn, just a Markdown file</li><li>Portable: he reports other assistants can use a skill too</li></ul></div>
+    <div class="card"><h3>His prediction</h3><p>A <strong>"Cambrian explosion"</strong> of skills. He notes Anthropic's own PDF, Word, Excel and PowerPoint abilities are built this way.</p></div>
+  </div>
+  <p class="src"><a href="https://simonwillison.net/2025/Oct/16/claude-skills/">Claude Skills are awesome, maybe a bigger deal than MCP</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Practitioner 2</p>
+  <h2>Sachin Rekhi, product manager</h2>
+  <p class="soft">Runs Notejoy, teaches the AI Productivity course on Reforge. Skills he built for his own work:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Skill</th><th>What it does</th></tr>
+    <tr><td>Strategy critique</td><td>Reviews his draft against frameworks saved as files ("showing it what great looks like"). Flagged an overly broad target audience.</td></tr>
+    <tr><td>Competitor pricing</td><td>Visits pricing pages live, writes an executive summary. He hand-verifies it.</td></tr>
+    <tr><td>Interview synthesis</td><td>Summarizes each customer interview with a template, then ranks patterns across all of them, with quotes.</td></tr>
+    <tr><td>Answer data curiosity</td><td>Plain-English question in, report with charts out. No waiting on the data team.</td></tr>
+    <tr><td>Release notes</td><td>Writes user-facing notes, using his last 20 as style examples.</td></tr>
+  </table></div>
+  <p class="src"><a href="https://www.sachinrekhi.com/p/claude-code-for-product-managers">Claude Code for Product Managers</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Practitioner 3</p>
+  <h2>Marcus Moretti, Spiral (Every)</h2>
+  <p class="soft">General manager of an AI writing product.</p>
+  <div class="grid two">
+    <div class="card"><h3>He wrote one document</h3><div class="quote" style="margin:4px 0">the only product document I've written is the roadmap.<cite>Marcus Moretti</cite></div><p class="small">Claude then drafted about 100 detailed tickets from it. He still reviews each: the first pass is right "in broad strokes".</p></div>
+    <div class="card"><h3>A daily briefing</h3><p>A <code>/pulse</code> command writes an analyst-style summary of usage and quality. It's <em>"just a Markdown file,"</em> and he has adjusted it about <strong>50 times</strong>.</p></div>
+  </div>
+  <div class="sticky tape" style="max-width:420px">Lesson: a skill is never "done". Keep improving it.</div>
+  <p class="src"><a href="https://every.to/source-code/claude-code-for-product-managers">Claude Code for Product Managers (Every)</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Companies</p>
+  <h2>What businesses say</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Company</th><th>Who</th><th>Use</th></tr>
+    <tr><td>Rakuten</td><td>Yusuke Kaji, General Manager AI</td><td>Finance workflows: processes spreadsheets, flags anomalies, writes reports to company procedure. Reported: a day of work cut to about an hour.</td></tr>
+    <tr><td>Box</td><td>Yashodha Bhavnani, Head of AI</td><td>Turns stored files into slides, sheets and documents that follow the organization's standards.</td></tr>
+    <tr><td>Notion</td><td>MJ Felix, Product Manager</td><td>Questions to action faster, more predictable results on complex tasks.</td></tr>
+    <tr><td>Canva</td><td>Anwar Haneef, GM &amp; Head of Ecosystem</td><td>Customizing agents and extending what they can do.</td></tr>
+  </table></div>
+  <p class="src"><a href="https://claude.com/blog/skills">Anthropic launch post</a> (company figures are as stated by the companies)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Case study</p>
+  <h2>Box: a contract edit in two minutes</h2>
+  <div class="grid two">
+    <div class="card"><h3>What happened</h3><p>Box added document creation to its AI agent using ready-made skills instead of building it in-house.</p><ul class="small"><li>A contract redline took about <strong>2 minutes instead of an afternoon</strong> (jurisdiction changed from New York to California, with related clauses updated)</li><li>Concept to customer-facing in about a month</li></ul></div>
+    <div class="card"><h3>In their words</h3><div class="quote" style="margin:4px 0">We just waited two minutes, and it output the entire document.<cite>Darryl Sladden, Staff Product Manager for AI, Box</cite></div></div>
+  </div>
+  <p class="src"><a href="https://claude.com/customers/box">Box case study</a> (vendor-reported results)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Non-engineers at Anthropic</p>
+  <h2>Teams that don't write code for a living</h2>
+  <div class="grid two">
+    <div class="card"><h3>Legal</h3><p class="small">Built prototype "phone tree" systems to connect colleagues with the right lawyer.</p></div>
+    <div class="card"><h3>Growth marketing</h3><p class="small">An agent that makes ad variations from a spreadsheet: "hundreds of new ads in minutes instead of hours". A Figma plugin makes up to 100 variations.</p></div>
+    <div class="card"><h3>Data science</h3><p class="small">Built visualization apps without knowing the programming language.</p></div>
+    <div class="card"><h3>Product design</h3><p class="small">Mapped error states and edge cases during design.</p></div>
+  </div>
+  <p class="src"><a href="https://claude.com/blog/how-anthropic-teams-use-claude-code">How Anthropic teams use Claude Code</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">What they all do</p>
+  <h2>Six patterns to copy</h2>
+  <ol class="steps">
+    <li><strong>Start with a task you repeat weekly</strong>: release notes, a daily briefing, interview summaries.</li>
+    <li><strong>Feed it examples of "great"</strong>: Rekhi's last 20 release notes, his saved frameworks.</li>
+    <li><strong>Treat the skill as a living document.</strong> Moretti edited his about 50 times.</li>
+    <li><strong>Keep a human in the loop.</strong> Rekhi hand-verifies pricing, Moretti reviews tickets.</li>
+    <li><strong>Fix the output shape</strong> (template, report, document) so results are predictable.</li>
+    <li><strong>Add access</strong> (browser, database, files) and the wins get bigger.</li>
+  </ol>
+  <p class="src">Also worth a look: <a href="https://medium.com/@lovely.mcinerney/building-claude-skills-as-an-accountant-a-professional-skeptics-guide-5231b424a7f5">an accountant building skills</a> &middot; <a href="https://klikwork.com/blog/claude-skills-for-recruiters">recruiters recording a skill</a> (shorter write-ups, less verified).</p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

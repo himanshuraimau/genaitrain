@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 10: Copy-and-Paste Demo | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .copybox { position: relative; }
+  .copybox pre.prompt { margin: 0 0 6px; max-height: 380px; overflow: auto; font-size: .8rem; }
+  .copybtn { position: absolute; top: 8px; right: 10px; font-size: 1.2rem; padding: 0 12px 2px; }
+  .ok { color: var(--green); font-family: var(--hand); font-size: 1.3rem; }
+</style>
+</head>
+<body data-prev="09-skill-builders.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 10 &middot; Copy-and-paste demo</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 10 &middot; Live demo</span>
+  <h1>Your first skill in <span class="hl">10 minutes</span></h1>
+  <p class="lead">Copy a ready-made skill, install it, and watch it work. Two skills, step by step.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">The plan</p>
+  <h2>What we'll do</h2>
+  <ol class="steps">
+    <li><strong>Copy</strong> the skill text with one click.</li>
+    <li><strong>Install</strong> it (two ways: paste into chat, or upload a file).</li>
+    <li><strong>Test</strong> it with one prompt that should trigger it, and one that shouldn't.</li>
+    <li><strong>Change</strong> one line to make it yours.</li>
+  </ol>
+  <p class="small soft">Both skills below are written for this course. The "interview first" idea is inspired by Matt Pocock's grill-me and Jesse Vincent's brainstorming (Chapter 9); the rewrite idea by pstack's unslop.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Skill 1 of 2</p>
+  <h2>plan-grill</h2>
+  <p>It interviews you about a plan, one question at a time, before anything gets written. Good for events, projects, launches, study plans.</p>
+  <div class="copybox">
+    <button class="btn copybtn" data-target="skill1">Copy</button>
+<pre class="prompt" id="skill1">---
+name: plan-grill
+description: Interviews you one question at a time to sharpen a plan before any work starts. Use when asked to grill me, poke holes, or stress-test a plan.
+---
+# Plan grill
+
+Goal: reach a shared understanding of the plan before writing or doing anything.
+
+1. Restate the plan in two sentences and ask if that is right.
+2. Ask ONE question at a time. Wait for the answer before asking the next.
+3. With every question, give your own recommended answer and a one-line reason, so I can reply "yes" or correct it.
+4. Go in this order: goal, audience, constraints (time, money, people), risks, and what "done" looks like. If one answer changes another, settle that one first.
+5. If the answer is in files or notes I shared, look it up instead of asking me.
+6. When no open questions remain, write a one-page summary: goal, decisions made, open risks, next three steps.
+7. Do not start the actual work until I say the summary is right.</pre>
+  </div>
+  <p class="small soft">Description is 140 characters, safely under the 200 limit.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Install, route A (any tool, no files)</p>
+  <h2>Paste it into a chat</h2>
+  <ol class="steps">
+    <li>Click <strong>Copy</strong> on the previous page.</li>
+    <li>Open a new chat in ChatGPT, Claude or Gemini.</li>
+    <li>Type: <span class="hl">"Create a skill from the text below and save it."</span> Then paste.</li>
+    <li>Approve when it asks to save. It will use its built-in skill-creator.</li>
+  </ol>
+  <div class="callout warn"><p><strong>If it says it can't save skills:</strong> your plan may not include skills yet (ChatGPT's help page lists Business, Enterprise, Healthcare and Edu). Use route B for Claude, or the fallback on the last page.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Install, route B (Claude, upload a file)</p>
+  <h2>Make the file yourself</h2>
+  <ol class="steps">
+    <li>On your desktop, create a folder named <code>plan-grill</code>.</li>
+    <li>Open a <strong>plain-text</strong> editor (Notepad, or TextEdit with Format &rarr; Make Plain Text). Paste the text.</li>
+    <li>Save inside the folder as <code>SKILL.md</code>. Check the name: not <code>SKILL.md.txt</code>.</li>
+    <li>Compress the <strong>folder</strong> to a zip (right-click &rarr; Compress / Send to &rarr; Compressed folder). The folder must be at the top level of the zip.</li>
+    <li>In Claude: <strong>Customize &rarr; Skills &rarr; add / upload</strong> the zip, then switch it on. Code execution must be enabled in settings.</li>
+  </ol>
+  <p class="src">Source: <a href="https://support.claude.com/en/articles/12512198-creating-custom-skills">Claude Help: Creating custom skills</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Test it</p>
+  <h2>Two prompts</h2>
+  <div class="compare">
+    <div class="good"><span class="label">Should trigger</span><p>"I'm planning a 2-day team offsite for 20 people next month. Grill me on the plan."</p><p class="small soft">Expect: one question at a time, each with a suggested answer.</p></div>
+    <div class="bad"><span class="label">Should stay quiet</span><p>"What's the capital of Australia?"</p><p class="small soft">Expect: just an answer, no interview.</p></div>
+  </div>
+  <ul class="checks">
+    <li>Did it ask only <strong>one</strong> question at a time?</li>
+    <li>Did each question come with a recommended answer?</li>
+    <li>Did it end with a one-page summary and wait for your OK?</li>
+  </ul>
+  <p class="small soft">Didn't trigger? Add the words you actually use to the description, like "stress-test" or "review my plan".</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Skill 2 of 2</p>
+  <h2>plain-english-edit</h2>
+  <p>Makes a draft sound like a person wrote it. Good for emails, reports and posts.</p>
+  <div class="copybox">
+    <button class="btn copybtn" data-target="skill2">Copy</button>
+<pre class="prompt" id="skill2">---
+name: plain-english-edit
+description: Rewrites text in plain, human-sounding English: short, concrete, no filler. Use when asked to simplify, tighten, remove jargon, or make text sound less like AI.
+---
+# Plain English edit
+
+Rewrite the text I give you. Keep my meaning and facts. Change only the wording.
+
+1. Use short sentences and everyday words. Prefer "use" over "utilize".
+2. Cut filler openers ("In today's fast-paced world", "It is important to note") and empty closers.
+3. Replace vague claims with the specific detail I gave. If a detail is missing, keep the claim plain instead of inventing one.
+4. Remove stacked adjectives, hype words, and repeated points.
+5. Keep my voice: if I wrote casually, stay casual.
+6. Return the rewrite first, then a short list of what you changed and why (max 5 bullets).
+7. Never add facts, numbers or quotes that were not in my text.</pre>
+  </div>
+  <p class="small">Install it the same way as skill 1. Test: paste a stiff paragraph and say "make this plain English".</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Make it yours</p>
+  <h2>Change one thing</h2>
+  <div class="grid two">
+    <div class="card"><h3>plan-grill</h3><p class="small">Edit step 4. Swap the order for your world, e.g. <em>"learning goal, time per week, resources, how I'll check progress"</em> for a study plan.</p></div>
+    <div class="card"><h3>plain-english-edit</h3><p class="small">Edit step 5 to name your tone: <em>"formal and warm, like a banker writing to a long-time client."</em></p></div>
+  </div>
+  <p>Then re-test with the two prompts. This loop (edit, test, edit) is how the skill builders in Chapter 9 work too.</p>
+  <div class="sticky tape" style="max-width:440px">A skill is never done. Marcus Moretti edited his about 50 times (Chapter 6).</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">For the teacher</p>
+  <h2>How to run this in class (20 min)</h2>
+  <ol class="steps">
+    <li><strong>2 min:</strong> Show the page. Ask: "What do you re-explain to an AI every week?"</li>
+    <li><strong>3 min:</strong> Demo skill 1 yourself on screen. Click Copy, install by route A.</li>
+    <li><strong>5 min:</strong> Everyone installs it (route A for most, route B for Claude users who want to see the files).</li>
+    <li><strong>5 min:</strong> Everyone runs the two test prompts on <em>their own</em> plan.</li>
+    <li><strong>5 min:</strong> Everyone edits one line, re-tests, and shares what changed.</li>
+  </ol>
+  <p class="small soft">Tip: do route A first for the room. Show route B on your own screen so they see that a skill is just a folder with a text file.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">If something goes wrong</p>
+  <h2>Troubleshooting</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>No Skills menu</td><td>Your plan or admin settings may not include it. Use the fallback below.</td></tr>
+    <tr><td>Upload fails</td><td>Check the folder is at the top level of the zip, and the file is exactly <code>SKILL.md</code>.</td></tr>
+    <tr><td>Skill doesn't trigger</td><td>Name it in your prompt ("use plan-grill"), then rewrite the description with your own trigger words.</td></tr>
+    <tr><td>Triggers too often</td><td>Make the description narrower; add "only when the user asks to..."</td></tr>
+  </table></div>
+  <div class="callout good"><p><strong>Fallback that works everywhere:</strong> paste the skill text at the start of a chat and say "follow this for the rest of the conversation". Or put it in a Project's instructions. It's not a true skill, but the behavior is the same.</p></div>
+  <p class="soft hand" style="font-size:1.5rem">That's the course so far. <a href="../index.html">Back to all chapters</a></p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+<script>
+  // Copy buttons: clipboard API where available, textarea fallback for file:// pages.
+  document.querySelectorAll(".copybtn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      btn.blur();
+      var text = document.getElementById(btn.dataset.target).textContent;
+      function done() { btn.textContent = "Copied!"; setTimeout(function () { btn.textContent = "Copy"; }, 1800); }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { btn.textContent = "Select + Ctrl/Cmd+C"; }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+      else fallback();
+    });
+  });
+</script>
+</body>
+</html>

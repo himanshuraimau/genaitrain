@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 1: Prompting | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-next="02-skills.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 1 &middot; Prompting</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 1</span>
+  <h1>How to talk to an AI <span class="hl">so it actually helps</span></h1>
+  <p class="lead">The five-part recipe behind every good prompt. No tech background needed.</p>
+  <p class="soft hand" style="font-size:1.6rem">Press &rarr; to begin</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">The big idea</p>
+  <h2>Think of the AI as a brilliant <span class="hl">new colleague</span></h2>
+  <p class="lead">Very smart, very fast, and knows <strong>nothing</strong> about your company, your audience, or your taste. It only knows what you tell it.</p>
+  <div class="quote">
+    The more precisely you explain what you want, the better the result.
+    <cite>Anthropic's prompting guide, which describes the AI as "a brilliant but new employee who lacks context on your norms and workflows"</cite>
+  </div>
+  <div class="callout good"><p><strong>The colleague test.</strong> Show your prompt to a person who knows nothing about the task. If they would be confused, the AI will be too.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">The recipe</p>
+  <h2>Five parts of a good prompt</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(135px,1fr))">
+    <div class="card"><span class="no">1</span><h3>Context</h3><p>Who is this for? Why does it matter?</p></div>
+    <div class="card"><span class="no">2</span><h3>Task</h3><p>What exactly should the AI do?</p></div>
+    <div class="card"><span class="no">3</span><h3>Examples</h3><p>What does "good" look like?</p></div>
+    <div class="card"><span class="no">4</span><h3>Constraints</h3><p>Length, tone, things to avoid.</p></div>
+    <div class="card"><span class="no">5</span><h3>Output format</h3><p>Table? Bullets? Email?</p></div>
+  </div>
+  <div class="callout"><p>You don't need all five every time. Google's own guide says the same: use a few and it helps. Add more when the answer misses.</p></div>
+  <p class="src">Google, Gemini for Workspace prompting guide (persona, task, context, format) &middot; Anthropic prompt engineering docs &middot; OpenAI Help Center: "be clear and specific"</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Same request, two ways</p>
+  <h2>Weak vs. strong</h2>
+  <div class="compare">
+    <div class="bad"><span class="label">Weak</span><p>"Write an email about the delay."</p></div>
+    <div class="good"><span class="label">Strong</span><p><span class="blue">I manage a 6-person sales team.</span> <span class="red">Write a short apology email</span> to our biggest client about a 3-day delivery delay. <span class="green">Under 120 words, warm but professional, don't promise a refund.</span> <b>Give me 3 subject lines first, then the email.</b></p></div>
+  </div>
+  <p>Colors: <span class="blue">context</span> &middot; <span class="red">task</span> &middot; <span class="green">constraints</span> &middot; <b>output format</b></p>
+  <div class="callout"><p>Same AI, same minute. The only difference is what you told it.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Parts 1 and 2</p>
+  <h2>Context and task</h2>
+  <div class="grid two">
+    <div class="card">
+      <h3>Context: say why</h3>
+      <p>Explaining the reason helps the AI make better choices on details you didn't mention.</p>
+      <p class="small soft">"Keep the tone casual <em>because this is our Friday team newsletter</em>" teaches more than "Be casual."</p>
+    </div>
+    <div class="card">
+      <h3>Task: one clear action</h3>
+      <p>Use a verb: write, summarize, compare, plan, rewrite, list.</p>
+      <p class="small soft">Ask for action when you want action. "Rewrite this shorter" gets a result. "Could you maybe suggest changes?" often gets only advice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Parts 3, 4 and 5</p>
+  <h2>Examples, constraints, format</h2>
+  <div class="grid three">
+    <div class="card"><h3>Examples</h3><p>Paste a sample you like and say "write the next one in this style."</p><p class="small soft">Start with one. Anthropic suggests 3 to 5 for best results.</p></div>
+    <div class="card"><h3>Constraints</h3><p>Word count, tone, audience, must-include points, things to avoid.</p><p class="small soft">Say what to <em>do</em>: "write in paragraphs" beats "don't use bullets."</p></div>
+    <div class="card"><h3>Output format</h3><p>A table, 3 bullet points, an email with a subject line, a one-page brief.</p><p class="small soft">If you don't say, the AI picks. Often not what you wanted.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Habits that help</p>
+  <h2>Ten habits to remember</h2>
+  <div class="grid two">
+    <ol class="steps">
+      <li>Say exactly what you want.</li>
+      <li>Explain why.</li>
+      <li>Be specific: length, audience, limits.</li>
+      <li>Show an example.</li>
+      <li>Say what to do, not what to avoid.</li>
+    </ol>
+    <ol class="steps" start="6" style="counter-reset:s 5">
+      <li>Allow "I don't know."</li>
+      <li>Ask for action when you want action.</li>
+      <li>Split big jobs into steps.</li>
+      <li>Iterate. The first answer is a draft.</li>
+      <li>Keep it simple.</li>
+    </ol>
+  </div>
+  <div class="callout good"><p><strong>Try this line:</strong> "If the information doesn't support a conclusion, say so instead of guessing." It cuts down made-up answers.</p></div>
+  <p class="src">Source: Anthropic, "Best practices for prompt engineering" (claude.com/blog)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Real life</p>
+  <h2>Before and after</h2>
+  <div class="grid three">
+    <div class="card"><h3>Office</h3>
+      <p class="small red">Before: "Summarize this meeting."</p>
+      <p class="small">After: "These are notes from a 45-min project meeting. Summarize for my manager who wasn't there: 3 decisions, open questions, action items with owners. Max 150 words."</p></div>
+    <div class="card"><h3>Marketing</h3>
+      <p class="small red">Before: "Write a caption."</p>
+      <p class="small">After: "3 Instagram captions for our new cold coffee. Audience: college students. Playful, not salesy. Under 25 words, one emoji max."</p></div>
+    <div class="card"><h3>Student</h3>
+      <p class="small red">Before: "Explain photosynthesis."</p>
+      <p class="small">After: "I'm a first-year biology student with an exam Friday. Explain photosynthesis simply with a kitchen analogy, then quiz me with 5 questions."</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Steal this</p>
+  <h2>A template you can reuse</h2>
+<div class="prompt"><b>Context:</b> I'm a [role] at [type of company]. This is for [audience] because [reason].
+<b>Task:</b> [One clear action: write / summarize / compare / plan / rewrite]
+<b>Examples:</b> [Paste a sample you like, or "none"]
+<b>Constraints:</b> [Length, tone, things to avoid, must-include points]
+<b>Output:</b> [Table / 3 bullets / email with subject line]</div>
+  <h3>Power moves</h3>
+  <ul>
+    <li><strong>Give a role:</strong> "Act as a careful HR manager."</li>
+    <li><strong>Ask it to ask you:</strong> "Before you start, ask me up to 5 questions."</li>
+    <li><strong>Label your material:</strong> mark where instructions end and the document begins.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Your turn</p>
+  <h2>Mini activity: 10 minutes</h2>
+  <ol class="steps">
+    <li>Pick a real task from your week (an email, a summary, a plan).</li>
+    <li>Write the <em>lazy</em> version in one line. Run it.</li>
+    <li>Rewrite it with the five-part template. Run it again.</li>
+    <li>Reply to the AI with one correction. Compare all three answers.</li>
+  </ol>
+  <div class="sticky tape" style="max-width:420px">Tip: review the output for clarity, relevance and <b>accuracy</b> before you use it. The AI can sound sure and still be wrong.</div>
+  <p class="src">Sources: <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">Anthropic prompting best practices</a> &middot; <a href="https://claude.com/blog/best-practices-for-prompt-engineering">Anthropic blog</a> &middot; <a href="https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt">OpenAI Help Center</a> &middot; <a href="https://workspace.google.com/intl/en_ph/resources/ai/writing-effective-prompts">Google Workspace</a></p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

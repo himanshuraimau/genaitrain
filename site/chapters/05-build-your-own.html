@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 5: Build Your Own Skill | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="04-try-a-skill.html" data-next="06-real-world.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 5 &middot; Build your own skill</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 5 &middot; Activity</span>
+  <h1>Write your <span class="hl">own skill</span></h1>
+  <p class="lead">Three routes, easiest first. Pick the one that fits you.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Three routes</p>
+  <h2>How skills get made</h2>
+  <div class="grid three">
+    <div class="card"><span class="no">Route 1 &middot; easiest</span><h3>Ask the AI</h3><p>Tell it what you want. A built-in <em>skill-creator</em> interviews you and drafts the skill.</p></div>
+    <div class="card"><span class="no">Route 2</span><h3>Record yourself</h3><p>Do the task on screen while talking. The AI writes the skill from what it saw.</p></div>
+    <div class="card"><span class="no">Route 3</span><h3>Write it by hand</h3><p>Make a folder, write a SKILL.md, zip it, upload. Works on any plan.</p></div>
+  </div>
+  <p class="small soft">Recording a skill is limited to Pro, Max and Team plans in the Claude desktop app for Mac, and a recording can run about 10 minutes.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Route 1</p>
+  <h2>Ask the AI to make it</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Tool</th><th>How</th></tr>
+    <tr><td>ChatGPT</td><td>Say "create a skill that...", use the Skills page's Create button, or upload a file. Built-in skill-creator (type <code>@</code> to pick it).</td></tr>
+    <tr><td>Claude</td><td>Ask Claude to use the <em>skill-creator</em> skill. It asks what the skill does, when it should trigger, and the output format.</td></tr>
+    <tr><td>Gemini</td><td>Build one in the app, or let Gemini draft one from your chats.</td></tr>
+  </table></div>
+<div class="prompt"><b>Try saying:</b>
+"Help me create a skill for my weekly status email. Interview me one question at a time about the format, tone and what I always include. Then draft it."</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Route 3 (by hand)</p>
+  <h2>Six steps</h2>
+  <ol class="steps">
+    <li>Make a folder named for the skill: lowercase, hyphens (e.g. <code>weekly-status</code>).</li>
+    <li>Inside, create a file called <strong>SKILL.md</strong>.</li>
+    <li>At the top, add a <strong>name</strong> and a <strong>description</strong> (what it does + when to use it).</li>
+    <li>Write the steps in plain language. Add one example.</li>
+    <li>Zip the folder. The folder itself must be at the top of the zip.</li>
+    <li>In Claude: Customize &rarr; Skills &rarr; upload the zip &rarr; switch it on.</li>
+  </ol>
+  <div class="callout warn"><p><strong>Keep the description short.</strong> Claude's help page says 200 characters in the upload flow (the developer docs say up to 1,024). Under 200 is safe everywhere.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">The method</p>
+  <h2>Build, test, improve</h2>
+  <p class="lead">Anthropic's own skill-creator follows a simple loop:</p>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">
+    <div class="card center"><h3>1. Capture</h3><p class="small">What should it do? When?</p></div>
+    <div class="card center"><h3>2. Interview</h3><p class="small">Edge cases, examples</p></div>
+    <div class="card center"><h3>3. Draft</h3><p class="small">Write SKILL.md</p></div>
+    <div class="card center"><h3>4. Test</h3><p class="small">2 to 3 real prompts</p></div>
+    <div class="card center"><h3>5. Improve</h3><p class="small">Repeat</p></div>
+  </div>
+  <ul>
+    <li>Explain <em>why</em> a step matters rather than shouting ALWAYS or NEVER.</li>
+    <li>Write descriptions with the words people really say. The AI tends to under-use skills, so be a little "pushy".</li>
+    <li>Test with messy, realistic requests, plus one that should <strong>not</strong> trigger it.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Worksheet</p>
+  <h2>Fill this in (10 min)</h2>
+<div class="prompt"><b>Skill name:</b> ______________  (lowercase-with-hyphens)
+<b>It should activate when I say:</b> ______________
+<b>Steps (3 to 6):</b> 1. ______  2. ______  3. ______
+<b>Tone / length rules:</b> ______________
+<b>One good example output:</b> ______________
+<b>Things it must never do:</b> ______________</div>
+  <h3>Beginner ideas</h3>
+  <p><span class="tag">meeting notes to actions</span><span class="tag">weekly status email</span><span class="tag green">study notes to flashcards</span><span class="tag red">brand-voice rewriter</span><span class="tag">job-description writer</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Did it work?</p>
+  <h2>Test checklist</h2>
+  <ul class="checks">
+    <li>Try 3 prompts that <strong>should</strong> trigger it. Did they?</li>
+    <li>Try 1 that should <strong>not</strong>. Did it stay quiet?</li>
+    <li>Does the output match your format every time?</li>
+    <li>No passwords or secrets inside the folder?</li>
+    <li>Didn't trigger? Rewrite the description with more trigger words.</li>
+  </ul>
+  <p class="src">Sources: <a href="https://support.claude.com/en/articles/12512198-creating-custom-skills">Claude Help: Creating custom skills</a> &middot; <a href="https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md">anthropics/skills: skill-creator</a> &middot; <a href="https://learn.chatgpt.com/docs/build-skills">OpenAI: Build skills</a></p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 8: Skills Across Tools | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="07-find-skills.html" data-next="09-skill-builders.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 8 &middot; Skills across ChatGPT, Claude, Gemini</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 8 &middot; Explore</span>
+  <h1>Skills across <span class="hl">ChatGPT, Claude &amp; Gemini</span></h1>
+  <p class="lead">Different names and menus. The same idea underneath.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">The big picture</p>
+  <h2>Everyone converged on one idea</h2>
+  <p class="lead">A folder with a <strong>SKILL.md</strong> file, loaded when needed. Learn it once, use it anywhere.</p>
+  <div class="tbl-wrap"><table>
+    <tr><th></th><th>Claude</th><th>ChatGPT</th><th>Gemini</th></tr>
+    <tr><td>Name</td><td>Skills</td><td>Skills (plugins bundle them)</td><td>Skills (replacing Gems)</td></tr>
+    <tr><td>Uses SKILL.md?</td><td>Yes</td><td>Yes</td><td>Yes, Google says you can copy skills from other platforms</td></tr>
+    <tr><td>How to call</td><td>Automatic, or name it</td><td>Type <code>@</code>, or automatic</td><td>Type <code>/</code> + name, or automatic</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Claude</p>
+  <h2>Claude skills</h2>
+  <ul>
+    <li>On <strong>Free, Pro, Max, Team and Enterprise</strong>, with code execution turned on.</li>
+    <li>Create: chat with skill-creator, record your screen (Mac desktop, Pro/Max/Team), or upload a ZIP.</li>
+    <li class="red"><strong>Skills don't sync across places.</strong> claude.ai, the developer API and Claude Code are separate libraries. Upload to each.</li>
+    <li>In claude.ai a skill belongs to <strong>you</strong>. It isn't shared org-wide, and admins can't manage it centrally.</li>
+  </ul>
+  <p class="src"><a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Anthropic: Agent Skills overview</a> &middot; <a href="https://support.claude.com/en/articles/12512198-creating-custom-skills">Creating custom skills</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">ChatGPT</p>
+  <h2>ChatGPT skills</h2>
+  <ul>
+    <li>Find them under <strong>Plugins &rarr; Skills tab</strong>. Create by chat, in the editor, or by uploading a file. A built-in <em>skill-creator</em> helps.</li>
+    <li>Uploaded skills are <strong>scanned</strong>: Ready, Needs Review, or Blocked.</li>
+    <li>Share from the skill's menu or publish to a workspace library. Admins control who can create, upload and share.</li>
+    <li>In <strong>Codex</strong> (OpenAI's coding tool) skills load from folders on your computer.</li>
+  </ul>
+  <div class="callout warn"><p><strong>Can't see Skills?</strong> OpenAI's help page lists Business, Enterprise, Healthcare and Edu as eligible. One outside report says consumer plans got a beta in Oct 2026. It's likely your plan or admin settings, not you. Check your account.</p></div>
+  <p class="src"><a href="https://help.openai.com/en/articles/20001066-skills-in-chatgpt">OpenAI: Skills in ChatGPT</a> &middot; <a href="https://learn.chatgpt.com/docs/build-skills">Build skills</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Gemini</p>
+  <h2>Gemini: skills are replacing Gems</h2>
+  <div class="grid two">
+    <div class="card"><h3>What skills are</h3><ul class="small"><li>Reusable instructions. Run with <code>/</code> or let Gemini pick.</li><li>They work <strong>inline</strong> in the same chat. Stack several in one task.</li><li>Can include reference files (text, PDFs, images).</li><li>Gemini can draft one from your chats.</li></ul></div>
+    <div class="card"><h3>Dates to know</h3><ul class="small"><li><strong>Nov 2026:</strong> Gems support ends for personal accounts</li><li><strong>Mar 2027:</strong> business and enterprise Workspace</li><li><strong>Jun 2027:</strong> education Workspace</li><li>Remaining Gems are migrated to skills automatically.</li></ul></div>
+  </div>
+  <div class="callout"><p>Skills in the Gemini app and in Google Workspace are <strong>separate</strong>: make them in each place. Sharing and Drive file support were announced as "coming".</p></div>
+  <p class="src"><a href="https://blog.google/products-and-platforms/products/gemini/automate-tasks-with-skills/">Google blog</a> &middot; <a href="https://workspaceupdates.googleblog.com/2026/09/skills-gemini-app-workspace.html">Workspace Updates</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Also in the mix</p>
+  <h2>Microsoft 365 Copilot</h2>
+  <ul>
+    <li>Skills are arriving in <strong>Copilot Chat</strong> (rollout Oct to mid-Nov 2026) and in declarative agents.</li>
+    <li>Same shape: a folder with SKILL.md. Users can create, upload and edit. Admins can publish, install or block.</li>
+  </ul>
+  <p class="small soft">Based on Microsoft Message Center posts MC1493223 and MC1476977, read through a third-party mirror. Confirm in your own tenant.</p>
+  <h3>Other tools you'll hear about</h3>
+  <p><span class="tag">Cursor</span><span class="tag">VS Code / GitHub Copilot</span><span class="tag">Codex</span><span class="tag">Claude Code</span><span class="tag">Goose</span><span class="tag">OpenCode</span></p>
+  <p class="small soft">These are mostly for developers. The skill format works there too.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Take-away</p>
+  <h2>Learn the idea once</h2>
+  <div class="grid two">
+    <div class="sticky tape">The words change: Skill, Gem, Custom GPT, Project.<br><b>"Save the method, load it when needed"</b> stays the same.</div>
+    <div class="sticky green tape">Because SKILL.md is a shared format, a skill from one tool can often be copied to another.</div>
+  </div>
+  <h3>Check before class</h3>
+  <ul class="checks">
+    <li>ChatGPT Skills on your plan</li>
+    <li>Gemini rollout in your account and the Gems dates</li>
+    <li>Microsoft Copilot rollout in your organization</li>
+  </ul>
+  <p class="soft hand" style="font-size:1.5rem">Next: meet the people building skills, then copy a skill and try it.</p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

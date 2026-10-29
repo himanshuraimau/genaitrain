@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 2: Skills | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="01-prompting.html" data-next="03-prompts-skills-projects.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 2 &middot; Skills</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 2</span>
+  <h1>What is a <span class="hl">skill</span>?</h1>
+  <p class="lead">Teach the AI your way of working once. It uses it whenever the task comes up.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">The simple version</p>
+  <h2>A skill is a saved "how we do this" guide</h2>
+  <p class="lead">Think of the <strong>laminated procedure card</strong> in a new hire's desk drawer. You don't read it aloud every morning. You pull it out when that situation comes up.</p>
+  <div class="grid two">
+    <div class="sticky tape">The AI reads a skill <b>only when your request matches it.</b></div>
+    <div class="card"><p>Technically it's a folder with one required file, <strong>SKILL.md</strong>: a name, a note on <em>when to use it</em>, and the steps.</p></div>
+  </div>
+  <div class="quote">Building a skill for an agent is like putting together an onboarding guide for a new hire.<cite>Anthropic engineering blog</cite></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Why bother?</p>
+  <h2>Without a skill vs. with a skill</h2>
+  <div class="compare">
+    <div class="bad"><span class="label">Without</span><p>Every week you re-type: "Write the client update. Three sections. Warm tone. Under 250 words. Ask me for notes first..." and it still drifts.</p></div>
+    <div class="good"><span class="label">With a skill</span><p>You say "client update for Acme" and the AI already knows the format, tone, and what to ask you.</p></div>
+  </div>
+  <ul>
+    <li><strong>Less repeating</strong> yourself</li>
+    <li><strong>More consistent</strong> output, even across a team</li>
+    <li><strong>Stackable:</strong> a writing-style skill plus a brand skill in one task</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Under the hood (simply)</p>
+  <h2>How the AI uses a skill</h2>
+  <ol class="steps">
+    <li><strong>It sees the label.</strong> The AI always sees each skill's name and one-line description. Tiny, so you can have many.</li>
+    <li><strong>It opens the guide.</strong> When your request matches a description, it reads the full instructions.</li>
+    <li><strong>It follows the steps.</strong> If the guide points to templates or extra files, it opens those only if needed.</li>
+  </ol>
+  <div class="callout warn"><p><strong>The description is everything.</strong> The AI decides from the name and description alone. Say <em>what</em> the skill does and <em>when</em> to use it, using words people really say.</p></div>
+  <p class="src">This loading style is called "progressive disclosure" in Anthropic's docs and the open agentskills.io standard.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Peek inside</p>
+  <h2>What a skill looks like</h2>
+<div class="prompt"><b>client-update/</b>
+  SKILL.md        &larr; required
+  references/     &larr; optional: long guides
+  scripts/        &larr; optional: exact repeatable steps
+  assets/         &larr; optional: templates, logos</div>
+<div class="prompt">---
+<b>name:</b> client-update
+<b>description:</b> Writes the weekly client status email. Use when the user asks for a client update, weekly status, or progress email.
+---
+1. Ask for the client name and this week's notes if missing.
+2. Write three sections: Work done, Next steps, What we need from you.
+3. Warm, professional tone. Under 250 words.</div>
+  <p class="small soft">That's the whole thing. Plain English. No coding.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Ideas by role</p>
+  <h2>What would you teach it?</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Role</th><th>Skill idea</th></tr>
+    <tr><td>Any office worker</td><td>Meeting notes into decisions + action items in your team's format</td></tr>
+    <tr><td>Manager</td><td>Weekly status update; review draft in the company template</td></tr>
+    <tr><td>Marketing</td><td>Brand-voice checker; turn one blog post into a social series</td></tr>
+    <tr><td>Sales</td><td>Follow-up email after a call; account research brief</td></tr>
+    <tr><td>Finance / ops</td><td>Monthly report in a fixed layout</td></tr>
+    <tr><td>HR</td><td>Job-description writer using company language</td></tr>
+    <tr><td>Student</td><td>Study notes into flashcards; essay feedback against a rubric</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Good news</p>
+  <h2>One format, many tools</h2>
+  <p class="lead">Anthropic created the SKILL.md format and released it as an <strong>open standard</strong> (agentskills.io). OpenAI, Google and Microsoft now use the same idea.</p>
+  <p>So a skill you write once is often reusable elsewhere. We map this out in the last chapter.</p>
+  <div class="callout warn">
+    <p><strong>Safety first.</strong> A skill can carry instructions <em>and</em> code. Anthropic's advice: treat skills like installing software. Use ones you trust, read them first, and never put passwords inside.</p>
+  </div>
+  <p class="src">Sources: <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Anthropic: Agent Skills overview</a> &middot; <a href="https://support.claude.com/en/articles/12512176-what-are-skills">Claude Help: What are Skills?</a> &middot; <a href="https://agentskills.io">agentskills.io</a></p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

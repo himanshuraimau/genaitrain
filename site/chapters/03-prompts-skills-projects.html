@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 3: Prompts vs Skills vs Projects | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="02-skills.html" data-next="04-try-a-skill.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 3 &middot; Prompts vs Skills vs Projects</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 3</span>
+  <h1>Prompt, skill, or <span class="hl">project</span>?</h1>
+  <p class="lead">Which tool to reach for, and when.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Three words, three jobs</p>
+  <h2>One line each</h2>
+  <div class="grid three">
+    <div class="sticky tape"><b>Prompt</b><br>What you type <i>right now</i>. One-off. Gone when the chat ends.</div>
+    <div class="sticky pink tape"><b>Skill</b><br>A saved <i>method</i>. Loaded only when the task matches. Works across your chats.</div>
+    <div class="sticky green tape"><b>Project</b><br>A <i>workspace</i> with files and instructions for one topic, always on inside it.</div>
+  </div>
+  <p>Two more you'll hear about:</p>
+  <ul>
+    <li><strong>Custom instructions:</strong> always-on rules about <em>you</em> ("keep answers short"). Apply to every chat.</li>
+    <li><strong>Connectors:</strong> permission for the AI to reach into Gmail, Drive, Notion and similar.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Side by side</p>
+  <h2>The comparison table</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th></th><th>Prompt</th><th>Skill</th><th>Project</th><th>Custom instructions</th><th>Connector</th></tr>
+    <tr><td>Main job</td><td>Ask for one thing</td><td>Teach a repeatable method</td><td>Background for one topic</td><td>General preferences</td><td>Link to outside tools</td></tr>
+    <tr><td>When active</td><td>This message</td><td>Only when the task matches</td><td>Always, inside the project</td><td>Always, everywhere</td><td>When the service is needed</td></tr>
+    <tr><td>Across all chats?</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes, once connected</td></tr>
+    <tr><td>Example</td><td>"Summarize this PDF"</td><td>Weekly client update format</td><td>All files for Client X</td><td>"Be concise"</td><td>Read my team's task board</td></tr>
+  </table></div>
+  <p class="src">Adapted from the Claude Help Center article "What are Skills?"</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">How to choose</p>
+  <h2>A quick decision guide</h2>
+  <div class="grid two">
+    <div class="card"><h3>Doing it once?</h3><p>&rarr; <strong>Prompt.</strong></p></div>
+    <div class="card"><h3>Same files across many chats on one topic (a client, a course)?</h3><p>&rarr; <strong>Project.</strong></p></div>
+    <div class="card"><h3>Same procedure again and again (format, steps, tone)?</h3><p>&rarr; <strong>Skill.</strong></p></div>
+    <div class="card"><h3>Same preference everywhere?</h3><p>&rarr; <strong>Custom instructions.</strong></p></div>
+  </div>
+  <div class="callout good"><p><strong>Best combo:</strong> a connector gives <em>access</em>, a skill gives the <em>method</em>, a project gives <em>context</em>, and your prompt gives <em>today's request</em>.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Worked example</p>
+  <h2>Monthly report for a client</h2>
+  <ol class="steps">
+    <li><strong>Project</strong> "Acme Corp": holds their brief, past reports, contact notes.</li>
+    <li><strong>Skill</strong> "monthly-report": your fixed layout, tone, and checks.</li>
+    <li><strong>Connector</strong> to your spreadsheet app so the AI can read the numbers.</li>
+    <li><strong>Prompt</strong> "Make this month's report, highlight anything over budget."</li>
+  </ol>
+  <div class="sticky tape" style="max-width:460px">Each piece does one job. That's why the result is both <b>consistent</b> and <b>specific</b>.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Different names, same ideas</p>
+  <h2>Names across the big three</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>What it does</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th></tr>
+    <tr><td>Workspace for a topic</td><td>Projects</td><td>Projects</td><td>Notebooks / Gems (changing)</td></tr>
+    <tr><td>Reusable method</td><td>Skills</td><td>Skills</td><td>Skills (replacing Gems)</td></tr>
+    <tr><td>Standing preferences</td><td>Custom Instructions</td><td>Preferences + Styles</td><td>Saved Info</td></tr>
+    <tr><td>Side-pane editor</td><td>Canvas</td><td>Artifacts</td><td>Canvas</td></tr>
+    <tr><td>Cited research</td><td>Deep Research</td><td>Research</td><td>Deep Research</td></tr>
+    <tr><td>Outside apps</td><td>Connectors / Apps</td><td>Connectors</td><td>Apps / Workspace</td></tr>
+  </table></div>
+  <p class="src">Names and availability shift often (map last checked June 2026 by Bootstrap Creative; Gemini column updated from Google's Sept 2026 posts). Check your own account.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Handy fact</p>
+  <h2>About Claude Projects</h2>
+  <ul>
+    <li>Each project has its own chat history, uploaded files, and instructions.</li>
+    <li>Free users can create up to 5.</li>
+    <li>Team and Enterprise plans can share projects with colleagues.</li>
+    <li>Paid plans get a mode that stretches how much material a project can hold (up to 10x).</li>
+  </ul>
+  <p class="src">Source: <a href="https://support.claude.com/en/articles/9517075-what-are-projects">Claude Help: What are Projects?</a></p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

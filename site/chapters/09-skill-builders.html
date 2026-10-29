@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 9: Skill Builders to Follow | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="08-across-tools.html" data-next="10-copy-paste-demo.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 9 &middot; Skill builders to follow</span></div>
+
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 9 &middot; Explore</span>
+  <h1>Meet the people <span class="hl">building skills</span></h1>
+  <p class="lead">Four well-known skill authors, what they made, and what the rest of us can borrow.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Read this first</p>
+  <h2>They write for programmers. Why look?</h2>
+  <ul>
+    <li>All four collections below are made for <strong>AI coding assistants</strong>. You won't use most of them directly.</li>
+    <li>But their <strong>ideas are the best examples of good skill design</strong> anywhere: short, focused, and each one does one job.</li>
+    <li>Several of their skills (interviewing, explaining, rewriting, researching) work for <em>any</em> job. Next page onward shows which.</li>
+  </ul>
+  <div class="callout"><p>Star counts and skill lists below were read from GitHub on 29 Oct 2026. They change often.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Builder 1</p>
+  <h2>poteto &middot; "pstack"</h2>
+  <p class="soft">GitHub display name "lauren poteto". Software engineer; the bio lists the React Compiler core team and xAI. The pstack page says they have worked on large codebases at Meta, Netflix and Cursor.</p>
+  <div class="grid two">
+    <div class="card"><h3>What it is</h3><p class="small">A set of skills, "playbooks" and short principles that make an AI coding assistant behave like a careful engineering team. Published on <a href="https://github.com/cursor/plugins/blob/main/pstack/README.md">Cursor's plugins repo</a>; <a href="https://github.com/backnotprop/pstack">a mirror</a> works with Claude Code, Codex and Cursor. MIT license.</p></div>
+    <div class="card"><h3>The philosophy</h3><ul class="small"><li>"If you want to go fast, go deep first."</li><li>Less code of higher quality, not more.</li><li>The best spec is the work itself, so no heavy planning by default.</li></ul></div>
+  </div>
+  <p class="small"><strong>Example skills:</strong> <span class="tag">/how</span> explains a system <span class="tag">/why</span> finds reasons behind it <span class="tag">/interrogate</span> tries to break your work <span class="tag green">/unslop</span> removes AI-style writing tells <span class="tag">/reflect</span> saves a long task's recipe</p>
+  <p class="src">One entry skill, <code>/poteto-mode</code>, picks from 23 playbooks. Sources: <a href="https://github.com/poteto">GitHub profile</a> &middot; <a href="https://github.com/backnotprop/pstack">pstack mirror</a> (3.1k stars)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Builder 2</p>
+  <h2>Matt Pocock &middot; "Skills for Real Engineers"</h2>
+  <p class="soft">TypeScript educator. Repo tagline: "Straight from my .agents directory." About 306k stars.</p>
+  <div class="grid two">
+    <div class="card"><h3>The idea</h3><p class="small">Small, easy-to-adapt, composable skills, built against four problems: the AI misunderstanding you, wordiness, broken work, and a tangled mess over time.</p></div>
+    <div class="card"><h3>Standouts for everyone</h3><ul class="small">
+      <li><strong>grill-me:</strong> interviews you about a plan until the open questions are settled</li>
+      <li><strong>teach:</strong> teaches a concept over several sessions</li>
+      <li><strong>research:</strong> investigates a question and saves cited findings</li>
+      <li><strong>handoff:</strong> summarizes a chat so someone else can continue</li>
+      <li><strong>wait-what:</strong> re-explains a message that didn't land</li>
+    </ul></div>
+  </div>
+  <p class="src"><a href="https://github.com/mattpocock/skills">github.com/mattpocock/skills</a> (MIT license). Install help is in its README. Coding skills in it include tdd, diagnosing-bugs and code-review.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Builder 3</p>
+  <h2>Jesse Vincent &middot; "Superpowers"</h2>
+  <p class="soft">Built with the team at Prime Radiant. Blog: blog.fsck.com. About 308k stars.</p>
+  <p class="lead">A full working method, packaged as skills: <strong>brainstorm &rarr; plan &rarr; do &rarr; review &rarr; finish.</strong></p>
+  <div class="grid three">
+    <div class="card"><h3>brainstorming</h3><p class="small">Clarify what you want and make a design <em>before</em> any work starts.</p></div>
+    <div class="card"><h3>writing-plans</h3><p class="small">Break the work into small, checkable tasks.</p></div>
+    <div class="card"><h3>verification-before-completion</h3><p class="small">Check the work really works before saying it's done.</p></div>
+  </div>
+  <p class="src"><a href="https://github.com/obra/superpowers">github.com/obra/superpowers</a> (MIT license). It also includes a <em>writing-skills</em> skill that teaches the AI to write new skills.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Builder 4</p>
+  <h2>Addy Osmani &middot; "agent-skills"</h2>
+  <p class="soft">Created the project with collaborators. About 112k stars.</p>
+  <p class="lead">25 skills organized like a project's life: <strong>Define, Plan, Build, Verify, Review, Ship.</strong></p>
+  <div class="grid two">
+    <div class="card"><h3>Worth borrowing</h3><ul class="small"><li><strong>interview-me:</strong> asks you questions to clarify a vague request</li><li><strong>idea-refine:</strong> sharpens a rough idea</li><li><strong>documentation-and-adrs:</strong> records decisions and why</li></ul></div>
+    <div class="card"><h3>Nice design touch</h3><p class="small">Each skill has <strong>steps, verification gates and a checklist</strong>, so the AI has to prove each stage is done before moving on.</p></div>
+  </div>
+  <p class="src"><a href="https://github.com/addyosmani/agent-skills">github.com/addyosmani/agent-skills</a> (MIT license)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Steal these ideas</p>
+  <h2>Coding skills, turned into everyday uses</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Their skill</th><th>The everyday version</th></tr>
+    <tr><td>grill-me / interview-me / brainstorming</td><td>Before starting a plan, event, or report, the AI interviews <em>you</em> one question at a time.</td></tr>
+    <tr><td>unslop (pstack)</td><td>Rewrite a draft so it sounds like a person, not an AI.</td></tr>
+    <tr><td>teach / how / why</td><td>"Explain this process to me like I'm new, then quiz me."</td></tr>
+    <tr><td>research</td><td>Investigate a question and save cited notes to a file.</td></tr>
+    <tr><td>handoff</td><td>Summarize a long chat so a colleague can pick it up.</td></tr>
+    <tr><td>verification-before-completion</td><td>Before calling a report done, re-check every number and source.</td></tr>
+    <tr><td>writing-skills / skill-creator</td><td>Ask the AI to turn something you did into a skill.</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">What good skill authors share</p>
+  <h2>Five habits</h2>
+  <ol class="steps">
+    <li><strong>Small and focused.</strong> One skill, one job.</li>
+    <li><strong>Ask first, act second.</strong> Interview before building.</li>
+    <li><strong>Prove it.</strong> Verification steps before "done".</li>
+    <li><strong>Shared vocabulary.</strong> Pocock's skills keep a glossary so the AI uses your words.</li>
+    <li><strong>Composable.</strong> Skills call each other, like Lego.</li>
+  </ol>
+  <div class="sticky tape" style="max-width:440px">Next chapter: you'll copy a skill inspired by these ideas and run it in ten minutes.</div>
+  <p class="src">Also see the original "Skills" post by Simon Willison in Chapter 6, and the collections in Chapter 7.</p>
+</section>
+
+</main>
+
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+</body>
+</html>
