@@ -1,0 +1,20 @@
+---
+title: "asking first"
+---
+stateDiagram-v2
+  s0: you ask
+  s1: Claude picks a tool
+  s2: the tool runs
+  s3: waiting for your OK
+  s4: stopped, nothing happened
+  s5: you review the result
+  [*] --> s0
+  s0 --> s1: you ask for something
+  s1 --> s2: it runs at once [tool set to Always allow]
+  s1 --> s3: it asks first [tool set to Needs approval]
+  s1 --> s4: it stops [tool set to Blocked]
+  s2 --> s5: it finishes
+  s3 --> s4: you say no
+  s3 --> s2: you click Allow
+  s4 --> s0: you ask again
+  s5 --> s0: you ask again

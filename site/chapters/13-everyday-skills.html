@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 13: Everyday Skills | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="12-courses.html" data-next="14-mcp-basics.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 13 &middot; Everyday skills</span></div>
+<main class="deck">
+<section class="slide cover">
+  <span class="chapter-no">Chapter 13 &middot; Everyday skills</span>
+  <h1>Save it once. <span class="hl">Use it every day.</span></h1>
+  <p class="lead">Six skills for the work you do all the time: slides, meeting notes, email, weekly updates, spreadsheets, social posts.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">The pattern</p>
+  <h2>Teach it once, then just ask</h2>
+  <div class="grid two">
+    <div class="card"><span class="no">Step 1 &middot; once, 5 minutes</span><h3>Save the skill</h3><p class="small">You write down <em>how you like it done</em>: your slide style, your email voice, your report format. You save it as a skill.</p></div>
+    <div class="card"><span class="no">Step 2 &middot; every day, 10 seconds</span><h3>Say a few things + the skill name</h3><p class="small">"Make a deck about last quarter's sales. Key points: ... Use <b>my-deck-style</b>." Everything else comes from the skill.</p></div>
+  </div>
+  <div class="compare">
+    <div class="bad"><span class="label">Without a skill</span><p>You re-type 15 lines of style rules for every deck. You forget one. Every deck looks a little different.</p></div>
+    <div class="good"><span class="label">With a skill</span><p>One line, and every deck follows your rules. Every time. Even your teammates can use it.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Setup that applies to all six</p>
+  <h2>How to save it, how to call it</h2>
+  <h3>Save (pick one)</h3>
+  <ul>
+    <li><strong>Paste and ask:</strong> open a chat, type <em>"Create a skill from the text below and save it"</em>, paste the skill. (Chapter 10, route A)</li>
+    <li><strong>Upload a file (Claude):</strong> folder + <code>SKILL.md</code> + zip, then Customize &rarr; Skills. (Chapter 10, route B)</li>
+  </ul>
+  <h3>Call it</h3>
+  <ul>
+    <li><strong>Claude:</strong> mention the skill by name, or let it pick the skill from the description.</li>
+    <li><strong>ChatGPT:</strong> type <code>@</code> and pick the skill, or let it match automatically.</li>
+    <li><strong>Gemini:</strong> type <code>/</code> and the skill name, or let it match automatically.</li>
+  </ul>
+  <div class="callout"><p><strong>Skills stack.</strong> For slides, the built-in PowerPoint skill builds the file and <em>your</em> skill says how it should look. Both work together (Gemini describes this as stacking skills in one prompt).</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Shortcut</p>
+  <h2>Don't want to write it? Let the AI learn from your best work</h2>
+  <p>Attach your best deck, a few emails you're proud of, or last month's report, then paste this:</p>
+  <div class="copybox"><button class="btn copybtn" data-target="pmeta">Copy</button>
+<pre class="prompt" id="pmeta">Look at what I&#x27;ve attached. These are examples of my best work.
+1. Describe my style and rules in plain bullets: look, structure, tone, what I always do and never do.
+2. Then create a skill named [my-deck-style] that captures them, with a description that says what it does and when to use it. Keep the description under 200 characters.
+3. Ask me up to 5 questions if anything is unclear before you save it.</pre></div>
+  <p class="small soft">This follows Anthropic's own advice for building skills: have the AI capture what worked into the skill, then edit it yourself.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 1 &middot; save once</p>
+  <h2>Slides in your style</h2>
+  <p>You make decks every week. They should look and read the same way: your colors, your fonts, one idea per slide, a clear takeaway. Today you explain this to the AI every time.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="sk1">Copy</button>
+<pre class="prompt" id="sk1">---
+name: my-deck-style
+description: Designs presentations in my personal style: colors, fonts, slide structure and tone. Use whenever I ask for a deck, slides, presentation or PowerPoint, even if I don&#x27;t mention my style.
+---
+# My deck style
+
+Fill in the [brackets] once, then delete this line.
+
+Look
+- Colors: background [off-white #FAF7F0], headings [dark navy #1F2A44], accent [orange #E8743B].
+- Fonts: headings [Georgia], body [Calibri]. Body text never smaller than 18 pt.
+- One idea per slide. At most 6 lines of text. Prefer a chart or picture to a bullet list.
+- Footer: [Company name] and slide number.
+
+Structure
+1. Title slide: title, one-line subtitle, [my name], date.
+2. Slide 2 is &quot;The point&quot;: the one-sentence takeaway.
+3. Every body slide title is a full sentence stating the takeaway, not a topic label.
+4. Last slide: decisions needed or next steps.
+5. Aim for [8] slides unless I say otherwise.
+
+Tone: [plain, confident, no jargon].
+
+Always
+- Add 2 to 3 sentences of speaker notes to every slide.
+- If the audience or purpose is missing, ask me once, in one message.
+- When done, list the 3 slides you are least sure about.</pre></div>
+  <p class="small"><strong>Fill in once:</strong> Fill in the [brackets] once: colors, fonts, your name, how many slides you usually want. <span class="soft">(Description: 185 characters.)</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 1 &middot; use every day</p>
+  <h2>Just say this</h2>
+  <div class="io">
+    <div class="in"><span class="label">Your daily prompt</span>
+      <div class="copybox"><button class="btn copybtn" data-target="d1">Copy</button><pre class="prompt" id="d1" style="max-height:none;font-size:.8rem">Make a deck for my manager about last quarter&#x27;s sales.
+Key points: sales up 12%, churn up in the South region.
+Decisions needed: hire one more rep, extend the discount offer.
+Use my-deck-style.</pre></div>
+    </div>
+    <div class="out"><span class="label">What you get (example)</span><ol class="small"><li><strong>Title:</strong> Q3 Sales Review &middot; [my name] &middot; date</li>
+<li><strong>The point:</strong> Sales grew 12%, but the South region is losing customers.</li>
+<li><strong>Sales grew 12% quarter on quarter</strong> (chart)</li>
+<li><strong>Churn rose sharply in the South</strong> (chart)</li>
+<li><strong>Two decisions we need from you</strong> (hire one rep; extend the discount)</li>
+<li><strong>Next steps</strong></li></ol>
+<p class="small">Same navy headings, same footer, speaker notes on every slide, plus a note: <em>"Least sure about slide 4: I had no churn numbers, so the chart is a placeholder."</em></p></div>
+  </div>
+  <p class="src">Without the skill you'd re-explain about 15 lines of style rules for every deck. Example outputs are illustrative, not real AI transcripts.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 2 &middot; save once</p>
+  <h2>Meeting notes to action items</h2>
+  <p>After every meeting you need the same thing: what was decided, what's still open, and who does what by when. Your notes are messy every time.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="sk2">Copy</button>
+<pre class="prompt" id="sk2">---
+name: meeting-actions
+description: Turns rough meeting notes into decisions, open questions and an action table with owners and dates. Use when the user pastes meeting notes or asks for a meeting summary or action items.
+---
+# Meeting actions
+
+Use only what is in the notes. Never invent names, dates or decisions.
+
+1. If I haven&#x27;t said who will read this, ask: &quot;Who is this for, and how long should it be?&quot;
+2. Write three parts: Decisions (3 to 5 at most), Open questions, Action items.
+3. Show action items as a table with columns: What | Who | By when.
+4. If an owner is missing write &quot;owner?&quot;. If a date is missing write &quot;date?&quot;.
+5. Keep it under 150 words unless I ask for more.
+6. End with one line starting &quot;Things I wasn&#x27;t sure about:&quot; listing anything unclear in the notes.</pre></div>
+  <p class="small"><strong>Fill in once:</strong> Nothing to fill in. Optionally change the word limit in step 5. <span class="soft">(Description: 185 characters.)</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 2 &middot; use every day</p>
+  <h2>Just say this</h2>
+  <div class="io">
+    <div class="in"><span class="label">Your daily prompt</span>
+      <div class="copybox"><button class="btn copybtn" data-target="d2">Copy</button><pre class="prompt" id="d2" style="max-height:none;font-size:.8rem">Notes for my manager:
+launch moved?? priya - design not done till 12th. raj says budget ok 40k but finance must approve. newsletter maybe mon. sam to send vendor list. nobody sure re venue. next sync thurs
+Use meeting-actions.</pre></div>
+    </div>
+    <div class="out"><span class="label">What you get (example)</span><p class="small"><strong>Decisions:</strong> budget of 40k is acceptable pending finance approval; newsletter likely Monday.</p>
+<p class="small"><strong>Open:</strong> is the launch moving (design not done until the 12th)? Venue undecided.</p>
+<div class="tbl-wrap"><table><tr><th>What</th><th>Who</th><th>By when</th></tr><tr><td>Send vendor list</td><td>Sam</td><td>date?</td></tr><tr><td>Get finance approval</td><td>owner?</td><td>date?</td></tr><tr><td>Next sync</td><td>All</td><td>Thursday</td></tr></table></div></div>
+  </div>
+  <p class="src">Without the skill you'd re-explain the format and the "owner?" rule after every meeting. Example outputs are illustrative, not real AI transcripts.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 3 &middot; save once</p>
+  <h2>Email replies in your voice</h2>
+  <p>You answer similar emails all day. You want them to sound like you, with the same sign-off and the same rules (like never promising a refund), without re-explaining it each time.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="sk3">Copy</button>
+<pre class="prompt" id="sk3">---
+name: email-reply-my-voice
+description: Drafts email replies in the user&#x27;s own voice with two options and a subject line. Use when asked to reply to, draft, or respond to an email.
+---
+# Email reply in my voice
+
+My style (edit these lines to match you):
+- Short sentences. Warm but direct.
+- I sign off with &quot;Thanks,&quot; and my first name.
+- I never write &quot;I hope this email finds you well&quot;.
+
+Steps:
+1. Read the email and say in one line what the sender wants.
+2. Write a subject line.
+3. Write two options: A) warm, B) firm and brief. Each under 120 words unless I say otherwise.
+4. Never promise a refund, date, discount or anything I did not mention.
+5. After the options, list anything I should confirm before sending.</pre></div>
+  <p class="small"><strong>Fill in once:</strong> Edit the "My style" lines once. After a few weeks, add a line for any habit of yours the AI keeps missing. <span class="soft">(Description: 140 characters.)</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 3 &middot; use every day</p>
+  <h2>Just say this</h2>
+  <div class="io">
+    <div class="in"><span class="label">Your daily prompt</span>
+      <div class="copybox"><button class="btn copybtn" data-target="d3">Copy</button><pre class="prompt" id="d3" style="max-height:none;font-size:.8rem">Reply to this email: &quot;Hi, my order was due Monday and still hasn&#x27;t arrived. This is the second time. I want a refund.&quot;
+Say: sorry, I&#x27;ll check with the courier today, update by 5 pm. No refund promise yet.
+Use email-reply-my-voice.</pre></div>
+    </div>
+    <div class="out"><span class="label">What you get (example)</span><p class="small"><strong>Subject:</strong> Your order: checking it today</p>
+<p class="small"><strong>A (warm):</strong> Hi [Name], I'm really sorry your order is late again. I'm contacting the courier today and will email you by 5 pm with a clear update. Thanks, [first name]</p>
+<p class="small"><strong>B (brief):</strong> Hi [Name], I understand the frustration. I'm checking with the courier today and will update you by 5 pm. Thanks, [first name]</p>
+<p class="small soft">Then: "Confirm before sending: courier name, 5 pm deadline."</p></div>
+  </div>
+  <p class="src">Without the skill you'd repeat your sign-off, tone and "no promises" rule in every reply. Example outputs are illustrative, not real AI transcripts.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 4 &middot; save once</p>
+  <h2>Your weekly update</h2>
+  <p>Every Friday you send the same kind of update. You jot down a few rough lines and spend 20 minutes making them look professional.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="sk4">Copy</button>
+<pre class="prompt" id="sk4">---
+name: weekly-update
+description: Writes my weekly status update in a fixed format from a few rough lines. Use when I say weekly update or status update, or paste what I did this week.
+---
+# Weekly update
+
+Use only what I tell you. Never add work I did not mention.
+
+Format
+- Subject: Weekly update: [my name], week of [date]
+- Done (at most 5 bullets, start each with a verb)
+- Next week (at most 3 bullets)
+- Blockers (write &quot;None&quot; if there are none)
+- Help needed (only if I mention something)
+
+Rules
+1. Short and factual. Under 150 words.
+2. Keep any numbers exactly as I gave them.
+3. If I forgot a section, ask once, then leave it out.
+4. If I did not give a date, write [date] and remind me to fill it in.</pre></div>
+  <p class="small"><strong>Fill in once:</strong> Change the section names or the word limit to match what your team expects. <span class="soft">(Description: 150 characters.)</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 4 &middot; use every day</p>
+  <h2>Just say this</h2>
+  <div class="io">
+    <div class="in"><span class="label">Your daily prompt</span>
+      <div class="copybox"><button class="btn copybtn" data-target="d4">Copy</button><pre class="prompt" id="d4" style="max-height:none;font-size:.8rem">Weekly update, week of 3 Nov.
+Done: finished vendor comparison, fixed onboarding doc, 2 customer calls.
+Next: kickoff with design team.
+Blocked: waiting for budget sign-off.
+Use weekly-update.</pre></div>
+    </div>
+    <div class="out"><span class="label">What you get (example)</span><p class="small"><strong>Subject:</strong> Weekly update: [my name], week of 3 Nov</p>
+<p class="small"><strong>Done</strong><br>&bull; Finished the vendor comparison<br>&bull; Fixed the onboarding doc<br>&bull; Held two customer calls</p>
+<p class="small"><strong>Next week</strong><br>&bull; Kick off with the design team</p>
+<p class="small"><strong>Blockers</strong><br>&bull; Waiting for budget sign-off</p></div>
+  </div>
+  <p class="src">Without the skill you'd re-describe the format every Friday. Example outputs are illustrative, not real AI transcripts.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 5 &middot; save once</p>
+  <h2>Messy lists to clean sheets</h2>
+  <p>Expenses, attendance, orders, survey answers. They arrive messy. You need a tidy table and totals, and you can't risk the AI quietly changing a number.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="sk5">Copy</button>
+<pre class="prompt" id="sk5">---
+name: tidy-sheet
+description: Cleans messy lists into a tidy table with totals and flags odd entries without changing amounts. Use when the user pastes expenses, attendance, sales or survey data and wants a clean sheet.
+---
+# Tidy sheet
+
+Never change an amount, a name or a number. Flag problems instead of fixing them silently.
+
+1. Ask which date format I use if any date is ambiguous (like 3/4).
+2. Put the data in a table with clear columns.
+3. Flag: duplicates, missing values, ambiguous dates, and anything unusual.
+4. Give totals by category and say how they were calculated.
+5. Suggest one chart that fits the data.
+6. List every issue you flagged at the end, then offer to create an Excel file.</pre></div>
+  <p class="small"><strong>Fill in once:</strong> Nothing to fill in. Add your own category names in step 4 if you have a fixed set. <span class="soft">(Description: 189 characters.)</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 5 &middot; use every day</p>
+  <h2>Just say this</h2>
+  <div class="io">
+    <div class="in"><span class="label">Your daily prompt</span>
+      <div class="copybox"><button class="btn copybtn" data-target="d5">Copy</button><pre class="prompt" id="d5" style="max-height:none;font-size:.8rem">Use tidy-sheet on these March expenses. Dates are DD/MM.
+3/4 uber 450
+march 5 - lunch w client 1,200
+5 Mar lunch w client 1200
+stationery ??
+9/3 Uber 380</pre></div>
+    </div>
+    <div class="out"><span class="label">What you get (example)</span><p class="small">A clean table (Date | Category | Description | Amount), totals by category (Transport 830, Meals 1,200), and a chart.</p>
+<p class="small"><strong>Flags:</strong> "3/4" could be 3 April or 4 March; the client lunch may be a duplicate; stationery has no amount.</p>
+<p class="small soft">It flagged the problems and did not decide for you.</p></div>
+  </div>
+  <p class="src">Without the skill you'd repeat "don't change my numbers, flag the odd ones" every time. Example outputs are illustrative, not real AI transcripts.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 6 &middot; save once</p>
+  <h2>Posts in your brand voice</h2>
+  <p>You write posts and captions for the same brand all the time. The voice, hashtags and length rules are the same every time, but the AI doesn't know them.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="sk6">Copy</button>
+<pre class="prompt" id="sk6">---
+name: brand-voice-posts
+description: Writes social posts and captions in our brand voice with fixed lengths and hashtags. Use when asked for posts, captions, ads or announcements for the brand.
+---
+# Brand voice posts
+
+Brand: [Brand name]. Audience: [who we talk to].
+Voice: [playful, warm, never pushy]. Words we like: [fresh, easy]. Words we avoid: [cheap, guaranteed].
+
+Formats
+- Instagram: at most [25] words, one emoji, three hashtags.
+- LinkedIn: 80 to 120 words, a hook in the first line, at most three hashtags.
+
+Rules
+1. Give three options for each platform I ask for.
+2. Never invent offers, dates, prices or health claims. If I did not give one, write [CONFIRM] where it would go.
+3. End with one line: &quot;Check before posting:&quot; listing every [CONFIRM] and every claim I should verify.</pre></div>
+  <p class="small"><strong>Fill in once:</strong> Fill in your brand name, voice words, audience and length rules once. <span class="soft">(Description: 156 characters.)</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 6 &middot; use every day</p>
+  <h2>Just say this</h2>
+  <div class="io">
+    <div class="in"><span class="label">Your daily prompt</span>
+      <div class="copybox"><button class="btn copybtn" data-target="d6">Copy</button><pre class="prompt" id="d6" style="max-height:none;font-size:.8rem">New cold coffee launches 1 Nov. Audience: college students. Instagram posts.
+Use brand-voice-posts.</pre></div>
+    </div>
+    <div class="out"><span class="label">What you get (example)</span><p class="small"><strong>Option 1:</strong> Meet your new study buddy. Cold coffee is here from 1 Nov. &#9749; #ColdCoffee #CampusLife #NewDrop</p>
+<p class="small"><strong>Option 2:</strong> Finals fuel, now served cold. Launching 1 Nov. [CONFIRM: any launch offer?] #ColdCoffee #StudentLife #NewDrop</p>
+<p class="small soft">Check before posting: launch offer, store locations.</p></div>
+  </div>
+  <p class="src">Without the skill you'd paste the brand voice guide into every chat. Example outputs are illustrative, not real AI transcripts.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Keep improving</p>
+  <h2>A skill gets better every week</h2>
+  <ul>
+    <li>When the AI gets something wrong, <strong>fix the skill</strong>, not just that one answer. Add one line.</li>
+    <li>Marcus Moretti (Chapter 6) says his daily briefing is "just a Markdown file" and he has adjusted it about 50 times.</li>
+    <li>Test with a real request after each edit. Keep a bad result to check you've fixed it.</li>
+  </ul>
+  <div class="grid two">
+    <div class="sticky tape">Week 1: it nearly works.<br>Week 3: it sounds like you.</div>
+    <div class="card"><h3>If it doesn't trigger</h3><p class="small">Mention the skill name in your prompt, then rewrite the description with the words you really use.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">More skills to make</p>
+  <h2>Ideas to build next</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Skill idea</th><th>You say each time</th></tr>
+    <tr><td>report-format</td><td>"Turn these numbers into my monthly report. Use report-format."</td></tr>
+    <tr><td>document-brief</td><td>"Summarize this contract with quotes and red flags."</td></tr>
+    <tr><td>plan-builder</td><td>"Plan our offsite for 20 people. Use plan-builder."</td></tr>
+    <tr><td>study-buddy</td><td>"Teach me inflation, then quiz me."</td></tr>
+    <tr><td>interview-questions</td><td>"Write interview questions for a [role]. Use my format."</td></tr>
+    <tr><td>client-proposal</td><td>"Draft a proposal for [client]. Use my proposal template."</td></tr>
+  </table></div>
+  <p>To make any of these: do the task well once, then use the shortcut slide (<em>"create a skill from my best work"</em>) or <a href="05-build-your-own.html">Chapter 5</a>.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Your turn &middot; 15 minutes</p>
+  <h2>Make your first everyday skill</h2>
+  <ol class="steps">
+    <li>Pick <strong>one</strong> thing you do at least weekly (a deck, an update, an email type).</li>
+    <li>Copy the matching skill and fill in the [brackets], or use the shortcut slide with your best example.</li>
+    <li>Save it (Chapter 10, route A).</li>
+    <li>Use it with a short prompt: a few key points + the skill name.</li>
+    <li>Fix one thing in the skill, run it again, and compare.</li>
+  </ol>
+  <div class="sticky tape" style="max-width:460px">Share your before and after with the group: how many lines did you type this time?</div>
+  <p class="soft hand" style="font-size:1.4rem"><a href="../index.html">Back to all chapters</a></p>
+</section>
+</main>
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+<script src="../assets/copy.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+---
+title: "three keys"
+---
+stateDiagram-v2
+  direction LR
+  state "At the same time" as all {
+    state "Owner's switch" as r0 {
+      s0: off
+      s1: on
+      [*] --> s0
+      s0 --> s1: switch on
+      s1 --> s0: switch off
+    }
+    --
+    state "Your sign-in" as r1 {
+      s2: signed out
+      s3: signed in
+      [*] --> s2
+      s2 --> s3: sign in
+      s3 --> s2: it expires
+    }
+    --
+    state "This chat" as r2 {
+      s4: not ticked
+      s5: ticked
+      [*] --> s4
+      s4 --> s5: tick
+      s5 --> s4: untick
+    }
+  }

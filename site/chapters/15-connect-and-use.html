@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 15: Connect an app and use it | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="14-mcp-basics.html" data-next="16-skills-build-safety.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 15 &middot; Connect and use</span></div>
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 15 &middot; MCP, part 2 of 3</span>
+  <h1>Connect one app. <span class="hl">Then use it.</span></h1>
+  <p class="lead">Step-by-step connections for Google Docs, Slides and Drive, Gmail and Calendar, Notion, Slack and Tableau. Then what to do when it breaks, and five everyday workflows.</p>
+  <p class="small soft">Main tool in this chapter: Claude. Short notes for ChatGPT and Gemini are on page 8.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Before you connect anything</p>
+  <h2>Three rules for your first connection</h2>
+  <div class="grid three">
+    <div class="card"><span class="no">1</span><h3>Read first</h3><p class="small">Your first prompts should only <em>look</em> at things: "list", "find", "summarize". Do not ask it to send, delete or edit until you trust the setup.</p></div>
+    <div class="card"><span class="no">2</span><h3>Test on something harmless</h3><p class="small">Use a practice page or a doc with nothing private in it. Not your payroll sheet.</p></div>
+    <div class="card"><span class="no">3</span><h3>Check the right account</h3><p class="small">If you have a work and a personal login, pick the one you mean on the sign-in page. Page 13 shows how to check afterwards.</p></div>
+  </div>
+  <div class="callout warn"><p>A connector lets the AI act <em>as you</em>. Claude Help says connectors can read, create, change and delete data. Start small. Chapter 16 covers safety in full.</p></div>
+  <p class="src"><a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Claude Help: custom connectors</a> &middot; <span class="tag green">official</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Walkthrough 1 &middot; Claude</p>
+  <h2>Google Docs, Slides and Drive</h2>
+  <p>These are <strong>built-in connectors</strong>. You do not need a URL or a Google Cloud project.</p>
+  <ol class="steps">
+    <li>Open a chat in Claude (web or Desktop). Click the <strong>+</strong> button and hover over <strong>Connectors</strong>.</li>
+    <li>Switch on <strong>Google Drive</strong>. Also switch on <strong>Google Docs</strong>, <strong>Google Sheets</strong> and <strong>Google Slides</strong> if you want Claude to edit them live.</li>
+    <li>Sign in with your Google account when asked and allow access.</li>
+    <li>Test: paste a Google Doc link and ask, <em>"Summarize this document in 5 bullets."</em></li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">What it can do</span><ul class="small"><li>Search and read files in Drive, including Sheets, Slides, PDFs and Office files (text only).</li><li>Create new Docs, Sheets and Slides and edit them live in a pane beside the chat.</li><li>Read comments and suggestions in Docs.</li></ul></div>
+    <div class="card"><span class="no">Limits Claude Help states</span><ul class="small"><li><strong>Claude can't add charts to Google Slides.</strong></li><li>Slides edits may not show live in the pane.</li><li>Live editing needs Chrome on the web, or Claude Desktop with its built-in browser on.</li><li>Team/Enterprise: an Owner must enable the connectors first.</li></ul></div>
+  </div>
+  <p class="src"><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors">Claude Help: Google Workspace connectors</a> &middot; <span class="tag green">official</span> &middot; Google's own Drive/Docs/Slides MCP servers are a separate developer-preview route (Chapter 14).</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Walkthrough 2 &middot; Claude</p>
+  <h2>Gmail and Google Calendar</h2>
+  <ol class="steps">
+    <li>In a chat: <strong>+ &rarr; Connectors</strong>. Switch on <strong>Gmail</strong> and <strong>Google Calendar</strong>. Sign in to Google.</li>
+    <li>Test with something read-only: <em>"What is on my calendar tomorrow?"</em></li>
+    <li>Then try: <em>"Find the last email from [name] and summarize it."</em></li>
+    <li>When you are ready, ask for a <strong>draft</strong>, not a send: <em>"Draft a reply, don't send it."</em></li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">What it can do</span><ul class="small"><li>Gmail: search and read emails; draft, send, reply and forward.</li><li>Calendar: view events (including shared ones you can see); create, update, delete events; respond to invitations.</li></ul></div>
+    <div class="card"><span class="no">Built-in safety</span><ul class="small"><li>By default Claude <strong>asks your approval</strong> before sending, replying, forwarding, sharing, moving or trashing.</li><li>It cannot read the <em>contents</em> of Gmail attachments.</li><li>On Team/Enterprise, owners decide whether people can skip the approval.</li></ul></div>
+  </div>
+  <div class="callout good"><p><strong>Habit:</strong> keep the approval prompts on. A wrongly sent email cannot be taken back.</p></div>
+  <p class="src"><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors">Claude Help: Google Workspace connectors</a> &middot; <span class="tag green">official</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Walkthrough 3 &middot; Claude</p>
+  <h2>Notion</h2>
+  <p>Notion runs its own remote MCP server. You sign in with Notion (OAuth), and Claude can only see what <em>you</em> can see.</p>
+  <ol class="steps">
+    <li>Open <strong>Customize &rarr; Connectors</strong> and look for <strong>Notion</strong> in the directory. If it is there, click it and choose <strong>Connect</strong>.</li>
+    <li>Not listed in your account? Click <strong>+ Add &rarr; Add custom connector</strong>, name it "Notion" and paste <code>https://mcp.notion.com/mcp</code>. (This is the address used in Claude Code's own docs.)</li>
+    <li>Sign in to Notion and approve access to your workspace.</li>
+    <li>Test: <em>"Search Notion for the page called [practice page] and summarize it."</em></li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">What it can do</span><p class="small">Search, read, create and update pages and databases, within what you can access.</p></div>
+    <div class="card"><span class="no">Admin note</span><p class="small">Workspace owners can manage which AI clients may connect (Settings &rarr; Notion MCP). Limiting clients for everyone needs the Enterprise plan. If you cannot connect, ask your Notion admin.</p></div>
+  </div>
+  <p class="src"><a href="https://developers.notion.com/guides/mcp/mcp">Notion developers: MCP</a> &middot; <a href="https://code.claude.com/docs/en/mcp">Claude Code docs (URL example)</a> &middot; <span class="tag green">official</span> &middot; Whether Notion is in your directory view varies <span class="tag red">check live</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Walkthrough 4 &middot; Claude</p>
+  <h2>Slack</h2>
+  <ol class="steps">
+    <li>Open <strong>Customize &rarr; Connectors</strong>, find <strong>Slack</strong> in the directory and click <strong>Connect</strong>.</li>
+    <li>Sign in to your Slack workspace and review what it asks for.</li>
+    <li>If Slack says an admin must approve it, ask your <strong>workspace admin</strong>. They can approve and manage all AI client connections.</li>
+    <li>Test: <em>"Search Slack for messages about [project name] from this week."</em></li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">What it can do</span><p class="small">Search Slack, send messages, work with canvases, upload files and use lists. Limits apply per tool, like Slack's normal API limits.</p></div>
+    <div class="card"><span class="no">Why you use the directory here</span><p class="small">Slack's docs say MCP clients must be backed by a registered Slack app (directory-published or internal), and that it does not support dynamic client registration. So <strong>pasting Slack's URL as a custom connector is not the route</strong>. Use the directory entry. <span class="tag">our reading of Slack's docs</span></p></div>
+  </div>
+  <div class="callout warn"><p>Sending messages is a write action. Keep your first tests to searching.</p></div>
+  <p class="src"><a href="https://docs.slack.dev/ai/mcp-server">Slack: MCP server docs</a> &middot; <span class="tag green">official</span> &middot; The page names Claude.ai and Claude Code as supported clients; it does not mention ChatGPT. Whether Slack shows in your directory view <span class="tag red">check live</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Walkthrough 5 &middot; Claude</p>
+  <h2>Tableau</h2>
+  <p>Tableau has an official MCP server. For Tableau Cloud there is a hosted version, so you paste an address and sign in as yourself.</p>
+  <ol class="steps">
+    <li><strong>Ask your Tableau admin</strong> whether MCP is allowed on your site. (Tableau's page does not spell out admin steps, so confirm locally.)</li>
+    <li>In Claude: <strong>Customize &rarr; Connectors &rarr; + Add &rarr; Add custom connector</strong>. Name: "Tableau". URL: <code>https://mcp.tableau.com</code>.</li>
+    <li>Sign in with your Tableau account. Sign-in uses OAuth 2.1, so Claude sees your permissions only.</li>
+    <li>Test with the kinds of questions Tableau's own page shows: <em>"Which are the most viewed workbooks?"</em> or <em>"Show me the top 5 states by sales."</em></li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">Using Tableau Server?</span><p class="small">Your IT team runs a self-hosted copy (it signs in with a Personal Access Token). That is not a self-service setup for most learners.</p></div>
+    <div class="card"><span class="no">Be honest with learners</span><p class="small">We read Tableau's official repo but have <strong>not tested</strong> this exact click path in a live Claude account. <span class="tag red">test once before class</span></p></div>
+  </div>
+  <p class="src"><a href="https://github.com/tableau/tableau-mcp">Tableau MCP (official repo)</a> &middot; <span class="tag green">official</span> &middot; "Per-user permissions are enforced" is Tableau's wording for the hosted service.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Walkthrough 6 &middot; ChatGPT and Gemini</p>
+  <h2>Same idea, different doors</h2>
+  <div class="grid two">
+    <div class="card"><span class="no">ChatGPT</span><ol class="small"><li>Ask your admin to turn on developer mode (Business/Enterprise/Edu).</li><li>Plugins page &rarr; <strong>+ &rarr; Add custom MCP server</strong>.</li><li>Paste the app's remote MCP address (it must end in <code>/mcp</code>) and sign in.</li><li>Review the tools it found, then test with a read-only prompt.</li></ol><p class="small soft">Slack's docs do not list ChatGPT as a client. Notion and Tableau URLs are public; whether each works in ChatGPT <span class="tag red">test it</span>.</p></div>
+    <div class="card"><span class="no">Gemini</span><ol class="small"><li>Check Google's conditions: US, 18+, personal account, English, Keep Activity on.</li><li>gemini.google.com &rarr; <strong>Settings &rarr; Connected Apps &rarr; Add a custom app</strong>.</li><li>Paste the MCP address, follow the sign-in.</li><li>In a chat type <strong>@</strong> and pick the app.</li></ol><p class="small soft">Google Docs, Gmail and Calendar are already inside Gemini's own apps. No MCP needed for those.</p></div>
+  </div>
+  <div class="callout"><p>The skill you learn is the same everywhere: <strong>find the app's remote MCP address, add it, sign in, test read-only.</strong> Only the menu names change.</p></div>
+  <p class="src">Steps summarized from <a href="https://developers.openai.com/apps-sdk/deploy/connect-chatgpt">OpenAI developers</a> and <a href="https://support.google.com/gemini/answer/17209137?hl=en&amp;co=GENIE.Platform%3DDesktop">Gemini Apps Help</a> &middot; <span class="tag green">official</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Your first test</p>
+  <h2>A four-step test ladder (copy it)</h2>
+  <p>Run these one at a time, in order. Stop at the first step that fails. Replace the [brackets].</p>
+  <div class="copybox"><button class="btn copybtn" data-target="ladder">Copy</button>
+<pre class="prompt" id="ladder">Step 1 (who am I?): Which account are you connected to in [app name]? Tell me the name or email you see, and nothing else.
+
+Step 2 (look, don't touch): List the 5 most recent items you can see in [app name]. Titles only.
+
+Step 3 (read one): Open the item called [practice item] and summarize it in 3 bullets. Say which tool you used.
+
+Step 4 (only if 1 to 3 worked): Do not change anything. Tell me which actions you are able to take in [app name] that could change or send something.</pre></div>
+  <p class="small soft">Step 4 shows you what the connector is <em>allowed</em> to do, before you ever ask it to do it.</p>
+</section>
+
+<section class="slide plate-slide">
+  <p class="kicker">In pictures &middot; II &middot; address to working</p>
+  <a class="plate" href="../assets/plates/address-to-working.jpg" target="_blank" rel="noopener" title="Open the full-size picture"><img src="../assets/plates/address-to-working.jpg" alt="Hand-drawn flowchart called Address to working. Not set up, then you paste the address, then address added, then you sign in, which enters a blue frame called signed in. Inside the frame there are two states, off in this chat and on in this chat, and you switch between them. From the signed in frame, your sign-in runs out and you reach sign-in expired. From expired you sign in again and return to the frame, or you remove it and start again at not set up. Notes say that to change a connector's details you remove it and add it again, and that when sign-in runs out you reconnect in Customize, Connectors."></a>
+  <div class="cap"><strong>How to read it:</strong> follow the arrows from the dot at the top. The blue frame is one big state, <em>signed in</em>, with two states inside it.
+    <details><summary>How it was checked, and what it leaves out</summary><strong>How it was checked:</strong> TLC explored 6 situations and 14 steps. Rules that hold: you cannot switch a connector on in a chat before you have signed in, a sign-in needs an address first, and there is never a dead end. <strong>What the picture leaves out:</strong> you can remove a connector from other states too (shown only from <em>sign-in expired</em>), and switching it off while expired. The steps follow Claude Help; your button names may differ.</details></div>
+  <p class="src">Steps from <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Claude Help: custom connectors</a> &middot; <span class="tag green">official</span> &middot; The "reconnect" advice is ours (Claude Help has no troubleshooting page)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Troubleshooting &middot; 1 of 2</p>
+  <h2>It does not work. What now?</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>What you see</th><th>Likely cause</th><th>Try this</th></tr>
+    <tr><td>Connector will not connect</td><td>Claude connects from Anthropic's cloud. A server on a private network, VPN or behind a firewall cannot be reached.</td><td>Ask IT to allow Anthropic's IP ranges, or use a public address. Check the URL for typos.</td></tr>
+    <tr><td>ChatGPT cannot reach my server</td><td>URL missing <code>/mcp</code>, not public HTTPS, or wrong transport.</td><td>Test the address with MCP Inspector (Chapter 16), as OpenAI suggests.</td></tr>
+    <tr><td>Connected, but no tools show up</td><td>The connector is off for this chat, a tool is switched off, or (Team/Enterprise) an Owner has not enabled it.</td><td>In the chat: <strong>+ &rarr; Connectors</strong>, switch it on. Open <strong>Search and tools</strong>. Ask your admin.</td></tr>
+    <tr><td>"You need to sign in again"</td><td>Your sign-in expired or was revoked.</td><td>Reconnect in <strong>Customize &rarr; Connectors</strong>. (Google's developer servers may ask about hourly without a refresh token.)</td></tr>
+    <tr><td>An action is blocked</td><td>An admin set that tool to "Blocked" or "Needs approval".</td><td>Ask your admin. Their settings apply to everyone.</td></tr>
+    <tr><td>Wanted to edit a connector's details</td><td>Claude does not allow editing.</td><td>Remove it and add it again.</td></tr>
+  </table></div>
+  <p class="src"><a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Claude Help</a> &middot; <a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities">connectors</a> &middot; <a href="https://developers.openai.com/apps-sdk/deploy/connect-chatgpt">OpenAI</a> &middot; <a href="https://developers.google.com/workspace/drive/api/guides/configure-mcp-server">Google Drive MCP</a> &middot; <span class="tag green">official</span>. Claude Help has no troubleshooting section, so the "try this" column is our practical advice built from its rules.</p>
+</section>
+
+<section class="slide plate-slide">
+  <p class="kicker">In pictures &middot; III &middot; three keys</p>
+  <a class="plate" href="../assets/plates/three-keys.jpg" target="_blank" rel="noopener" title="Open the full-size picture"><img src="../assets/plates/three-keys.jpg" alt="Hand-drawn picture called Three keys. Three side-by-side cards under the heading at the same time. Owner's switch is yellow with states off and on, Your sign-in is blue with signed out and signed in, and This chat is pink with not ticked and ticked. A brass, a blue and a red key sit above them. Below is an arched door with three padlocks in the same colors and a sign saying the tools are inside. Notes say all three keys must be turned before any tool in the chat will work, and that on Pro or Max you hold the first key yourself while on Team the Owner does."></a>
+  <div class="cap"><strong>Why this matters:</strong> three switches move <em>independently</em>, and the tools only work when all three are on. That is the usual reason for "connected, but no tools".
+    <details><summary>How it was checked, and what it leaves out</summary><strong>How it was checked:</strong> TLC explored all 8 combinations and 24 steps and found no dead ends. <strong>What the picture does not show:</strong> the "all three needed" rule comes from Claude Help (an Owner enables the connector on Team and Enterprise, each person signs in, and you switch it on per chat), not from the model.</details></div>
+  <p class="src">Keys from <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Claude Help: custom connectors</a> &middot; <span class="tag green">official</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Troubleshooting &middot; 2 of 2</p>
+  <h2>"Which account is it using?"</h2>
+  <p>The most common surprise: Claude is connected, but to your <em>other</em> account (personal vs work). Or you cannot see a file you expected.</p>
+  <ol class="steps">
+    <li><strong>Ask it.</strong> Use step 1 from the test ladder: <em>"Which account are you connected to in [app]? Tell me the name or email."</em></li>
+    <li><strong>Check the file's sharing.</strong> Claude can only open files your connected account can open. If you cannot open it in your browser while signed in as that account, neither can Claude.</li>
+    <li><strong>Fix the account.</strong> In <strong>Customize &rarr; Connectors</strong> disconnect or remove the connector. Sign out of the wrong account in your browser, then connect again and choose the right one on the sign-in page.</li>
+    <li><strong>Revoke old access.</strong> You can also remove Claude's access from the app's own security or connected-apps settings.</li>
+  </ol>
+  <div class="callout good"><p><strong>Reassuring fact:</strong> Claude inherits your permissions and its restrictions only narrow access. It never grants more than the app already allows you.</p></div>
+  <p class="src"><a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities">Claude Help: connectors</a> &middot; <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors">Google connectors</a> &middot; <span class="tag green">official</span> &middot; Not every connector can report your account; step 1 may answer "I can't tell".</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 1 &middot; Drive + Docs</p>
+  <h2>"Find that doc and tell me what it says"</h2>
+  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
+  <div class="compare">
+    <div class="bad"><span class="label">Before</span><p>You remember a proposal from last spring. You search Drive, open four versions, skim each, copy the key terms into a chat to get a summary. 15 minutes.</p></div>
+    <div class="good"><span class="label">After</span><p>One message. Claude searches Drive, opens the right file, and gives you the terms with the file name so you can check. About 1 minute.</p></div>
+  </div>
+  <h3>How you do it, day to day</h3>
+  <ol class="steps">
+    <li>Switch on the Drive and Docs connectors for this chat.</li>
+    <li>Type: <em>"Search my Drive for the 2026 Acme proposal. Open the latest version and list the price, dates and conditions. Give me the file name."</em></li>
+    <li>Open the file it names and check two facts yourself.</li>
+    <li>Follow up: <em>"Write 3 bullets I can paste into an email to the team."</em></li>
+  </ol>
+  <div class="callout"><p>The habit that matters is step 3: <strong>ask for the file name, then spot-check.</strong></p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 2 &middot; Docs + Slides</p>
+  <h2>From a written report to a first-draft deck</h2>
+  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
+  <div class="compare">
+    <div class="bad"><span class="label">Before</span><p>You have a 6-page Google Doc. You make a blank deck, copy headings in, shorten sentences, fix the layout. An hour.</p></div>
+    <div class="good"><span class="label">After</span><p>Claude reads the Doc and creates a new Slides deck you edit in the side pane. You spend the hour improving it, not typing it.</p></div>
+  </div>
+  <ol class="steps">
+    <li>Connectors on: Google Drive, Docs and Slides.</li>
+    <li>Type: <em>"Read [paste Doc link]. Create a 7-slide Google Slides deck for my manager: one idea per slide, a short title and 3 bullets each."</em></li>
+    <li>Read the draft in the pane. Ask for changes slide by slide.</li>
+    <li>Add any charts yourself. <strong>Claude can't add charts to Google Slides</strong> (Claude Help).</li>
+  </ol>
+  <div class="callout warn"><p>Slides edits may not appear live in the pane. If so, use <strong>Open in Google</strong> on the file card.</p></div>
+  <p class="src"><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors">Claude Help: Google Workspace connectors</a> &middot; <span class="tag green">official</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 3 &middot; Gmail + Calendar</p>
+  <h2>Prepare tomorrow in two minutes</h2>
+  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
+  <div class="compare">
+    <div class="bad"><span class="label">Before</span><p>Evening: open the calendar, open each meeting, search email for the last thread with that person, write yourself notes.</p></div>
+    <div class="good"><span class="label">After</span><p>One request returns tomorrow's meetings, with the last relevant email thread for each, and suggested talking points.</p></div>
+  </div>
+  <ol class="steps">
+    <li>Connectors on: Gmail and Google Calendar.</li>
+    <li>Type: <em>"List my meetings tomorrow. For each one, find the most recent email thread with the attendees and give me a 2-line reminder of where we left off."</em></li>
+    <li>Pick one: <em>"Draft a short email to [name] confirming the agenda. Draft only, do not send."</em></li>
+    <li>Read the draft in Gmail, edit, and send it yourself.</li>
+  </ol>
+  <div class="callout good"><p>Notice the pattern: <strong>"draft only, do not send."</strong> The human presses send.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 4 &middot; Notion + Slack</p>
+  <h2>Catch up on a project after time away</h2>
+  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
+  <div class="compare">
+    <div class="bad"><span class="label">Before</span><p>Back from leave. You scroll three Slack channels, open five Notion pages and ask a colleague what you missed.</p></div>
+    <div class="good"><span class="label">After</span><p>Claude searches both places for the project and gives you one catch-up note, with the pages and threads it used so you can dive deeper.</p></div>
+  </div>
+  <ol class="steps">
+    <li>Connectors on: Notion and Slack.</li>
+    <li>Type: <em>"Catch me up on the Atlas project since 10 October. Search Notion for the project page and Slack for mentions of Atlas. Give me: decisions, open questions, who owns what. Name the page or channel for each point."</em></li>
+    <li>Open the two items that matter most and verify.</li>
+    <li>Optional: <em>"Add a 'Catch-up notes' section to the Notion page."</em> (A write action, so Claude will ask first.)</li>
+  </ol>
+  <div class="callout warn"><p>This mixes private workplace data and a way to write back. Keep the tools narrow and review any write. Chapter 16 explains why.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Use case 5 &middot; Tableau</p>
+  <h2>Explain a dashboard in plain English</h2>
+  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
+  <div class="compare">
+    <div class="bad"><span class="label">Before</span><p>You screenshot the dashboard, paste it into a chat and ask what it means. The AI guesses from a picture and cannot check the numbers.</p></div>
+    <div class="good"><span class="label">After</span><p>Claude asks Tableau for the view or data, using <em>your</em> permissions and your site's definitions, then explains it in words.</p></div>
+  </div>
+  <ol class="steps">
+    <li>Connect Tableau (walkthrough 5).</li>
+    <li>Type: <em>"Find the view called Weekly Sales. Tell me what changed versus last week, in 5 bullets for a non-technical reader."</em></li>
+    <li>Ask: <em>"Which numbers did you read exactly? List them."</em></li>
+    <li>Compare two of those numbers with the dashboard itself.</li>
+  </ol>
+  <p class="small">Tableau's own pitch is that with its MCP server, Claude can use your definitions and respect your security boundaries. That is a vendor claim, so step 4 is still your job.</p>
+  <p class="src"><a href="https://github.com/tableau/tableau-mcp">Tableau MCP</a> &middot; the Tableau blog post on this was not readable for us <span class="tag red">vendor claim</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Recap</p>
+  <h2>What to remember from this chapter</h2>
+  <div class="grid two">
+    <div class="sticky tape">Connect, sign in, test <b>read-only</b> first.</div>
+    <div class="sticky green tape">Google, Gmail and Calendar are <b>built in</b> on Claude. Notion and Slack are in the directory. Tableau is a pasted address.</div>
+    <div class="sticky pink tape">Ask for <b>the file name or link</b>, then spot-check.</div>
+    <div class="sticky blue tape">"<b>Draft only</b>, do not send." The human presses send.</div>
+  </div>
+  <p>You can now connect and use apps. The next question: how do you make it do the job the <em>same way every time</em>? That is where skills join in.</p>
+  <p class="soft hand" style="font-size:1.5rem">Next: Chapter 16, MCP plus skills, building your own, safety. <a href="16-skills-build-safety.html">Go to Chapter 16 &rarr;</a></p>
+</section>
+
+</main>
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+<script src="../assets/copy.js"></script>
+</body>
+</html>

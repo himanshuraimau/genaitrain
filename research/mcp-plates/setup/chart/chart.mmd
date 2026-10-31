@@ -1,0 +1,20 @@
+---
+title: "from address to working"
+---
+stateDiagram-v2
+  s0: not set up
+  s1: address added
+  state "signed in" as s2 {
+    s3: off in this chat
+    s4: on in this chat
+  }
+  s5: sign-in expired
+  [*] --> s0
+  s0 --> s1: you paste the address
+  s1 --> s3: you sign in
+  s3 --> s4: you switch it on in the chat
+  s4 --> s3: you switch it off
+  s5 --> s0: you remove it and start again
+  s5 --> s3: you sign in again
+  s5 --> s4: you sign in again [if it was on]
+  s2 --> s5: your sign-in runs out

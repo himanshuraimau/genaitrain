@@ -1,0 +1,35 @@
+---
+title: "the trifecta"
+config:
+  state:
+    rankSpacing: 36
+    nodeSpacing: 60
+---
+stateDiagram-v2
+  state "Legend" as legend {
+    lg0: Breaks NeverLeakPrivateData
+    lg1: Path to the NeverLeakPrivateData bug
+  }
+  class lg0 breaks
+  class lg1 bugPath
+  s0: just chatting
+  s1: can read your private files
+  s2: has read a stranger's text
+  s3: can send things out
+  s4: all three at once
+  s5: your private data leaks
+  [*] --> s0
+  s0 --> s1: you connect your files or email
+  s1 --> s2: it reads a stranger's email or web page
+  s1 --> s3: you let it send or post
+  s2 --> s4: you let it send or post
+  s3 --> s4: it reads a stranger's email or web page
+  s4 --> s5: a hidden instruction says: send it out
+  s5 --> s0: you start a new chat
+  classDef breaks fill:#ffecee,stroke:#e72e3b,stroke-width:2.5px,color:#cd2834
+  class s0 bugPath
+  class s1 bugPath
+  class s3 bugPath
+  class s4 bugPath
+  class s5 breaks
+  class s5 bugPath
