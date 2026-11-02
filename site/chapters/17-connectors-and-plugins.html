@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 17: Connectors and plugins, by use case | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="16-skills-build-safety.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 17 &middot; Connectors and plugins</span></div>
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 17 &middot; Use cases</span>
+  <h1>Connectors and plugins, <span class="hl">by the job to be done</span></h1>
+  <p class="lead">Claude and ChatGPT now let you link your tools and install ready-made kits. This chapter starts from what you want to get done, then shows seven worked examples you can copy.</p>
+  <p class="small soft">Checked on 2 Nov 2026. Every example is labeled illustrative, not a real AI transcript. Tags show how sure we are.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Three words, one picture</p>
+  <h2>Key, recipe, starter kit</h2>
+  <div class="grid three">
+    <div class="card"><span class="no">Connector (Claude) &middot; App (ChatGPT)</span><h3>The key</h3><p class="small">Opens one of your tools so the AI can look inside and, if you allow it, act: Drive, Slack, Notion, Gmail, Tableau.</p></div>
+    <div class="card"><span class="no">Skill</span><h3>The recipe</h3><p class="small">Written steps for <em>how you like a task done</em>: your report format, your email voice (Chapters 2 and 13).</p></div>
+    <div class="card"><span class="no">Plugin</span><h3>The starter kit</h3><p class="small">A ready-made bundle of skills <em>and</em> connectors (and sometimes commands or agents) that you add in one go, for a whole job such as sales or support.</p></div>
+  </div>
+  <div class="callout"><p>Claude's own docs put it this way: connectors give access, skills teach the task, and <strong>plugins package skills, connectors, commands and agents into one unit</strong> you can add once and share.</p></div>
+  <p class="small soft">Naming: ChatGPT now calls connectors <strong>apps</strong>, and its plugins can include apps and skills. Menu names differ between accounts and change often.</p>
+  <p class="src"><a href="https://claude.com/docs/extend/overview">Claude docs: connectors, skills, plugins</a> &middot; <a href="https://learn.chatgpt.com/docs/plugins">ChatGPT docs: plugins</a> &middot; <span class="tag green">official</span> &middot; "apps" as the new word for connectors: <span class="tag red">search summary of OpenAI Help, page blocked</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Start from the job</p>
+  <h2>Which one do I need?</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>I want to&hellip;</th><th>Use</th><th>For example</th></tr>
+    <tr><td>Ask questions about my own files, email or chat</td><td>A <strong>connector</strong> (app) alone</td><td>"What did Priya send me about the budget?"</td></tr>
+    <tr><td>Get the same job done my way, every time</td><td>A <strong>skill</strong> plus the connectors it needs</td><td><code>weekly-report</code> from Chapter 16</td></tr>
+    <tr><td>Get a whole job's toolkit, ready to use</td><td>A <strong>plugin</strong></td><td>The Sales plugin for call prep</td></tr>
+    <tr><td>Give my team the same setup</td><td>A <strong>plugin</strong> you share or an admin installs</td><td>"Everyone in support gets the support kit"</td></tr>
+    <tr><td>Use a tool that has no connector</td><td>A custom connector or a no-code route</td><td>Zapier MCP (Chapter 16)</td></tr>
+  </table></div>
+  <div class="callout good"><p><strong>Rule of thumb:</strong> start with a connector and a plain request. Add a skill when you repeat the task. Reach for a plugin when you want the whole kit for a role.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Claude &middot; plugins</p>
+  <h2>Add a plugin in Claude, step by step</h2>
+  <ol class="steps">
+    <li>Open <strong>Customize &rarr; Plugins</strong> (claude.ai or the desktop app).</li>
+    <li>Choose <strong>Discover</strong> to browse Anthropic's catalog, the directory, and any your organization offers. Open one to read what it contains, then select <strong>Add</strong>.</li>
+    <li>Open the plugin's <strong>Connectors</strong> tab. Each connector shows <em>Connected</em>, <em>Not connected</em> or <em>Not added</em>. Connect the ones you use, one at a time.</li>
+    <li>Use it: describe the task and Claude loads the matching skill, or type <strong>/</strong> in the message box and pick <code>plugin-name:skill-name</code>.</li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">Good to know</span><ul class="small"><li><strong>Adding a plugin does not sign you in to anything.</strong> You connect each service yourself.</li><li>Its skills load even without connectors, but a skill cannot reach a service until that connector shows <em>Connected</em>.</li><li>On Team or Enterprise, an Owner adds the connector for the organization first.</li></ul></div>
+    <div class="card"><span class="no">Where it works</span><ul class="small"><li>Skills, commands and connectors: chat, Cowork (tasks in the desktop app) and Claude Code (the coding tool).</li><li><strong>Agents and hooks do not run in chat</strong>, only in Cowork and Claude Code.</li><li>Turn it off with <strong>Disable plugin</strong>, or choose <strong>Remove</strong>.</li></ul></div>
+  </div>
+  <p class="src"><a href="https://claude.com/docs/plugins/overview">Claude docs: Plugins</a> &middot; <a href="https://claude.com/docs/plugins/platform-support">feature support by app</a> &middot; <span class="tag green">official</span> &middot; Directory plugins appear on Pro, Max, Ultra, Team and Enterprise.</p>
+</section>
+
+<section class="slide plate-slide">
+  <p class="kicker">In pictures &middot; V &middot; kit and key</p>
+  <a class="plate" href="../assets/plates/kit-and-key.jpg" target="_blank" rel="noopener" title="Click to enlarge"><img src="../assets/plates/kit-and-key.jpg" alt="Hand-drawn flowchart called Kit and key. At the top is nothing set up. From there, you add the plugin to reach plugin added, connector not signed in, in yellow, or you connect a connector to reach connector connected, no plugin, in blue. From the yellow state you sign in to its connector to reach plugin and connector both ready, in green. From the blue state you add the plugin to reach the same green state. From green, the sign-in runs out and you return to the yellow state. A card at the top says there are two separate steps: the kit, which is adding the plugin, and the key, which is signing in. Notes say skills load right away but cannot reach your tool until it says Connected, and that removing the plugin leaves the connector connected, according to ChatGPT's docs."></a>
+  <div class="cap"><strong>How to read it:</strong> there are two separate things to set up. Yellow = you have the kit but not the key. Blue = you have the key but not the kit. Green = both, so the plugin can do its job. Notice there is no arrow from <em>add the plugin</em> straight to green. Click the picture to enlarge it and zoom in.
+    <details><summary>How it was checked, and what it leaves out</summary><strong>How it was checked:</strong> TLC explored 4 situations and 8 steps. Rules that hold: there is no dead end, and <em>adding or removing a plugin never changes whether you are signed in</em>. That second rule is checked over steps, not just states. <strong>What the picture leaves out:</strong> we hid the "remove the plugin" arrows and the sign-in running out when no plugin is added, to keep the picture readable. The note about removing a plugin comes from ChatGPT's docs. Claude's docs do not say, so check on your account. The flow follows the Claude and ChatGPT plugin docs, not a test of their code.</details></div>
+  <p class="src">Claude: <a href="https://claude.com/docs/plugins/overview#bundled-connectors">Bundled connectors</a> &middot; ChatGPT: <a href="https://learn.chatgpt.com/docs/plugins">plugins, uninstall behavior</a> &middot; <span class="tag green">official</span> &middot; Picture made with the <em>statechart-art</em> skill</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Claude &middot; ready-made plugins by job</p>
+  <h2>Anthropic's own plugins, by what they help with</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Plugin</th><th>Jobs it covers</th><th>Connectors it bundles (examples)</th></tr>
+    <tr><td>sales</td><td>Research prospects, prep calls, review pipeline, draft outreach</td><td>Slack, HubSpot, Notion, Microsoft 365</td></tr>
+    <tr><td>customer-support</td><td>Triage tickets, draft replies, package escalations, write help articles</td><td>Slack, Intercom, HubSpot, Notion</td></tr>
+    <tr><td>productivity</td><td>Tasks, calendars, daily workflow</td><td>Slack, Notion, Asana, Microsoft 365</td></tr>
+    <tr><td>product-management</td><td>Specs, roadmaps, research summaries, stakeholder updates</td><td>Slack, Linear, Notion, Figma</td></tr>
+    <tr><td>marketing</td><td>Content, campaigns, brand voice, performance reports</td><td>Canva, Figma, HubSpot, Notion</td></tr>
+    <tr><td>enterprise-search</td><td>One question across email, chat, docs and wikis</td><td>Slack, Notion, Asana, Microsoft 365</td></tr>
+    <tr><td>legal, finance, data</td><td>Contract and NDA review; reconciliations and statements; SQL and dashboards</td><td>Box, Egnyte; Snowflake, BigQuery; Hex</td></tr>
+  </table></div>
+  <div class="callout warn"><p>Anthropic calls these "generic starting points" to adapt to your own tools and processes. Our advice: have a person check anything legal or financial.</p></div>
+  <p class="small">You call a command as <code>/plugin:command</code>, for example <code>/sales:call-prep</code> or <code>/product-management:write-spec</code>.</p>
+  <p class="src"><a href="https://github.com/anthropics/knowledge-work-plugins">anthropics/knowledge-work-plugins</a> (README) &middot; <span class="tag green">official repo</span> &middot; 11 plugins in total. We read the list, not each command's output <span class="tag red">untested</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Worked example 1 &middot; Claude &middot; Sales plugin</p>
+  <h2>Prepare for a customer call</h2>
+  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
+  <div class="compare">
+    <div class="bad"><span class="label">Before</span><p>You open the CRM, search Slack, scroll old notes and paste scraps into a chat. 25 minutes, and you still miss the last thread.</p></div>
+    <div class="good"><span class="label">After</span><p>One request pulls what your connected tools hold about the account into a one-page brief, with sources, in a couple of minutes.</p></div>
+  </div>
+  <ol class="steps">
+    <li>Add the <strong>sales</strong> plugin. Connect only the tools you really use (for example Slack and your CRM).</li>
+    <li>Test read-only: <em>"List the last three conversations about [company]."</em></li>
+    <li>Run the prep (below). Read it, then open the two sources that matter most.</li>
+  </ol>
+  <div class="copybox"><button class="btn copybtn" data-target="p-sales">Copy</button>
+<pre class="prompt" id="p-sales">Use the sales plugin to prepare me for my call with [company] on [day].
+Look in my connected tools for: past conversations, open deals and the latest notes.
+Give me: who I am meeting, what they care about, 3 questions to ask, and one risk.
+Name the source for every point. Do not send or change anything.</pre></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Worked examples 2 and 3 &middot; Claude</p>
+  <h2>Support triage, and starting your day</h2>
+  <p class="small soft">Illustrative workflows, not real AI transcripts.</p>
+  <div class="grid two">
+    <div class="card"><span class="no">Example 2 &middot; customer-support plugin</span><p class="small"><strong>Job:</strong> a pile of tickets, a few urgent ones. <strong>Bundles:</strong> Slack, Intercom, HubSpot, Notion and others. <strong>Rule:</strong> draft replies, never send.</p>
+      <div class="copybox"><button class="btn copybtn" data-target="p-support">Copy</button>
+<pre class="prompt" id="p-support">Use the customer-support plugin. Look at today's open tickets in [Intercom].
+Group them by topic, flag anything urgent, and draft a reply for the top 3.
+Name the ticket for each draft. Drafts only. Do not send.</pre></div></div>
+    <div class="card"><span class="no">Example 3 &middot; productivity plugin</span><p class="small"><strong>Job:</strong> start the day without opening six apps. <strong>Bundles:</strong> Slack, Notion, Asana, Microsoft 365 and others. <strong>Rule:</strong> read-only.</p>
+      <div class="copybox"><button class="btn copybtn" data-target="p-day">Copy</button>
+<pre class="prompt" id="p-day">Start my day. Use my calendar, my open tasks due this week in [Asana or Notion],
+and anything in Slack that mentions me since yesterday.
+Give me a 5-line plan and name where each item came from. Read-only.</pre></div></div>
+  </div>
+  <div class="callout good"><p>Both prompts say what to <strong>produce</strong>, what to <strong>name</strong> (sources) and what <strong>not to do</strong> (send, change). Reuse that shape for any job.</p></div>
+  <p class="src">Bundled connectors per the <a href="https://github.com/anthropics/knowledge-work-plugins">plugin repo README</a> &middot; <span class="tag green">official repo</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Connector use cases</p>
+  <h2>What you can do, by kind of app</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Kind of app</th><th>Examples</th><th>A good first ask</th><th>Reads or writes</th></tr>
+    <tr><td>Files and docs</td><td>Google Drive, Box</td><td>"Find my project brief and list the next steps."</td><td>Read</td></tr>
+    <tr><td>Email and chat</td><td>Gmail, Slack</td><td>"Summarize unread threads from today."</td><td>Read, then drafts</td></tr>
+    <tr><td>Calendar and tasks</td><td>Google Calendar, Asana, Linear</td><td>"What is on my plate this week?"</td><td>Read, then add</td></tr>
+    <tr><td>Notes and wiki</td><td>Notion</td><td>"What did we decide about X?"</td><td>Read, then update</td></tr>
+    <tr><td>Numbers and dashboards</td><td>Tableau, Hex</td><td>"Explain this view in 5 plain bullets."</td><td>Read</td></tr>
+    <tr><td>Design</td><td>Canva, Figma</td><td>"Make a poster for our event."</td><td>Creates files</td></tr>
+    <tr><td>Everyday life (ChatGPT apps)</td><td>Spotify, Zillow</td><td>"Spotify, make a jazz playlist for work."</td><td>Creates and browses</td></tr>
+  </table></div>
+  <p class="small">The ChatGPT everyday apps were among the first apps at launch in October 2025, according to press coverage. Which apps you see depends on your account and region.</p>
+  <p class="src">Examples from the plugin docs and READMEs in this chapter &middot; ChatGPT launch apps: <a href="https://www.tomsguide.com/ai/you-can-now-use-apps-inside-chatgpt-including-spotify-canva-and-zillow-heres-how">Tom's Guide</a> <span class="tag red">press, not OpenAI</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Five things to ask for</p>
+  <h2>Find, summarize, compare, draft, update</h2>
+  <p>Nearly every connector job is one of five moves. Go in this order: the first three only look, the last two make things.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="p-five">Copy</button>
+<pre class="prompt" id="p-five">1 FIND:      Find [the thing] in [app]. Give me the title and link of the best 3 matches.
+2 SUMMARIZE: Summarize [that item] in 5 bullets for someone who has not seen it.
+3 COMPARE:   Compare [item A] with [item B]. What changed? What do they disagree on?
+4 DRAFT:     Draft [an email / a reply / a page] from what you found. Draft only, do not send.
+5 UPDATE:    Show me the exact change you want to make in [app]. Wait for my yes before doing it.</pre></div>
+  <div class="grid two">
+    <div class="card"><span class="no">Why this order</span><p class="small">Looking is low risk. Drafting is reversible. Updating or sending changes the real world, so it comes last, with your approval.</p></div>
+    <div class="card"><span class="no">Always add</span><p class="small"><em>"Name the source for every point."</em> It lets you check the answer in ten seconds instead of trusting it.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Worked example 4 &middot; for students</p>
+  <h2>Exam prep from your own notes</h2>
+  <p class="small soft">Illustrative workflow, not a real AI transcript. Works with a Drive connector and a Calendar connector in Claude, or the matching apps in ChatGPT.</p>
+  <div class="compare">
+    <div class="bad"><span class="label">Before</span><p>Notes in five docs, an exam in three weeks, a calendar full of lectures. You make a plan on paper and drop it by Thursday.</p></div>
+    <div class="good"><span class="label">After</span><p>The AI reads your notes and your free time, then proposes a plan you can fit around lectures. You approve it before anything is added.</p></div>
+  </div>
+  <div class="copybox"><button class="btn copybtn" data-target="p-student">Copy</button>
+<pre class="prompt" id="p-student">Use my Drive notes in the folder [Biology] and my calendar.
+1. List the topics my notes cover, and the topics from [exam syllabus] they do not.
+2. Make a study plan from today to [exam date] around my free time. Show it as a table.
+3. Add 3 quiz questions per topic from my own notes, with the note each came from.
+Do not add anything to my calendar yet. I will say "go" when the plan is right.</pre></div>
+  <p class="small">After you say "go", the AI asks before it writes to your calendar. If your school account blocks connectors, ask your IT help desk, or try a personal account.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">ChatGPT &middot; plugins</p>
+  <h2>Add a plugin in ChatGPT, step by step</h2>
+  <ol class="steps">
+    <li>Open the <strong>Plugins</strong> tab in ChatGPT on the web or desktop.</li>
+    <li>Browse the directory. It has tabs for <strong>OpenAI</strong>, your <strong>workspace</strong> and <strong>Personal</strong>, plus a row of what you have <strong>Installed</strong>.</li>
+    <li>Open a plugin's details and select the <strong>plus</strong> button to install it.</li>
+    <li>Sign in to any service it asks for. Some ask at install, others at first use.</li>
+    <li>Use it: describe the result you want, or type <strong>@</strong> to choose a plugin or one of its skills.</li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">Plugins listed in the docs</span><ul class="small"><li><strong>Gmail:</strong> work with your mail.</li><li><strong>Google Drive:</strong> across Drive, Docs, Sheets and Slides.</li><li><strong>Slack:</strong> summarize channels or draft replies.</li></ul></div>
+    <div class="card"><span class="no">Good to know</span><ul class="small"><li>Uninstalling removes the plugin only. Connected services stay connected until you disconnect them.</li><li>Workspace-installed plugins may not offer Uninstall.</li><li>Plugins are not in the IDE extension.</li></ul></div>
+  </div>
+  <p class="src"><a href="https://learn.chatgpt.com/docs/plugins">ChatGPT docs: plugins</a> &middot; <span class="tag green">official</span> &middot; OpenAI Help pages were blocked, so plan details are <span class="tag red">check your account</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Worked examples 5 and 6 &middot; ChatGPT</p>
+  <h2>Mail, chat and files in one conversation</h2>
+  <p class="small soft">Illustrative workflows, not real AI transcripts. The first two prompts use the examples ChatGPT's own docs give.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="p-chatgpt">Copy</button>
+<pre class="prompt" id="p-chatgpt">Example 5, Gmail plugin
+Summarize unread Gmail threads from today. For each: who wrote, what they want, and whether I owe a reply. Draft nothing yet.
+
+Example 5b, Slack plugin
+Summarize the channel [#project-atlas] since Monday. List decisions, open questions and who owns what. Then draft a reply to the last question for me to review. Do not post it.
+
+Example 6, Google Drive plugin
+Find the project brief for [project] in Drive and list the next steps. Name the file. Then check the Sheet [name] and tell me if the numbers match the brief.</pre></div>
+  <div class="callout"><p><strong>Same shape as the Claude examples:</strong> a clear result, named sources, and "draft, don't post". Only the menu names differ between assistants.</p></div>
+  <div class="callout warn"><p>Before you run these: confirm which account each plugin is signed in to (Chapter 15, page 13), and start with the summary prompts.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Side by side</p>
+  <h2>Claude and ChatGPT, compared</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th></th><th>Claude</th><th>ChatGPT</th></tr>
+    <tr><td>Word for the link to a tool</td><td>Connector</td><td>App (formerly connector)</td></tr>
+    <tr><td>Word for the bundle</td><td>Plugin</td><td>Plugin</td></tr>
+    <tr><td>Where to find them</td><td>Customize &rarr; Plugins, Connectors</td><td>Plugins tab; apps in settings <span class="tag red">path varies</span></td></tr>
+    <tr><td>A plugin can contain</td><td>Skills, connectors, commands, agents</td><td>Skills and connected apps (MCP); hooks and extensions possible</td></tr>
+    <tr><td>How you use one</td><td>Describe the task, or type <strong>/</strong></td><td>Describe the task, or type <strong>@</strong></td></tr>
+    <tr><td>Add your own</td><td>Create with Claude; upload; add a marketplace</td><td>Personal tab; admins can sync a GitHub marketplace</td></tr>
+    <tr><td>Admin controls</td><td>Four levels per plugin: Not available, Available, Installed by default, Required</td><td>Admin Console for plugins <span class="tag red">levels per role: third-party</span></td></tr>
+    <tr><td>Agents and hooks</td><td>Not in chat; Cowork and Claude Code only</td><td>Not in the IDE extension</td></tr>
+    <tr><td>Remove</td><td>Disable plugin, or Remove</td><td>Uninstall plugin (bundle only)</td></tr>
+  </table></div>
+  <p class="src"><a href="https://claude.com/docs/plugins/overview">Claude docs</a> &middot; <a href="https://learn.chatgpt.com/docs/plugins">ChatGPT docs</a> &middot; <span class="tag green">official</span> &middot; ChatGPT admin details come from a search summary of OpenAI Help (page blocked) and a third-party guide.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">For team leads and admins</p>
+  <h2>Give a whole team the same setup</h2>
+  <p>The use case: "Everyone in support should have the same kit, on day one, and nobody should have to hunt for it."</p>
+  <ol class="steps">
+    <li><strong>Pilot with a few people.</strong> Upload or sync the plugin and share it with 3 to 5 people first.</li>
+    <li><strong>Add its connectors for the organization.</strong> In Claude, an Owner does this under <em>Organization settings &rarr; Connectors</em>. Each member then connects with their own account.</li>
+    <li><strong>Choose the level.</strong> In <em>Organization settings &rarr; Plugins &amp; skills</em>, set <strong>Available to install</strong>, <strong>Installed by default</strong> or <strong>Required</strong>.</li>
+    <li><strong>Watch use.</strong> The Inventory page shows how many people used each plugin in the last 30 days.</li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">Claude (Enterprise)</span><p class="small">You can set a plugin differently for each user group. A group's setting replaces the organization's for its members.</p></div>
+    <div class="card"><span class="no">ChatGPT</span><p class="small">Admins manage workspace plugins and can sync a GitHub marketplace for the team. Company-managed app accounts are set up under Workspace connections.</p></div>
+  </div>
+  <p class="src"><a href="https://claude.com/docs/plugins/admin">Claude docs: manage plugins for your organization</a> &middot; <a href="https://learn.chatgpt.com/docs/plugins">ChatGPT docs</a> &middot; <span class="tag green">official</span> &middot; Claude's publishing review default for Enterprise changes on 4 Nov 2026 (see its admin page).</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Safety</p>
+  <h2>A plugin is someone else's setup. Check it first.</h2>
+  <p>A plugin's skills are instructions Claude follows, and its connectors act with <em>your</em> account. So before you add one:</p>
+  <ul class="checks">
+    <li><strong>Who made it?</strong> Anthropic and OpenAI list plugins in their directories. Others come from a marketplace link or an uploaded file.</li>
+    <li><strong>Was it reviewed?</strong> Anthropic scans and reviews directory plugins. Its docs say that review <strong>does not cover</strong> a plugin you add by URL or upload. Add those only from sources you trust.</li>
+    <li><strong>Which connectors does it bundle?</strong> Connect only the ones you need, and start read-only.</li>
+    <li><strong>What runs on your computer?</strong> In Cowork and Claude Code, agents, hooks and "Runs in each session" connectors run commands on your machine.</li>
+    <li><strong>Can you undo it?</strong> Know where <strong>Disable plugin</strong> and <strong>Remove</strong> are before you need them.</li>
+  </ul>
+  <div class="callout warn"><p>The "lethal trifecta" from Chapter 16 still applies: private data, untrusted content and a way to send out, all in one chat.</p></div>
+  <p class="src"><a href="https://claude.com/docs/plugins/overview">Claude docs: Before you add a plugin</a> &middot; <span class="tag green">official</span></p>
+</section>
+
+<section class="slide plate-slide">
+  <p class="kicker">In pictures &middot; VI &middot; the loose parcel</p>
+  <a class="plate" href="../assets/plates/the-loose-parcel.jpg" target="_blank" rel="noopener" title="Click to enlarge"><img src="../assets/plates/the-loose-parcel.jpg" alt="Hand-drawn flowchart called The loose parcel, with a red path. At the top is you look for a plugin. On the left is the directory lane in green: added from the directory, used in Cowork or Claude Code, then its code runs on your computer, all from the directory. On the right is the link or file lane, outlined in red: added from a link or file, used in Cowork or Claude Code, then its code runs on your computer, shown in pink with a rule broken stamp. Both lanes can be removed to start over. A reviewed stamp sits by a parcel on the left, and a parcel with a question mark and no stamp sits on the right. A card states the rule: nothing unreviewed should run on your computer. A note says that in chat, hooks and agents are ignored, so this path needs Cowork or Claude Code."></a>
+  <div class="cap"><strong>How to read it:</strong> left lane = a plugin from the directory (Anthropic scans each version and a person reviews each new listing). Right lane = a plugin from a link or file, which Anthropic's review does not cover. The red arrows are the shortest way to break the rule, found by the model checker (TLC) in 3 steps. <strong>The point:</strong> the danger starts when its hooks or agents run on <em>your</em> computer, in Cowork or Claude Code.
+    <details><summary>How it was checked, and what it leaves out</summary><strong>How it was checked:</strong> TLC explored 7 situations and 8 steps. The rule "nothing unreviewed runs on your computer" breaks only in the link-or-file lane. The facts behind the model come from Claude's plugin docs: directory plugins are scanned and reviewed, link and upload plugins are not, and agents and hooks run in Cowork and Claude Code but are ignored in chat. <strong>Careful:</strong> the rule is our design rule, not a Claude rule, and <em>reviewed</em> does not mean guaranteed safe. It is a scan plus a person, which lowers the risk. The picture leaves out Claude Code mods and local connectors, which work the same way.</details></div>
+  <p class="src"><a href="https://claude.com/docs/plugins/overview#before-you-add-a-plugin">Claude docs: Before you add a plugin</a> &middot; <a href="https://claude.com/docs/plugins/platform-support">feature support by app</a> &middot; <span class="tag green">official</span> &middot; Picture made with the <em>statechart-art</em> skill</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Worked example 7 &middot; make your own</p>
+  <h2>Turn your skills into a team plugin</h2>
+  <p class="small soft">The use case: you built <code>weekly-report</code> and <code>meeting-followup</code> in Chapter 16. Now your whole team wants them. We have not run this in a live account.</p>
+  <ol class="steps">
+    <li>Open <strong>Customize &rarr; Plugins &rarr; Add</strong> and choose <strong>Create with Claude</strong>.</li>
+    <li>Describe what to bundle (prompt below). Claude builds the plugin with you.</li>
+    <li>Test it on practice data. Check that each connector shows <em>Connected</em>.</li>
+    <li>On Team or Enterprise, <strong>share it with specific people</strong> first, then publish it to your organization when it works.</li>
+  </ol>
+  <div class="copybox"><button class="btn copybtn" data-target="p-plugin">Copy</button>
+<pre class="prompt" id="p-plugin">Help me create a plugin called team-weekly.
+Include my two skills: weekly-report and meeting-followup (I will paste them).
+It should use these connectors: Tableau, Google Slides, Google Calendar, Gmail.
+Add one command, /team-weekly:friday, that runs the weekly report and then asks if I want a meeting follow-up draft.
+Every skill must be read-only by default and draft, never send. Ask me questions before you build it.</pre></div>
+  <p class="src"><a href="https://claude.com/docs/plugins/overview">Claude docs: create your own plugin</a> &middot; <span class="tag green">official steps</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Your turn &middot; 15 minutes</p>
+  <h2>Pick one job. Fill in a use-case card.</h2>
+  <ol class="steps">
+    <li><strong>(3 min)</strong> Pick one job you repeat, such as a call prep, a weekly update or a study plan.</li>
+    <li><strong>(4 min)</strong> Fill the card below (copy it into a note).</li>
+    <li><strong>(5 min)</strong> Connect only what the card lists. Run the first ask <em>read-only</em>.</li>
+    <li><strong>(3 min)</strong> Check two facts against the source. Note one fix.</li>
+  </ol>
+  <div class="copybox"><button class="btn copybtn" data-target="p-card">Copy</button>
+<pre class="prompt" id="p-card">USE-CASE CARD
+Job I repeat:
+Tools it touches (apps):
+Connector, skill or plugin? (see page 3):
+First ask (read-only):
+What it may write or send, if anything:
+Who approves before it does:
+How I will check the result (2 facts):
+What I will not connect:</pre></div>
+  <div class="sticky tape" style="max-width:520px">Share your card. Which line was hardest to fill in? That is usually where the risk is.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Recap</p>
+  <h2>Remember these</h2>
+  <div class="grid two">
+    <div class="sticky tape"><b>Start from the job.</b> Connector = key, skill = recipe, plugin = kit.</div>
+    <div class="sticky green tape"><b>Find, summarize, compare, draft, update.</b> In that order.</div>
+    <div class="sticky pink tape">Adding a plugin <b>does not sign you in</b>. Connect each service, read-only first.</div>
+    <div class="sticky blue tape">Directory plugins are reviewed. <b>URL and upload plugins are not.</b></div>
+  </div>
+  <p class="soft hand" style="font-size:1.5rem"><a href="../index.html">Back to all chapters</a></p>
+</section>
+
+</main>
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+<script src="../assets/copy.js"></script>
+<script src="../assets/viewer.js"></script>
+</body>
+</html>

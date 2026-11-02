@@ -1,0 +1,14 @@
+---
+title: "kit and key"
+---
+stateDiagram-v2
+  s0: nothing set up
+  s1: plugin added, connector not signed in
+  s2: connector connected, no plugin
+  s3: plugin and connector both ready
+  [*] --> s0
+  s0 --> s1: you add the plugin
+  s0 --> s2: you connect a connector
+  s1 --> s3: you sign in to its connector
+  s2 --> s3: you add the plugin
+  s3 --> s1: the sign-in runs out

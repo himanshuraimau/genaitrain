@@ -1,0 +1,36 @@
+---
+title: "the unreviewed parcel"
+config:
+  state:
+    rankSpacing: 36
+    nodeSpacing: 72
+---
+stateDiagram-v2
+  state "Legend" as legend {
+    lg0: Breaks NothingUnreviewedRunsOnYourComputer
+    lg1: Path to the NothingUnreviewedRunsOnYourComputer bug
+  }
+  class lg0 breaks
+  class lg1 bugPath
+  s0: you look for a plugin
+  s1: added from the directory
+  s2: added from a link or file
+  s3: used in Cowork or Claude Code (from the directory)
+  s4: used in Cowork or Claude Code (from a link or file)
+  s5: its code runs on your computer (from the directory)
+  s6: its code runs on your computer (from a link or file)
+  [*] --> s0
+  s0 --> s1: you add it from the directory
+  s0 --> s2: you add it from a link or file
+  s1 --> s3: you use it in Cowork or Claude Code
+  s2 --> s4: you use it in Cowork or Claude Code
+  s3 --> s5: its hook or agent starts
+  s4 --> s6: its hook or agent starts
+  s5 --> s0: you remove it and start over
+  s6 --> s0: you remove it and start over
+  classDef breaks fill:#ffecee,stroke:#e72e3b,stroke-width:2.5px,color:#cd2834
+  class s0 bugPath
+  class s2 bugPath
+  class s4 bugPath
+  class s6 breaks
+  class s6 bugPath

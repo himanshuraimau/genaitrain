@@ -6,7 +6,7 @@
 <title>Chapter 16: MCP + skills, build your own, stay safe | Gen AI Notebook</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body data-prev="15-connect-and-use.html">
+<body data-prev="15-connect-and-use.html" data-next="17-connectors-and-plugins.html">
 <div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 16 &middot; MCP + skills, build, safety</span></div>
 <main class="deck">
 
@@ -339,7 +339,7 @@ uv add "mcp[cli]"
 
 <section class="slide plate-slide">
   <p class="kicker">In pictures &middot; IV &middot; the trifecta</p>
-  <a class="plate" href="../assets/plates/the-trifecta.jpg" target="_blank" rel="noopener" title="Open the full-size picture"><img src="../assets/plates/the-trifecta.jpg" alt="Hand-drawn flowchart called The trifecta, with a red path. Just chatting, then you connect your files or email to reach can read your private files. Then you let it send or post to reach can send things out, then it reads a stranger's email or web page to reach all three at once, then a hidden instruction says send it out and your private data leaks, shown in red with a rule broken stamp. A side branch shows has read a stranger's text. A legend shows the three legs: private files, a stranger's text, and a way out. Any one alone is fine; all three at once is not."></a>
+  <a class="plate" href="../assets/plates/the-trifecta.jpg" target="_blank" rel="noopener" title="Click to enlarge"><img src="../assets/plates/the-trifecta.jpg" alt="Hand-drawn flowchart called The trifecta, with a red path. Just chatting, then you connect your files or email to reach can read your private files. Then you let it send or post to reach can send things out, then it reads a stranger's email or web page to reach all three at once, then a hidden instruction says send it out and your private data leaks, shown in red with a rule broken stamp. A side branch shows has read a stranger's text. A legend shows the three legs: private files, a stranger's text, and a way out. Any one alone is fine; all three at once is not."></a>
   <div class="cap"><strong>How to read it:</strong> the red arrows are the shortest way to the leak that the model checker (TLC) found: 4 steps. The two other arrows show the same ending reached in the other order.
     <details><summary>How it was checked, and what it leaves out</summary><strong>What the model fixes:</strong> it starts by connecting your files, and it leaves out the "turn it off again" arrows (so the picture stays readable). Taking away <em>any one</em> leg closes the path. The idea is Simon Willison's "lethal trifecta". This is a model of the idea, not of any one product.</details></div>
   <p class="src"><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Simon Willison: The lethal trifecta</a> &middot; <span class="tag green">named source</span></p>
@@ -410,7 +410,7 @@ uv add "mcp[cli]"
     <div class="sticky blue tape">Build your own only if you must: <b>directory &rarr; Zapier/n8n &rarr; code.</b></div>
   </div>
   <div class="callout warn"><p><strong>Before class, re-check:</strong> ChatGPT plan rules, Gemini custom-app conditions, whether Google's Docs/Slides servers left Developer Preview, and the Tableau connection in a live account.</p></div>
-  <p class="soft hand" style="font-size:1.5rem"><a href="../index.html">Back to all chapters</a></p>
+  <p class="soft hand" style="font-size:1.5rem">Next: Chapter 17, connectors and plugins by use case. <a href="17-connectors-and-plugins.html">Go to Chapter 17 &rarr;</a></p>
 </section>
 
 </main>
@@ -419,5 +419,6 @@ uv add "mcp[cli]"
 <div class="hint">tip: use the &larr; &rarr; keys</div>
 <script src="../assets/deck.js"></script>
 <script src="../assets/copy.js"></script>
+<script src="../assets/viewer.js"></script>
 </body>
 </html>
