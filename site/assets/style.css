@@ -294,3 +294,34 @@ code { font-family: "Courier New", ui-monospace, monospace; font-size: .88em; ba
 .plate-slide .src { text-align: left; margin-top: 8px; }
 .plate-slide .cap summary { cursor: pointer; font-family: var(--hand); font-size: 1.2rem; font-weight: 700; color: var(--red); margin-top: 4px; }
 .plate-slide .cap details { margin-top: 2px; }
+
+/* picture viewer (assets/viewer.js) */
+a.plate { position: relative; cursor: zoom-in; }
+a.plate::after {
+  content: "Click to enlarge"; position: absolute; right: 10px; bottom: 10px;
+  font-family: var(--hand); font-size: 1.2rem; font-weight: 700; line-height: 1.2; color: var(--ink);
+  background: var(--sticky); border: 1.5px solid var(--ink); border-radius: 6px; padding: 0 10px 2px; box-shadow: 2px 3px 0 var(--ink);
+}
+@media (hover: none) { a.plate::after { content: "Tap to enlarge"; } }
+html.viewer-open, html.viewer-open body { overflow: hidden; }
+.viewer { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; background: rgba(36, 28, 14, .97); animation: vfade .18s ease both; }
+.viewer[hidden] { display: none; }
+@keyframes vfade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .viewer { animation: none; } }
+.viewer-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 14px; color: #fbf7ee; font-family: var(--hand); font-size: 1.35rem; font-weight: 700; }
+.viewer-title { flex: 1 1 140px; min-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.viewer-zoom { min-width: 3.4em; text-align: center; }
+.vbtn {
+  font-family: var(--hand); font-size: 1.25rem; font-weight: 700; line-height: 1.2; color: var(--ink); text-decoration: none; cursor: pointer;
+  background: var(--sticky); border: 1.5px solid var(--ink); border-radius: 6px; padding: 1px 12px 3px; box-shadow: 2px 3px 0 var(--ink);
+}
+.vbtn:hover { transform: translate(1px, 1px); box-shadow: 1px 2px 0 var(--ink); color: var(--ink); }
+.vbtn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.viewer-stage { position: relative; flex: 1; min-height: 0; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+.viewer-stage.zoomed { cursor: grab; }
+.viewer-stage.dragging { cursor: grabbing; }
+.viewer-img { position: absolute; left: 0; top: 0; max-width: none; transform-origin: 0 0; background: var(--paper-2); box-shadow: 0 10px 40px rgba(0, 0, 0, .55); -webkit-user-drag: none; user-select: none; }
+.viewer-hint { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); max-width: 92%; text-align: center; pointer-events: none;
+  font-family: var(--hand); font-size: 1.15rem; color: #fbf7ee; background: rgba(36, 28, 14, .7); border-radius: 6px; padding: 0 12px 2px; }
+@media (hover: none) { .viewer-hint { display: none; } }
+@media (max-width: 640px) { .viewer-bar { font-size: 1.1rem; gap: 6px; padding: 8px 10px; } .vbtn { font-size: 1.1rem; padding: 0 9px 2px; } }

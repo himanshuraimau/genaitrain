@@ -152,8 +152,8 @@
 
 <section class="slide plate-slide">
   <p class="kicker">In pictures &middot; I &middot; asking first</p>
-  <a class="plate" href="../assets/plates/asking-first.jpg" target="_blank" rel="noopener" title="Open the full-size picture"><img src="../assets/plates/asking-first.jpg" alt="Hand-drawn flowchart called Asking first. You ask, Claude picks a tool. If the tool is set to Always allow it runs at once. If it is set to Needs approval, Claude waits for your OK, and you either click Allow, so it runs, or say no, so it stops. If it is Blocked, it stops. After the tool runs you review the result, then ask again. A key card lists the three settings: Always allow runs at once, Needs approval asks you first, Blocked never runs."></a>
-  <div class="cap"><strong>How to read it:</strong> every tool has one of three settings, and the picture follows what happens next. Green = the tool runs. Pink = nothing happens. Yellow = Claude is waiting for you. Click the picture to see it full size.
+  <a class="plate" href="../assets/plates/asking-first.jpg" target="_blank" rel="noopener" title="Click to enlarge"><img src="../assets/plates/asking-first.jpg" alt="Hand-drawn flowchart called Asking first. You ask, Claude picks a tool. If the tool is set to Always allow it runs at once. If it is set to Needs approval, Claude waits for your OK, and you either click Allow, so it runs, or say no, so it stops. If it is Blocked, it stops. After the tool runs you review the result, then ask again. A key card lists the three settings: Always allow runs at once, Needs approval asks you first, Blocked never runs."></a>
+  <div class="cap"><strong>How to read it:</strong> every tool has one of three settings, and the picture follows what happens next. Green = the tool runs. Pink = nothing happens. Yellow = Claude is waiting for you. Click the picture to enlarge it and zoom in.
     <details><summary>How it was checked, and what it leaves out</summary><strong>How it was checked:</strong> we wrote the flow as a small model and a model checker (TLC) explored all 15 situations and 17 steps. Two rules held in every one: a Blocked tool never runs, and a tool never runs without your OK unless it is set to Always allow. This follows what Claude Help describes. It is not a test of Claude's own code. "Allow always" works like Allow, and the tool then stops asking.</details></div>
   <p class="src">Settings and prompts from <a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities">Claude Help: connectors</a> &middot; <span class="tag green">official</span> &middot; Picture made with the <em>statechart-art</em> skill (TLA+ model, TLC check, hand-drawn layout)</p>
 </section>
@@ -301,5 +301,6 @@
 <div class="hint">tip: use the &larr; &rarr; keys</div>
 <script src="../assets/deck.js"></script>
 <script src="../assets/copy.js"></script>
+<script src="../assets/viewer.js"></script>
 </body>
 </html>
