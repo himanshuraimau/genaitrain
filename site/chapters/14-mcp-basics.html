@@ -37,7 +37,8 @@
     <div class="card"><h3>Before MCP</h3><p class="small">Every AI tool needed its own custom link to every app. Ten apps and three assistants meant thirty separate connections to build.</p></div>
   </div>
   <div class="sticky tape" style="max-width:520px">With MCP, an app builds <b>one</b> plug. Any AI that speaks MCP can use it.</div>
-  <p class="src"><a href="https://modelcontextprotocol.io/">modelcontextprotocol.io</a> &middot; <span class="tag green">official</span></p>
+  <p class="small soft">Not one company's trick: Anthropic created MCP and gave it to the Agentic AI Foundation (part of the Linux Foundation) in December 2025. It was co-founded by Anthropic, Block and OpenAI, with support from Google, Microsoft and AWS.</p>
+  <p class="src"><a href="https://modelcontextprotocol.io/">modelcontextprotocol.io</a> &middot; <a href="https://anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation">Anthropic: donating MCP</a> &middot; <a href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation">Linux Foundation</a> &middot; <span class="tag green">official</span></p>
 </section>
 
 <section class="slide">
@@ -82,33 +83,7 @@
 </section>
 
 <section class="slide">
-  <p class="kicker">Why it matters</p>
-  <h2>It is not one company's trick</h2>
-  <ul>
-    <li><strong>Open standard.</strong> Anthropic created MCP and in December 2025 donated it to the Agentic AI Foundation, part of the Linux Foundation.</li>
-    <li><strong>Rivals back it.</strong> The foundation was co-founded by Anthropic, Block and OpenAI, with support from Google, Microsoft and AWS.</li>
-    <li><strong>It is already in the tools you use.</strong> Claude, ChatGPT, Gemini and Microsoft Copilot Studio all have some form of MCP support, covered in the next pages.</li>
-  </ul>
-  <div class="callout"><p><strong>What this means for you:</strong> a connection you set up once (say, Notion) can often be reused by different assistants. Learn the idea once and it carries over.</p></div>
-  <p class="src"><a href="https://anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation">Anthropic: donating MCP</a> &middot; <a href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation">Linux Foundation press release</a> &middot; <span class="tag green">official</span></p>
-</section>
-
-<section class="slide">
-  <p class="kicker">Section: each assistant</p>
-  <h2>Who supports MCP, and how easy is it?</h2>
-  <p>Every assistant uses its own words and has its own rules. Here is the short version. Details follow, one tool at a time.</p>
-  <div class="tbl-wrap"><table>
-    <tr><th>Assistant</th><th>What they call it</th><th>Easy for a non-technical person?</th></tr>
-    <tr><td>Claude</td><td>Connectors (custom connectors for your own MCP URL)</td><td><span class="tag green">Yes</span> Directory with one-click connectors; paid plans add a custom URL</td></tr>
-    <tr><td>ChatGPT</td><td>Apps / connectors; custom MCP through developer mode</td><td><span class="tag">Partly</span> Custom MCP is a beta feature with plan and admin rules</td></tr>
-    <tr><td>Gemini</td><td>Connected Apps / custom apps (consumer); MCP servers (Gemini Enterprise, developer tools)</td><td><span class="tag red">Limited</span> Custom apps are US, personal-account, English only; Google's Workspace MCP servers are developer preview</td></tr>
-    <tr><td>Microsoft Copilot</td><td>MCP tools in Copilot Studio agents</td><td><span class="tag red">Maker or IT task</span></td></tr>
-  </table></div>
-  <p class="small soft">We go deepest on Claude because it is the clearest to use today and what this course demos.</p>
-</section>
-
-<section class="slide">
-  <p class="kicker">Claude &middot; 1 of 4</p>
+  <p class="kicker">Claude &middot; 1 of 3</p>
   <h2>Claude: where to click and what it connects to</h2>
   <div class="grid two">
     <div class="card"><span class="no">Where do I click?</span><ul class="small"><li>Settings: <strong>Customize &rarr; Connectors</strong> (claude.ai and Claude Desktop).</li><li>In any chat: the <strong>+</strong> button, then <strong>Connectors</strong>, to switch them on or off for that conversation.</li><li>The same list appears on the mobile apps after you connect on web or Desktop.</li></ul></div>
@@ -120,7 +95,7 @@
 </section>
 
 <section class="slide">
-  <p class="kicker">Claude &middot; 2 of 4</p>
+  <p class="kicker">Claude &middot; 2 of 3</p>
   <h2>Claude: add a custom connector, step by step</h2>
   <p>You need the server's web address (for example, the URL a company gives you for its MCP server).</p>
   <h3>On a Pro, Max or Free account (you are your own admin)</h3>
@@ -138,7 +113,7 @@
 </section>
 
 <section class="slide">
-  <p class="kicker">Claude &middot; 3 of 4</p>
+  <p class="kicker">Claude &middot; 3 of 3</p>
   <h2>Claude: you stay in control</h2>
   <div class="grid two">
     <div class="card"><span class="no">Turn tools on or off</span><p class="small">In a chat, open the <strong>Search and tools</strong> menu and switch off tools you do not need for this task. Fewer tools means fewer chances for a mistake.</p></div>
@@ -156,22 +131,6 @@
   <div class="cap"><strong>How to read it:</strong> every tool has one of three settings, and the picture follows what happens next. Green = the tool runs. Pink = nothing happens. Yellow = Claude is waiting for you. Click the picture to enlarge it and zoom in.
     <details><summary>How it was checked, and what it leaves out</summary><strong>How it was checked:</strong> we wrote the flow as a small model and a model checker (TLC) explored all 15 situations and 17 steps. Two rules held in every one: a Blocked tool never runs, and a tool never runs without your OK unless it is set to Always allow. This follows what Claude Help describes. It is not a test of Claude's own code. "Allow always" works like Allow, and the tool then stops asking.</details></div>
   <p class="src">Settings and prompts from <a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities">Claude Help: connectors</a> &middot; <span class="tag green">official</span> &middot; Picture made with the <em>statechart-art</em> skill (TLA+ model, TLC check, hand-drawn layout)</p>
-</section>
-
-<section class="slide">
-  <p class="kicker">Claude &middot; 4 of 4</p>
-  <h2>Claude: remote, local, and Claude Code</h2>
-  <div class="tbl-wrap"><table>
-    <tr><th>Route</th><th>What it is</th><th>Who it suits</th></tr>
-    <tr><td>Directory connector</td><td>One-click, remote, run by the app's company</td><td>Everyone. Start here.</td></tr>
-    <tr><td>Custom connector (remote URL)</td><td>You paste a URL. Claude reaches it <strong>from Anthropic's cloud</strong>, not from your computer, so it must be public on the internet</td><td>Anyone with a URL from a vendor or a no-code tool (Chapter 16)</td></tr>
-    <tr><td>Desktop extension</td><td>One-click <strong>local</strong> option inside Claude Desktop</td><td>People who need local files or apps</td></tr>
-    <tr><td><code>claude_desktop_config.json</code></td><td>Hand-edited settings file for local servers. Not available in claude.ai or Cowork</td><td>Technical users</td></tr>
-    <tr><td>Claude Code</td><td>The coding tool. Command example: <code>claude mcp add --transport http notion https://mcp.notion.com/mcp</code></td><td>Developers</td></tr>
-  </table></div>
-  <div class="callout"><p>Connectors you add in <strong>claude.ai or Claude Desktop</strong> follow your account everywhere you sign in (web, desktop, mobile, and Claude Code). Things added from the Claude Code command line stay on that one machine.</p></div>
-  <p class="small soft">A server behind a company VPN or firewall will not connect unless Anthropic's IP ranges are allowed. That is a job for your IT team.</p>
-  <p class="src"><a href="https://claude.com/docs/extend/overview">Claude docs: connectors, skills, plugins</a> &middot; <a href="https://code.claude.com/docs/en/mcp">Claude Code: MCP</a> &middot; <span class="tag green">official</span></p>
 </section>
 
 <section class="slide">
@@ -203,7 +162,7 @@
 </section>
 
 <section class="slide">
-  <p class="kicker">Gemini &middot; 1 of 3</p>
+  <p class="kicker">Gemini &middot; 1 of 2</p>
   <h2>Gemini: four different things share one name</h2>
   <p>"Does Gemini support MCP?" has four answers, depending on which Gemini you mean.</p>
   <div class="tbl-wrap"><table>
@@ -219,7 +178,7 @@
 </section>
 
 <section class="slide">
-  <p class="kicker">Gemini &middot; 2 of 3</p>
+  <p class="kicker">Gemini &middot; 2 of 2</p>
   <h2>Gemini app: add a custom app</h2>
   <p>Google's help page for custom apps lists the conditions up front:</p>
   <div class="grid two">
@@ -229,17 +188,6 @@
   <div class="callout"><p>Gemini <strong>requires manual confirmation for any write action</strong>. Removing an app (not just turning it off) also unlinks the server from your Google Account.</p></div>
   <div class="callout warn"><p>Google says it "does not control, monitor, or secure third-party MCP servers" and that custom apps may ask for more data than needed.</p></div>
   <p class="src"><a href="https://support.google.com/gemini/answer/17209137?hl=en&amp;co=GENIE.Platform%3DDesktop">Gemini Apps Help: custom apps</a> &middot; <span class="tag green">official</span> &middot; The page does not name plans. Third-party pages tie it to a paid "Spark" beta <span class="tag red">unverified</span>.</p>
-</section>
-
-<section class="slide">
-  <p class="kicker">Gemini &middot; 3 of 3</p>
-  <h2>Gemini at work: Enterprise and developer routes</h2>
-  <div class="grid two">
-    <div class="card"><span class="no">Gemini Enterprise, Business edition</span><ol class="small"><li>A <strong>team admin</strong> opens Settings &amp; help &rarr; team &rarr; <strong>Manage team &rarr; Connected apps</strong>.</li><li>Click <strong>Add MCP Server</strong>, enter URL and name.</li><li>Choose sign-in: none, or OAuth 2.0 (client ID, secret, URLs).</li><li>Add it. It is <strong>off by default</strong>, so switch it on for the team.</li></ol><p class="small soft">Needs a public HTTPS server and Streamable HTTP (the older SSE is not supported). Pre-GA: "as is, limited support".</p></div>
-    <div class="card"><span class="no">Google's own Workspace MCP servers</span><p class="small">Endpoints such as <code>drivemcp.googleapis.com</code> and <code>slidesmcp.googleapis.com</code>. Needs: Developer Preview Program membership, a Google Cloud project, the gcloud tool, and an OAuth client marked "for an AI-powered agent".</p><p class="small">Google's page lists <strong>Claude (Pro, Max, Team, Enterprise)</strong> and Google Antigravity as supported clients.</p><p class="small"><strong>For a non-technical Claude user:</strong> skip this. Use Claude's built-in Google connectors (Chapter 15).</p></div>
-  </div>
-  <div class="callout warn"><p><strong>Naming note:</strong> Google's docs say Gemini CLI was replaced by Antigravity CLI on 18 June 2026 for unpaid-tier and Google One users. Check which one you have.</p></div>
-  <p class="src"><a href="https://support.google.com/g/answer/17106276?hl=en">Gemini Enterprise: custom MCP server</a> &middot; <a href="https://developers.google.com/workspace/drive/api/guides/configure-mcp-server">Drive MCP</a> &middot; <a href="https://developers.google.com/workspace/slides/api/guides/configure-mcp-server">Slides MCP</a> &middot; <a href="https://geminicli.com/docs/tools/mcp-server/">Gemini CLI</a> &middot; <span class="tag green">official</span></p>
 </section>
 
 <section class="slide">
@@ -266,20 +214,7 @@
     <tr><td>Write actions</td><td>Yes, with approval prompts</td><td>Yes (beta)</td><td>Yes, manual confirmation</td><td>Depends on the tools the server offers</td></tr>
     <tr><td>Biggest limit</td><td>Server must be public on the internet</td><td>Beta, plan rules unclear</td><td>Narrow conditions; Workspace MCP is developer preview</td><td>Builder tool, not end-user chat</td></tr>
   </table></div>
-  <p class="small soft">All of this is as of 31 Oct 2026. Plans and labels change often. See the next slide for what to re-check before teaching.</p>
-</section>
-
-<section class="slide">
-  <p class="kicker">Honest limits</p>
-  <h2>What we could not fully confirm</h2>
-  <ul class="checks">
-    <li><strong>ChatGPT plans:</strong> OpenAI's help page was blocked for us. It lists Business, Enterprise and Edu; third-party guides add Plus and Pro. Look in your own account.</li>
-    <li><strong>Gemini consumer plan tier:</strong> Google's page lists conditions (US, 18+, personal account, English) but no plan. Check Connected Apps in your account.</li>
-    <li><strong>Google Docs/Slides MCP:</strong> still Developer Preview. Not a click-through yet.</li>
-    <li><strong>Microsoft 365 Copilot:</strong> current non-Studio MCP details only from secondary sources.</li>
-    <li><strong>Gemini API MCP support:</strong> third-party source only.</li>
-  </ul>
-  <div class="callout good"><p>A good habit for any fast-moving tool: before you teach or rely on a feature, open the official page and your own settings once.</p></div>
+  <p class="small soft">All of this is as of 31 Oct 2026. Plans and labels change often.</p>
 </section>
 
 <section class="slide">

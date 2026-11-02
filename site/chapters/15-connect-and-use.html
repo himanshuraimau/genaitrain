@@ -14,7 +14,7 @@
   <span class="chapter-no">Chapter 15 &middot; MCP, part 2 of 3</span>
   <h1>Connect one app. <span class="hl">Then use it.</span></h1>
   <p class="lead">Step-by-step connections for Google Docs, Slides and Drive, Gmail and Calendar, Notion, Slack and Tableau. Then what to do when it breaks, and five everyday workflows.</p>
-  <p class="small soft">Main tool in this chapter: Claude. Short notes for ChatGPT and Gemini are on page 8.</p>
+  <p class="small soft">Main tool in this chapter: Claude. The ChatGPT and Gemini steps are in Chapter 14.</p>
 </section>
 
 <section class="slide">
@@ -23,7 +23,7 @@
   <div class="grid three">
     <div class="card"><span class="no">1</span><h3>Read first</h3><p class="small">Your first prompts should only <em>look</em> at things: "list", "find", "summarize". Do not ask it to send, delete or edit until you trust the setup.</p></div>
     <div class="card"><span class="no">2</span><h3>Test on something harmless</h3><p class="small">Use a practice page or a doc with nothing private in it. Not your payroll sheet.</p></div>
-    <div class="card"><span class="no">3</span><h3>Check the right account</h3><p class="small">If you have a work and a personal login, pick the one you mean on the sign-in page. Page 13 shows how to check afterwards.</p></div>
+    <div class="card"><span class="no">3</span><h3>Check the right account</h3><p class="small">If you have a work and a personal login, pick the one you mean on the sign-in page. Page 12 shows how to check afterwards.</p></div>
   </div>
   <div class="callout warn"><p>A connector lets the AI act <em>as you</em>. Claude Help says connectors can read, create, change and delete data. Start small. Chapter 16 covers safety in full.</p></div>
   <p class="src"><a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Claude Help: custom connectors</a> &middot; <span class="tag green">official</span></p>
@@ -115,17 +115,6 @@
 </section>
 
 <section class="slide">
-  <p class="kicker">Walkthrough 6 &middot; ChatGPT and Gemini</p>
-  <h2>Same idea, different doors</h2>
-  <div class="grid two">
-    <div class="card"><span class="no">ChatGPT</span><ol class="small"><li>Ask your admin to turn on developer mode (Business/Enterprise/Edu).</li><li>Plugins page &rarr; <strong>+ &rarr; Add custom MCP server</strong>.</li><li>Paste the app's remote MCP address (it must end in <code>/mcp</code>) and sign in.</li><li>Review the tools it found, then test with a read-only prompt.</li></ol><p class="small soft">Slack's docs do not list ChatGPT as a client. Notion and Tableau URLs are public; whether each works in ChatGPT <span class="tag red">test it</span>.</p></div>
-    <div class="card"><span class="no">Gemini</span><ol class="small"><li>Check Google's conditions: US, 18+, personal account, English, Keep Activity on.</li><li>gemini.google.com &rarr; <strong>Settings &rarr; Connected Apps &rarr; Add a custom app</strong>.</li><li>Paste the MCP address, follow the sign-in.</li><li>In a chat type <strong>@</strong> and pick the app.</li></ol><p class="small soft">Google Docs, Gmail and Calendar are already inside Gemini's own apps. No MCP needed for those.</p></div>
-  </div>
-  <div class="callout"><p>The skill you learn is the same everywhere: <strong>find the app's remote MCP address, add it, sign in, test read-only.</strong> Only the menu names change.</p></div>
-  <p class="src">Steps summarized from <a href="https://developers.openai.com/apps-sdk/deploy/connect-chatgpt">OpenAI developers</a> and <a href="https://support.google.com/gemini/answer/17209137?hl=en&amp;co=GENIE.Platform%3DDesktop">Gemini Apps Help</a> &middot; <span class="tag green">official</span></p>
-</section>
-
-<section class="slide">
   <p class="kicker">Your first test</p>
   <h2>A four-step test ladder (copy it)</h2>
   <p>Run these one at a time, in order. Stop at the first step that fails. Replace the [brackets].</p>
@@ -186,25 +175,7 @@ Step 4 (only if 1 to 3 worked): Do not change anything. Tell me which actions yo
 </section>
 
 <section class="slide">
-  <p class="kicker">Use case 1 &middot; Drive + Docs</p>
-  <h2>"Find that doc and tell me what it says"</h2>
-  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
-  <div class="compare">
-    <div class="bad"><span class="label">Before</span><p>You remember a proposal from last spring. You search Drive, open four versions, skim each, copy the key terms into a chat to get a summary. 15 minutes.</p></div>
-    <div class="good"><span class="label">After</span><p>One message. Claude searches Drive, opens the right file, and gives you the terms with the file name so you can check. About 1 minute.</p></div>
-  </div>
-  <h3>How you do it, day to day</h3>
-  <ol class="steps">
-    <li>Switch on the Drive and Docs connectors for this chat.</li>
-    <li>Type: <em>"Search my Drive for the 2026 Acme proposal. Open the latest version and list the price, dates and conditions. Give me the file name."</em></li>
-    <li>Open the file it names and check two facts yourself.</li>
-    <li>Follow up: <em>"Write 3 bullets I can paste into an email to the team."</em></li>
-  </ol>
-  <div class="callout"><p>The habit that matters is step 3: <strong>ask for the file name, then spot-check.</strong></p></div>
-</section>
-
-<section class="slide">
-  <p class="kicker">Use case 2 &middot; Docs + Slides</p>
+  <p class="kicker">Use case 1 &middot; Docs + Slides</p>
   <h2>From a written report to a first-draft deck</h2>
   <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
   <div class="compare">
@@ -222,7 +193,7 @@ Step 4 (only if 1 to 3 worked): Do not change anything. Tell me which actions yo
 </section>
 
 <section class="slide">
-  <p class="kicker">Use case 3 &middot; Gmail + Calendar</p>
+  <p class="kicker">Use case 2 &middot; Gmail + Calendar</p>
   <h2>Prepare tomorrow in two minutes</h2>
   <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
   <div class="compare">
@@ -236,41 +207,6 @@ Step 4 (only if 1 to 3 worked): Do not change anything. Tell me which actions yo
     <li>Read the draft in Gmail, edit, and send it yourself.</li>
   </ol>
   <div class="callout good"><p>Notice the pattern: <strong>"draft only, do not send."</strong> The human presses send.</p></div>
-</section>
-
-<section class="slide">
-  <p class="kicker">Use case 4 &middot; Notion + Slack</p>
-  <h2>Catch up on a project after time away</h2>
-  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
-  <div class="compare">
-    <div class="bad"><span class="label">Before</span><p>Back from leave. You scroll three Slack channels, open five Notion pages and ask a colleague what you missed.</p></div>
-    <div class="good"><span class="label">After</span><p>Claude searches both places for the project and gives you one catch-up note, with the pages and threads it used so you can dive deeper.</p></div>
-  </div>
-  <ol class="steps">
-    <li>Connectors on: Notion and Slack.</li>
-    <li>Type: <em>"Catch me up on the Atlas project since 10 October. Search Notion for the project page and Slack for mentions of Atlas. Give me: decisions, open questions, who owns what. Name the page or channel for each point."</em></li>
-    <li>Open the two items that matter most and verify.</li>
-    <li>Optional: <em>"Add a 'Catch-up notes' section to the Notion page."</em> (A write action, so Claude will ask first.)</li>
-  </ol>
-  <div class="callout warn"><p>This mixes private workplace data and a way to write back. Keep the tools narrow and review any write. Chapter 16 explains why.</p></div>
-</section>
-
-<section class="slide">
-  <p class="kicker">Use case 5 &middot; Tableau</p>
-  <h2>Explain a dashboard in plain English</h2>
-  <p class="small soft">Illustrative workflow, not a real AI transcript.</p>
-  <div class="compare">
-    <div class="bad"><span class="label">Before</span><p>You screenshot the dashboard, paste it into a chat and ask what it means. The AI guesses from a picture and cannot check the numbers.</p></div>
-    <div class="good"><span class="label">After</span><p>Claude asks Tableau for the view or data, using <em>your</em> permissions and your site's definitions, then explains it in words.</p></div>
-  </div>
-  <ol class="steps">
-    <li>Connect Tableau (walkthrough 5).</li>
-    <li>Type: <em>"Find the view called Weekly Sales. Tell me what changed versus last week, in 5 bullets for a non-technical reader."</em></li>
-    <li>Ask: <em>"Which numbers did you read exactly? List them."</em></li>
-    <li>Compare two of those numbers with the dashboard itself.</li>
-  </ol>
-  <p class="small">Tableau's own pitch is that with its MCP server, Claude can use your definitions and respect your security boundaries. That is a vendor claim, so step 4 is still your job.</p>
-  <p class="src"><a href="https://github.com/tableau/tableau-mcp">Tableau MCP</a> &middot; the Tableau blog post on this was not readable for us <span class="tag red">vendor claim</span></p>
 </section>
 
 <section class="slide">
