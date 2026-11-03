@@ -1,0 +1,25 @@
+---
+title: "a morning run"
+config:
+  state:
+    rankSpacing: 36
+    nodeSpacing: 40
+---
+stateDiagram-v2
+  s0: asleep
+  s1: fetching sources
+  s2: fetching, one source failed
+  s3: dropping seen items
+  s4: scoring new items
+  s5: writing the digest
+  s6: draft in your inbox
+  [*] --> s0
+  s0 --> s1: 7:00, or Run now
+  s1 --> s2: a source fails
+  s1 --> s3: all read
+  s2 --> s3: rest finish, noted
+  s3 --> s4: new kept
+  s3 --> s5: nothing new
+  s4 --> s5: scored
+  s5 --> s6: saved as draft
+  s6 --> s0: you read it
