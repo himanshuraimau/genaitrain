@@ -1,0 +1,34 @@
+KITE & CO: DEMO DATA (made up, for teaching only)
+Kite & Co is an imaginary online stationery shop in India. Every name, email and number is invented.
+Period: 7 Aug 2026 to 4 Nov 2026 (90 days). Money is in Indian rupees (INR).
+
+FILES
+orders.csv    From the shop system. One row per order line.
+signups.csv   From website analytics. One row per day per channel.
+ad_spend.csv  From the marketing team. One row per day per paid channel (google, instagram).
+kiteco.xlsx   The same three tables as three sheets in one Excel workbook.
+
+COLUMNS
+order_id         Unique order number. (A few appear twice by mistake.)
+order_date       Day of the order. Written in three styles: 2026-10-06, 06/10/2026 (day first), 6 Oct 2026.
+customer_id      Customer code. TEST means an internal test order.
+customer_email   Fake address on example.com.
+country          Where it shipped. Spelled in several ways.
+channel          Where the customer came from. Spelled in several ways (Instagram, insta, IG ...).
+product          Product name.
+category         Product group. Sometimes blank.
+quantity         Units bought. A negative number means a return was typed in by mistake or by design.
+unit_price_inr   List price of one unit, before any discount.
+discount_code    SAVE20 = 20% off. WELCOME10 = 10% off the first order. Blank = no discount.
+status           Delivered, Shipped, Cancelled or Refunded, in mixed capital letters.
+date, channel    In signups.csv and ad_spend.csv: clean day and channel names (google, instagram, newsletter, referral, direct).
+visits, signups  Website visits and new accounts created.
+spend_inr, clicks  Money spent on ads and clicks received.
+
+KNOWN MESS (on purpose, for the cleaning step)
+Mixed date styles, many spellings of country and channel, repeated orders, test orders, negative quantities,
+one or two prices with extra zeros, blank categories, mixed-case status.
+
+LIVE VERSION
+The same data keeps growing every day at /api/shop?table=orders (or signups, ad_spend).
+In Google Sheets:  =IMPORTDATA("https://genai-notebook.vercel.app/api/shop?table=signups")

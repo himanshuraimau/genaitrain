@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 19: Data analytics with AI | Gen AI Notebook</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-prev="18-daily-tracker.html">
+<div class="topbar"><a href="../index.html">&larr; All chapters</a><span class="where">Chapter 19 &middot; Data analytics</span></div>
+<main class="deck">
+
+<section class="slide cover">
+  <span class="chapter-no">Chapter 19 &middot; Build it</span>
+  <h1>From messy files to <span class="hl">an answer you can act on</span></h1>
+  <p class="lead">Pull data from more than one place, have the AI clean it, combine it and analyze it, then turn it into a dashboard. No code. Every prompt works in the Claude app and in ChatGPT.</p>
+  <p class="small soft">Checked on 5 Nov 2026. Examples are illustrative, not real AI transcripts. Tags: <span class="tag green">official page read</span><span class="tag">secondary source</span><span class="tag red">unverified or untested</span>. OpenAI's help pages blocked our reader, so ChatGPT facts are mostly secondary: check them on your account.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">The story we will use</p>
+  <h2>"Signups feel down. Why? What do we do?"</h2>
+  <p>You work at <b>Kite &amp; Co</b>, an imaginary online stationery shop. Your manager asks the question above. The answer is hiding in <b>three systems that don't talk to each other</b>:</p>
+  <div class="grid three">
+    <div class="card"><span class="no">Shop system</span><h3>orders</h3><p class="small">Who bought what, when, with which discount. Written by humans and plugins, so it is <b>messy</b>.</p></div>
+    <div class="card"><span class="no">Website analytics</span><h3>signups</h3><p class="small">Visits and new accounts, per day, per channel (Google, Instagram, newsletter&hellip;).</p></div>
+    <div class="card"><span class="no">Marketing team</span><h3>ad spend</h3><p class="small">Rupees spent and clicks, per day, per paid channel.</p></div>
+  </div>
+  <div class="callout"><p>All the data is made up, by a script, so everyone in the room gets the same files and the same hidden story. The point is the <b>method</b>: connect &rarr; clean &rarr; combine &rarr; ask &rarr; show &rarr; check.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">How it works</p>
+  <h2>The AI doesn't read your numbers. It writes code and runs it.</h2>
+  <ol class="steps">
+    <li><b>You ask</b> in plain words: "Which channel grew the most?"</li>
+    <li><b>The AI writes a small program</b> (Python is the usual language) to do the counting.</li>
+    <li><b>It runs the program in a private sandbox</b> and shows you the table, the chart or a new file.</li>
+    <li><b>You check.</b> You can ask to see the code and the steps.</li>
+  </ol>
+  <div class="grid two">
+    <div class="card"><span class="no">Why that matters</span><p class="small">Counting 2,300 rows in a program is reliable. Guessing them "in its head" is not. Insist that numbers <b>come from code</b>, never from memory.</p></div>
+    <div class="card"><span class="no">Say this often</span><p class="small"><i>"Use code to calculate this. Show me the code or list your steps. Tell me how many rows you used."</i></p></div>
+  </div>
+  <p class="src">Claude: "You can also upload CSV, TSV, and other files for data analysis and visualization." <span class="tag green">official</span> &middot; ChatGPT runs Python in a notebook-style sandbox; OpenAI advises reviewing the code and its assumptions <span class="tag">secondary</span> &middot; <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude">Claude Help: Create and edit files</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Two apps, one idea</p>
+  <h2>Claude app and ChatGPT, side by side</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th></th><th>Claude app (web or Desktop)</th><th>ChatGPT</th></tr>
+    <tr><td><b>Switch it on</b></td><td>Settings &rarr; Capabilities &rarr; <b>Create and edit files</b> (older name: Code execution and file creation). On by default for most plans; Team and Enterprise owners can turn it off. <span class="tag green">official</span></td><td>Data analysis is built in; no switch needed. <span class="tag">secondary</span></td></tr>
+    <tr><td><b>Plans</b></td><td>All plans, Free to Enterprise, on web, Desktop and mobile. <span class="tag green">official</span></td><td>Paid plans; limited on free. <span class="tag red">check yours</span></td></tr>
+    <tr><td><b>What you get back</b></td><td>Tables, charts (as images), and files: Excel with <b>working formulas</b>, Word, PowerPoint, PDF. Plus interactive pages called <b>artifacts</b>. <span class="tag green">official</span></td><td>Tables, interactive bar, line, pie and scatter charts (other types come out as pictures), downloadable files. <span class="tag">secondary</span></td></tr>
+    <tr><td><b>Its sandbox and the internet</b></td><td>Free, Pro, Max and Ultra: network on, to install packages from approved sources. Don't expect it to download any web address. <span class="tag green">official</span></td><td>"The Python environment cannot make external web requests." <span class="tag">secondary</span></td></tr>
+    <tr><td><b>Usage</b></td><td>"Creating files will use more of your limit." <span class="tag green">official</span></td><td>Counts toward your plan's limits. <span class="tag">secondary</span></td></tr>
+  </table></div>
+  <p class="small soft">Not covered here: Codex and Claude Code (the coding tools). Everything in this chapter is point-and-type.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Connecting to data</p>
+  <h2>Three routes in</h2>
+  <div class="grid three">
+    <div class="card"><span class="no">Route 1</span><h3>Upload a file</h3><p class="small">CSV or Excel. A <b>snapshot</b>: true on the day you exported it.</p><p class="small soft">Easiest. Works everywhere.</p></div>
+    <div class="card"><span class="no">Route 2</span><h3>Connect an app</h3><p class="small">Google Drive, HubSpot, Shopify and more. The AI asks the app for data, using <b>your</b> permissions.</p><p class="small soft">Fresher. Needs setup and approval.</p></div>
+    <div class="card"><span class="no">Route 3</span><h3>Link a live source</h3><p class="small">A spreadsheet that pulls from a web address and refreshes by itself, or public data you download.</p><p class="small soft">The honest "live" for non-coders.</p></div>
+  </div>
+  <div class="callout good"><p><b>Pick by how fresh it must be.</b> A report for last quarter? Upload. "Where are we today?" Connector or live sheet.</p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Route 1 &middot; Upload</p>
+  <h2>File upload: easy, and a snapshot</h2>
+  <div class="grid two">
+    <div class="card"><span class="no">Claude app <span class="tag green">official</span></span><ul class="small"><li>Types: CSV, JSON, TXT, PDF, DOCX and <b>XLSX</b>. To upload XLSX you must have <b>Create and edit files</b> switched on.</li><li>Chat: up to <b>500 MB per file</b> and 20 files per chat. Project files: 30 MB each.</li><li>One Claude help page says 30 MB per file. The two pages disagree, so <b>keep files small</b> and test.</li><li>Text only is read from most files: pictures inside a spreadsheet are lost.</li></ul></div>
+    <div class="card"><span class="no">ChatGPT <span class="tag">secondary</span></span><ul class="small"><li>Takes .csv, .xls and .xlsx.</li><li>A hard limit of about 512 MB a file is reported, and upload-count caps that differ by plan (free is very low). The numbers vary between versions of the help page.</li><li>"A file may upload successfully but still be too large ... for complete analysis." Split it if answers look partial.</li><li>A <b>photo or PDF of a table</b> is unreliable. Upload the real spreadsheet.</li></ul></div>
+  </div>
+  <div class="callout"><p><b>Tidy-sheet tips for both:</b> one header row &middot; one row per record &middot; no merged cells &middot; no "Total" row inside the data &middot; one date style. (Our demo file breaks these on purpose, so you can watch the AI fix them.)</p></div>
+  <p class="src"><a href="https://support.claude.com/en/articles/8241126-upload-files-to-claude">Claude Help: Upload files</a> &middot; ChatGPT: OpenAI Help "File uploads FAQ" and "Data analysis in ChatGPT" (pages blocked when we tried; read as search summaries)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Route 2 &middot; Connectors and apps</p>
+  <h2>Connect an app: the AI asks for the data itself</h2>
+  <div class="grid two">
+    <div class="card"><span class="no">Claude app <span class="tag green">official</span></span><ul class="small"><li>Find them at <b>Customize &rarr; Connectors</b>. In a chat: <b>+</b> &rarr; Connectors, then switch on the ones this chat may use.</li><li>"Claude inherits each person's permissions from the connected service."</li><li>Work plans: an Owner enables a connector, then each person signs in. Owners can set a tool to Always allow, Needs approval or Blocked.</li><li>Seen in the directory: Google Drive, HubSpot, Shopify, QuickBooks (beta), Notion, Slack, Box, Supabase. Stripe, Google Analytics and BigQuery were not visible on the part of the page we could read <span class="tag red">unverified</span>.</li></ul></div>
+    <div class="card"><span class="no">ChatGPT <span class="tag">secondary</span></span><ul class="small"><li>Connectors are now called <b>apps</b> (Settings &rarr; Plugins).</li><li><b>Synced</b> apps like Google Drive index your files ahead of time, so can be a little stale. <b>Live</b> apps ask the source each time.</li><li>Reported apps: HubSpot, Stripe, Xero, Shopify. A native Google Analytics app was not confirmed.</li></ul></div>
+  </div>
+  <div class="callout warn"><p><b>Google Sheets through the Drive connector is a photocopy, not a live link.</b> Claude's page says it pulls Sheets data "exported as CSV": values only, <b>no formulas</b>, one file at a time, read-only. <span class="tag">secondary (page quoted in a search summary)</span> Whether data from a connector is live or synced per question is <span class="tag red">not stated on Anthropic's page</span>.</p></div>
+  <p class="src"><a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities">Claude Help: Use connectors</a> &middot; <a href="https://claude.com/connectors">Claude connectors directory</a> &middot; Connect only what you need (Chapter 16).</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Route 3 &middot; Live source</p>
+  <h2>Link a source that updates itself</h2>
+  <div class="grid two">
+    <div class="card"><span class="no">A sheet that pulls from a web address</span><p class="small">In Google Sheets, one formula fills the sheet from a CSV address and refreshes on its own:</p><p class="small"><code>=IMPORTDATA("web-address-of-a-csv")</code></p><ul class="small"><li>Refreshes <b>roughly every hour</b> (Google's own page says "up to 1 hour intervals"; others say 15 minutes to 2 hours). <span class="tag">secondary</span></li><li>The address must return <b>CSV</b>, not a web page.</li><li>Then ask the AI about the <b>sheet</b> (page 18).</li></ul></div>
+    <div class="card"><span class="no">Real public data</span><p class="small">Free, no sign-up, tested on 5 Nov 2026:</p><ul class="small"><li><b>Earthquakes</b> from the US Geological Survey, updated every few minutes.</li><li><b>Formula 1 results</b> from the community OpenF1 service.</li><li>Also worked: weather (Open-Meteo), World Bank, bitcoin price (CoinGecko).</li></ul><p class="small soft">Our script downloads them to files (page 20), so the demo never depends on an app reaching the internet.</p></div>
+  </div>
+  <div class="callout"><p>This chapter's shop data has a <b>live version too</b>: the same fake shop keeps adding a new day of rows. Page 9 shows the address.</p></div>
+  <p class="src"><a href="https://support.google.com/area120-tables/answer/9904107">Google: IMPORTDATA refresh note</a> &middot; <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">USGS earthquake feeds</a> &middot; <a href="https://openf1.org">OpenF1</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Your practice data</p>
+  <h2>Meet Kite &amp; Co: download these</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>File</th><th>What it is</th><th>Rows</th><th>Get it</th></tr>
+    <tr><td><b>orders.csv</b></td><td>Shop system. One row per order line. Messy.</td><td>2,303</td><td><a href="../demo-data/orders.csv" download>download</a></td></tr>
+    <tr><td><b>signups.csv</b></td><td>Website analytics, per day per channel. Clean.</td><td>450</td><td><a href="../demo-data/signups.csv" download>download</a></td></tr>
+    <tr><td><b>ad_spend.csv</b></td><td>Marketing team, per day for Google and Instagram. Clean.</td><td>180</td><td><a href="../demo-data/ad_spend.csv" download>download</a></td></tr>
+    <tr><td><b>kiteco.xlsx</b></td><td>The same three tables as sheets in one Excel file.</td><td>3 sheets</td><td><a href="../demo-data/kiteco.xlsx" download>download</a></td></tr>
+    <tr><td><b>data-dictionary.txt</b></td><td>What every column means. Attach it too.</td><td>&ndash;</td><td><a href="../demo-data/data-dictionary.txt" download>download</a></td></tr>
+  </table></div>
+  <div class="grid two">
+    <div class="card"><span class="no">The mess, on purpose</span><p class="small">Three date styles &middot; "India", "IN", "india " &middot; "Instagram", "insta", "IG" &middot; repeated orders &middot; test orders &middot; negative quantities &middot; a price with extra zeros &middot; blank categories.</p></div>
+    <div class="card"><span class="no">The live version</span><p class="small">Always today's date at the end, 90 days back. Paste into Google Sheets:</p><div class="copybox"><button class="btn copybtn" data-target="p-live">Copy</button><pre class="prompt" id="p-live" style="max-height:none;font-size:.75rem">=IMPORTDATA("https://genai-notebook.vercel.app/api/shop?table=signups")</pre></div><p class="small soft">Use <code>table=ad_spend</code> or <code>table=orders</code> for the others. Made-up data. <span class="tag red">untested in Sheets until deployed</span></p></div>
+  </div>
+  <details class="small"><summary><b>Teacher's answer key (open after the class has tried)</b></summary>
+    <p>Instagram ads were <b>paused on 6 Oct 2026</b> and restart on <b>12 Nov</b>. Weekly signups in the last 4 weeks are about <b>20% lower</b> than the 4 before, and <b>all</b> of that is Instagram (about &minus;100%). Google, newsletter, referral and direct are flat (&minus;1% to &minus;4%). Orders dip a week or so later, because new signups feed orders with a delay. SAVE20 (10 to 24 Sep) lifts the number of orders but lowers the value of each. Once Instagram returns, a live version shows <b>recovery</b>.</p></details>
+  <p class="src">Made by <code>demo-data/make-demo-data.js</code> (fixed snapshot) and <code>site/api/shop.js</code> (live). Both use one shared generator, so they agree. All names and emails are invented.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">The goal of analysis</p>
+  <h2>Observation is not insight</h2>
+  <div class="compare">
+    <div class="bad"><span class="label">Observation (what)</span><p>"Signups fell 20%."</p><p class="small">True and useful, but it ends there. Your manager's next words: "Why? So what?"</p></div>
+    <div class="good"><span class="label">Insight (what + why + what to do)</span><p>"Signups fell 20% because we paused Instagram ads on 6 Oct. Every other channel is flat. Restarting Instagram should win back about 10 signups a day."</p></div>
+  </div>
+  <h3>The question ladder</h3>
+  <ol class="steps">
+    <li><b>What happened?</b> &rarr; <b>Where?</b> (split it by channel, country, product)</li>
+    <li><b>Why?</b> (what else changed at that time?) &rarr; <b>So what?</b> (how big is it?)</li>
+    <li><b>Now what?</b> (actions) &rarr; <b>How sure are we?</b> (other explanations)</li>
+  </ol>
+  <p class="small soft">An insight is a claim you could be wrong about. That's why step 6 is "check".</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Activity &middot; 6 steps</p>
+  <h2>Do it in this order</h2>
+  <ol class="steps">
+    <li><b>Connect:</b> upload the three files (and the dictionary) to Claude <i>or</i> ChatGPT.</li>
+    <li><b>Clean:</b> have the AI list the problems, fix them, and report every change.</li>
+    <li><b>Combine:</b> join orders, signups and ad spend into one weekly table.</li>
+    <li><b>Query:</b> climb the question ladder to an insight.</li>
+    <li><b>Dashboard:</b> one page for your manager, then a version that stays live.</li>
+    <li><b>Check:</b> verify three numbers by hand and list the assumptions.</li>
+  </ol>
+  <div class="sticky tape" style="max-width:520px">Use <b>one app</b> first, then repeat one step in the other. Compare: what did each do differently?</div>
+  <p class="small soft">Start a <b>new chat</b> for each app. Attach all four files (three data files and the dictionary) in one message.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 1 &middot; Connect</p>
+  <h2>Upload, then "look, don't touch"</h2>
+  <ol class="steps">
+    <li>Claude: open a new chat. Check Settings &rarr; Capabilities &rarr; <b>Create and edit files</b> is on. ChatGPT: open a new chat.</li>
+    <li>Drag in <b>orders.csv, signups.csv, ad_spend.csv</b> and <b>data-dictionary.txt</b>.</li>
+    <li>Paste this and send.</li>
+  </ol>
+  <div class="copybox"><button class="btn copybtn" data-target="p-look">Copy</button>
+<pre class="prompt" id="p-look">I have attached three files from an online shop called Kite and Co (orders.csv, signups.csv, ad_spend.csv) and a data dictionary.
+Do not change or fix anything yet. Use code to count, don't estimate.
+For each file tell me:
+1. How many rows and columns, and the date range.
+2. What each column means, in one line.
+3. Anything that looks wrong, inconsistent or suspicious, with a count and 2 example rows.
+Then list 5 business questions this data could answer.</pre></div>
+  <ul class="checks">
+    <li>Did it find the mixed date styles and the many spellings?</li>
+    <li>Do the row counts match the table on page 9 (2,303 / 450 / 180)?</li>
+    <li>Did it say whether it read <b>all</b> the rows?</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 2 &middot; Clean</p>
+  <h2>Fix it, and show every change</h2>
+  <div class="copybox"><button class="btn copybtn" data-target="p-clean">Copy</button>
+<pre class="prompt" id="p-clean">Clean orders.csv with exactly these rules, and nothing else:
+- One date format, YYYY-MM-DD. Dates written like 06/10/2026 are day first.
+- country: one spelling per country (India, UAE, Singapore, United States).
+- channel: one of google, instagram, newsletter, referral, direct.
+- status: Title Case (Delivered, Shipped, Cancelled, Refunded).
+- Remove rows that are exact copies of another row.
+- Remove test orders (customer_id TEST).
+- Do NOT delete rows with a negative quantity or a unit price above 5,000. Put them in a separate list called "needs a human".
+- Blank category: fill from the product name only when it is obvious.
+Then give me:
+1. A table of every change: rule, rows changed.
+2. Row count before and after, and how the difference adds up.
+3. The cleaned file as a CSV I can download.
+Keep my original data untouched.</pre></div>
+  <ul class="checks">
+    <li>Do the numbers add up? (rows before &minus; removed = rows after)</li>
+    <li>Open the "needs a human" list. Do you agree with each one?</li>
+    <li>Did it change anything you <b>didn't</b> ask for? Ask: <i>"List any assumption you made."</i></li>
+  </ul>
+  <p class="small soft">Typical result: about 38 repeated orders, 3 test orders, 7 negative quantities and 3 very high prices (illustrative: check your own counts).</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 3 &middot; Combine</p>
+  <h2>Join three tables into one weekly table</h2>
+  <div class="copybox"><button class="btn copybtn" data-target="p-join">Copy</button>
+<pre class="prompt" id="p-join">Using the cleaned orders plus signups.csv and ad_spend.csv, build ONE weekly table (weeks start on Monday) with these columns:
+week_start, channel, visits, signups, ad_spend_inr, orders, revenue_inr.
+Rules: revenue is quantity times unit price, minus the discount (SAVE20 = 20 percent off, WELCOME10 = 10 percent off). Leave out cancelled and refunded orders. Where a channel has no ad spend, use 0.
+Then tell me:
+1. Which columns you joined on, and why that is safe.
+2. Row counts of each input and of the result.
+3. Check: do total signups, total ad spend and total orders in the weekly table match the source files? Show both numbers.
+Give me the table as a CSV I can download.</pre></div>
+  <div class="grid two">
+    <div class="card"><span class="no">Why the checks matter</span><p class="small">A wrong join can <b>double-count</b> rows without any error. Totals that match the sources are your safety net.</p></div>
+    <div class="card"><span class="no">If the totals differ</span><p class="small">Ask: <i>"Why are the totals different? Show the rows that explain it."</i> Don't continue until they match.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 4 &middot; Query</p>
+  <h2>Climb the question ladder</h2>
+  <p>Ask these <b>one at a time</b>, reading each answer before the next. Keep it in the same chat.</p>
+  <div class="copybox"><button class="btn copybtn" data-target="p-ladder">Copy</button>
+<pre class="prompt" id="p-ladder">1. WHAT: How did total weekly signups change over the whole period? Compare the last 4 weeks with the 4 weeks before. Give the percentage.
+2. WHERE: Split that change by channel. Which channels moved, and by how much?
+3. WHY: What else changed around the time it started? Compare with ad spend and orders by channel and by week. Show the numbers that support your answer.
+4. SO WHAT: How many signups and how much revenue did we lose in the last 4 weeks because of this? Say how you estimated it.
+5. NOW WHAT: Give 3 actions, each with the first thing to check and what could go wrong.
+6. HOW SURE: What other explanations could there be? What data would prove or disprove each one?
+Finally, write the insight in 3 sentences my manager could read in 20 seconds.</pre></div>
+  <div class="callout good"><p><b>A good answer has:</b> a number, a reason backed by data, an action, and a doubt. If one is missing, ask for it.</p></div>
+  <p class="small soft">Observations are easy to get. The "why" and "now what" need <i>you</i> to question them. Ask the AI: "What would make you wrong?"</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 5 &middot; Dashboards</p>
+  <h2>"Dashboard" can mean three things</h2>
+  <div class="grid three">
+    <div class="card"><span class="no">A &middot; Picture of one moment</span><p class="small">Charts and numbers built from the file you uploaded. Fresh as of the upload.</p><p class="small soft">Claude: an <b>artifact</b>. ChatGPT: interactive charts in the chat.</p></div>
+    <div class="card"><span class="no">B &middot; A page that re-asks an app</span><p class="small">Each chart runs a question against a connected data source, and shows when it last refreshed.</p><p class="small soft">Claude: <b>Dashboards</b> (beta).</p></div>
+    <div class="card"><span class="no">C &middot; A sheet with formulas</span><p class="small">A spreadsheet that recalculates when the data underneath changes.</p><p class="small soft">Excel or Google Sheets, built by the AI.</p></div>
+  </div>
+  <div class="grid two">
+    <div class="card"><span class="no">Claude Dashboards (beta) <span class="tag green">official</span></span><ul class="small"><li>On Pro, Max, Ultra, Team and Enterprise. Enterprise: an owner must turn it on.</li><li>Ask in a chat ("Build a dashboard of ...") or choose <b>Output &rarr; Dashboards</b>.</li><li>Sources: a data warehouse (BigQuery, Snowflake, Databricks, Redshift, ClickHouse) or apps you connected (example: Salesforce). <b>Google Sheets is not listed.</b></li><li>Each chart shows its query and when it was last refreshed. No schedule is documented.</li></ul></div>
+    <div class="card"><span class="no">ChatGPT <span class="tag">secondary</span></span><ul class="small"><li>Interactive charts: hover, change colours, download.</li><li>No confirmed built-in live dashboard. One August 2026 review says it suits one-off analysis, not a live shared dashboard.</li><li>For "live", use a sheet (C).</li></ul></div>
+  </div>
+  <p class="src"><a href="https://support.claude.com/en/articles/17454700-get-started-with-claude-dashboards">Claude Help: Get started with Claude Dashboards</a> &middot; <a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them">What are artifacts</a></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 5 &middot; Build it</p>
+  <h2>A one-page dashboard for your manager</h2>
+  <div class="copybox"><button class="btn copybtn" data-target="p-dash">Copy</button>
+<pre class="prompt" id="p-dash">Using the weekly table we built, make a one-page dashboard for my manager.
+Include:
+1. Four big numbers: signups in the last 4 weeks (and % change vs the 4 before), orders, revenue, ad spend.
+2. A line chart of weekly signups, one line per channel.
+3. A bar chart comparing Instagram and Google: ad spend next to signups.
+4. A box titled "What to do next" with the 3 actions we agreed.
+5. A small line saying "Data as of [last date in the data]".
+Plain colours, big labels, nothing that needs explaining. Don't invent numbers: use only the table.</pre></div>
+  <div class="grid two">
+    <div class="card"><span class="no">In the Claude app</span><p class="small">It builds an <b>artifact</b>, a page you can click, hover and open full-screen. Ask for changes in the chat ("make the Instagram line red"). To share: share the artifact (a link works on every plan) <span class="tag green">official</span>. <b>This is a snapshot.</b> It does not refresh itself.</p></div>
+    <div class="card"><span class="no">In ChatGPT</span><p class="small">It makes charts and a summary in the chat. Add: <i>"Make the charts interactive, and give me the 4 numbers as a small table."</i> Download the charts or ask for an Excel file to paste into slides.</p></div>
+  </div>
+  <ul class="checks">
+    <li>Do the four numbers match your table from step 3?</li>
+    <li>Is there a "data as of" date?</li>
+    <li>Would your manager understand it in 20 seconds?</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 5 &middot; Make it stay live</p>
+  <h2>A Google Sheet that refreshes by itself</h2>
+  <ol class="steps">
+    <li>New Google Sheet. In tab 1 cell A1 paste the <b>signups</b> formula. Make tab 2 and paste the <b>ad spend</b> one in A1. (They are the clean tables, so they need no cleaning.)</li>
+    <li>Install the AI add-on for your sheet (see the box), open it from the Extensions menu, and paste the prompt below.</li>
+    <li>Come back tomorrow. The data tabs now include a new day. The summary updates because it uses <b>formulas</b>.</li>
+  </ol>
+  <div class="grid two">
+    <div><span class="no">Tab 1, cell A1</span><div class="copybox"><button class="btn copybtn" data-target="p-imp1">Copy</button>
+<pre class="prompt" id="p-imp1" style="max-height:none;font-size:.72rem">=IMPORTDATA("https://genai-notebook.vercel.app/api/shop?table=signups")</pre></div></div>
+    <div><span class="no">Tab 2, cell A1</span><div class="copybox"><button class="btn copybtn" data-target="p-imp2">Copy</button>
+<pre class="prompt" id="p-imp2" style="max-height:none;font-size:.72rem">=IMPORTDATA("https://genai-notebook.vercel.app/api/shop?table=ad_spend")</pre></div></div>
+  </div>
+  <div class="copybox"><button class="btn copybtn" data-target="p-sheetai">Copy</button>
+<pre class="prompt" id="p-sheetai">In this workbook, tab 1 holds website signups and tab 2 holds ad spend; both refresh from the web.
+Add a "Summary" tab, using formulas only (no typed numbers):
+- Weekly signups by channel (weeks start Monday), for the last 12 weeks.
+- Weekly ad spend for Google and Instagram.
+- A cell showing the % change in total signups, last 4 weeks vs the 4 before.
+- A line chart of weekly signups by channel.
+Explain each formula in one line. Don't change tabs 1 and 2.</pre></div>
+  <div class="grid two">
+    <div class="card"><span class="no">Claude in Google Sheets <span class="tag green">official, beta</span></span><p class="small">Pro, Max, Ultra, Team, Enterprise. Install from the Google Workspace Marketplace, then Extensions &rarr; Claude &rarr; Open Claude. Keep the sidebar open while it works. One long step can run up to six minutes.</p></div>
+    <div class="card"><span class="no">ChatGPT for Google Sheets <span class="tag">secondary</span></span><p class="small">Reported as out of beta since May 2026, on every plan (free is limited). Install from the Marketplace, then Extensions. Check your plan.</p></div>
+  </div>
+  <p class="small soft">IMPORTDATA refreshes about hourly, not instantly. The AI add-ons read the sheet you have open, so formulas and live values stay. (The Drive connector, by contrast, gives Claude a CSV copy: formulas are lost.)</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Step 6 &middot; Check</p>
+  <h2>Don't trust. Verify three numbers.</h2>
+  <div class="copybox"><button class="btn copybtn" data-target="p-verify">Copy</button>
+<pre class="prompt" id="p-verify">Help me check your work.
+1. Pick the 3 most important numbers in your conclusion. For each, tell me exactly how I can reproduce it by hand in the original file: which file, which filter, which column, which sum.
+2. List every assumption you made (date style, discounts, what you removed, how you joined).
+3. Tell me the single biggest way your conclusion could be wrong.
+4. How many rows did you actually use from each file?</pre></div>
+  <h3>Then do it yourself (10 minutes)</h3>
+  <ol class="steps">
+    <li>Open the original <b>signups.csv</b> in Excel or Sheets.</li>
+    <li>Filter for Instagram, add up the last 4 weeks. Does it match?</li>
+    <li>Do the same for ad spend. Does the pause date match?</li>
+  </ol>
+  <div class="callout warn"><p>If it doesn't match, that is not a failure. It is the lesson. Ask the AI: <i>"My number is different. Show me exactly how you got yours."</i></p></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Real data, real "live" demo</p>
+  <h2>Earthquakes and Formula 1, from free public sources</h2>
+  <p>A teacher script downloads two real data sets to your computer (it takes a couple of minutes because the F1 service limits how fast you can ask).</p>
+  <div class="copybox"><button class="btn copybtn" data-target="p-script">Copy</button>
+<pre class="prompt" id="p-script" style="max-height:none;font-size:.78rem">node demo-data/fetch-real-data.js
+# writes demo-data/out/earthquakes_30d.csv   (US Geological Survey, last 30 days, magnitude 2.5+)
+# writes demo-data/out/f1_2025_race_results.csv   (OpenF1: 24 races, results joined with driver and team names)</pre></div>
+  <div class="grid two">
+    <div class="card"><span class="no">Earthquakes</span><div class="copybox"><button class="btn copybtn" data-target="p-eq">Copy</button><pre class="prompt" id="p-eq" style="max-height:none;font-size:.75rem">I attached earthquakes_30d.csv from the US Geological Survey.
+Use code. How many quakes of magnitude 5 or more in this period? Which regions had the most? Is there a day with an unusual number? Show a chart of quakes per day. What can't this data tell us?</pre></div></div>
+    <div class="card"><span class="no">Formula 1 (the "sports" demo)</span><div class="copybox"><button class="btn copybtn" data-target="p-f1">Copy</button><pre class="prompt" id="p-f1" style="max-height:none;font-size:.75rem">I attached f1_2025_race_results.csv (race results, points only from the Sunday races).
+Use code. Total points by team, and a chart of cumulative points by round for the top 4 teams. Which race changed the championship picture most? Which drivers had the most retirements (dnf)? Note what the file does not include.</pre></div></div>
+  </div>
+  <div class="callout warn"><p><b>Try the live address too, but don't count on it:</b> paste a data address like <code>https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson</code> and ask the app to read it. Whether it can depends on your app, plan and settings. Ask it to <b>say which address it read and the time on the data</b>. If it can't, use the downloaded file. <span class="tag red">untested here</span></p></div>
+  <p class="small soft">Sources: USGS earthquake feeds (US government data). OpenF1 is a community service; we do not republish its data on this site. Real-time F1 feeds may need a paid plan; past seasons were free when we tried.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Risks and limits</p>
+  <h2>Where AI data analysis goes wrong</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Risk</th><th>What happens</th><th>What you do</th></tr>
+    <tr><td><b>Big data</b></td><td>A huge file may upload but only part is used, or the run times out. The sandbox limits time and size. <span class="tag green">Claude: time limit unpublished</span></td><td>Ask "how many rows did you read?" Split or pre-summarize the file.</td></tr>
+    <tr><td><b>Made-up numbers</b></td><td>Numbers typed from "memory" or a plausible-sounding reason with no evidence. Practitioners and news reports describe wrong counts and inconsistent answers. <span class="tag">secondary</span></td><td>Demand code-calculated answers, show the steps, and check 3 numbers by hand.</td></tr>
+    <tr><td><b>Silent cleaning</b></td><td>It drops or "fixes" rows without telling you.</td><td>"List every change and how many rows each touched."</td></tr>
+    <tr><td><b>Wrong join</b></td><td>Rows double-counted. No error appears.</td><td>Compare totals to the sources before and after.</td></tr>
+    <tr><td><b>Cause from a pattern</b></td><td>"X caused Y" when X just happened first.</td><td>Ask for other explanations and what would disprove it.</td></tr>
+    <tr><td><b>Private data</b></td><td>Emails, salaries or health data go into an AI.</td><td>Remove or mask personal columns. Check your plan's data settings. A connector can see whatever you can.</td></tr>
+    <tr><td><b>Stale data</b></td><td>A snapshot is old by the time you present it.</td><td>Print "data as of" on every page.</td></tr>
+  </table></div>
+  <p class="small soft">Anthropic's own Excel page says: "Verify that outputs match your organization's standards and your own judgment" and "Always review changes before finalizing your work." <span class="tag green">official</span></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">Optional</p>
+  <h2>AI inside Excel and Sheets: ask for formulas, not numbers</h2>
+  <div class="compare">
+    <div class="bad"><span class="label">Pasted numbers</span><p>The AI types "1,165" into a cell. Next week the data changes and the cell is wrong. You can't see how it got there.</p></div>
+    <div class="good"><span class="label">A formula</span><p>The AI writes <code>=SUMIFS(...)</code>. It updates by itself and you can read its logic, one line at a time.</p></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Add-on</th><th>Where</th><th>Plans and limits</th></tr>
+    <tr><td><b>Claude for Excel</b></td><td>Microsoft Excel (web, Windows, Mac)</td><td>Pro, Max, Team, Enterprise; not Free. Not for data tables or macros. "Only use Claude for Excel with trusted spreadsheets." <span class="tag green">official</span></td></tr>
+    <tr><td><b>Claude for Google Docs, Sheets and Slides</b></td><td>Google Workspace sidebar</td><td>Beta; Pro and up. Can't read Connected Sheets (live BigQuery). Charts in Slides are pictures and don't update. <span class="tag green">official</span></td></tr>
+    <tr><td><b>ChatGPT for Excel and Google Sheets</b></td><td>Excel add-ins menu; Sheets Extensions menu</td><td>Reported for all plans, limited on Free and Go. No memory; macros limited. <span class="tag">secondary</span></td></tr>
+  </table></div>
+  <div class="copybox"><button class="btn copybtn" data-target="p-formula">Copy</button>
+<pre class="prompt" id="p-formula">Add a column "Net revenue" next to my data. Use a formula, not typed numbers: quantity times unit price, minus 20 percent if the discount code is SAVE20 and 10 percent if it is WELCOME10.
+Explain the formula in one line. Fill it down for every row. Don't change my original columns.</pre></div>
+  <p class="small soft">Microsoft Copilot (Excel) and Gemini (Sheets) also have built-in AI. We did not test them here.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">When it breaks</p>
+  <h2>Symptom, cause, fix</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>What you see</th><th>Likely cause</th><th>Fix</th></tr>
+    <tr><td>Claude refuses my .xlsx</td><td>Create and edit files is off</td><td>Settings &rarr; Capabilities &rarr; turn it on. Or upload CSV.</td></tr>
+    <tr><td>Answers look partial; "I used a sample"</td><td>File too large or too complex</td><td>Ask for row counts. Split the file.</td></tr>
+    <tr><td>Totals don't match the source</td><td>Wrong join, or rows removed</td><td>Ask for before/after counts and the rows that explain the gap.</td></tr>
+    <tr><td>Dates all wrong (June became October)</td><td>Day-first vs month-first</td><td>Tell it the date style. Attach the data dictionary.</td></tr>
+    <tr><td>It can't open a web address</td><td>The app's sandbox has no free internet</td><td>Download the file and upload it (page 20).</td></tr>
+    <tr><td>IMPORTDATA shows an error</td><td>The address returns a web page, not CSV</td><td>Check the address in a browser: you should see plain rows of text.</td></tr>
+    <tr><td>Dashboard doesn't refresh</td><td>It is a snapshot (type A)</td><td>Ask again with new data, or use a sheet (type C).</td></tr>
+    <tr><td>Connector says "no access"</td><td>You can't see that data yourself, or an admin hasn't enabled it</td><td>Connectors use your own permissions. Ask the owner.</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Recap</p>
+  <h2>Remember these</h2>
+  <div class="grid two">
+    <div class="sticky tape"><b>The AI writes and runs code.</b> Make it show the code and the row counts.</div>
+    <div class="sticky green tape"><b>Three routes in:</b> upload (a snapshot), connect (your permissions), link live (a sheet or public data).</div>
+    <div class="sticky pink tape"><b>Observation &rarr; insight:</b> add the why and the what to do, then say how sure you are.</div>
+    <div class="sticky blue tape"><b>Check three numbers by hand.</b> Totals must match the source. Ask for formulas, not pasted numbers.</div>
+  </div>
+  <h3>Next ideas, same method</h3>
+  <p class="small">Your own sales or study timetable data &middot; a monthly report you now refresh in 10 minutes &middot; combine this with Chapter 18: have the tracker's weekly digest feed a sheet &middot; save the cleaning rules as a skill (Chapter 13).</p>
+  <p class="soft hand" style="font-size:1.5rem"><a href="../index.html">Back to all chapters</a></p>
+</section>
+
+</main>
+<div class="nav"><button id="prev">&larr; Back</button><span id="counter" class="counter"></span><button id="next">Next &rarr;</button></div>
+<div class="progress" id="bar"></div>
+<div class="hint">tip: use the &larr; &rarr; keys</div>
+<script src="../assets/deck.js"></script>
+<script src="../assets/copy.js"></script>
+</body>
+</html>
